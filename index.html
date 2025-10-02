@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NCNI — Naukowe Centrum Neuroinnowacji</title>
+  <meta name="description" content="NCNI: VR/AR, AI, biofeedback EEG/HRV, zero‑gravity, muzykoterapia, aromaterapia, dietetyka kliniczna i terapie cyfrowe. Mierzalna regulacja stresu, sen, fokus i anti‑aging układu nerwowego. Wrocław." />
+  <link rel="canonical" href="https://solutionalkarol.github.io/ncni/" />
+
+  <!-- Open Graph / Twitter -->
+  <meta name="theme-color" content="#0b1120" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pl_PL" />
+  <meta property="og:title" content="NCNI — Naukowe Centrum Neuroinnowacji" />
+  <meta property="og:description" content="VR/AI, Zero‑Gravity, biofeedback EEG/HRV, neuroaromaterapia. Mierzalna regulacja stresu, sen, fokus i anti‑aging układu nerwowego." />
+  <meta property="og:image" content="https://solutionalkarol.github.io/ncni/og-image.jpg" />
+  <meta property="og:url" content="https://solutionalkarol.github.io/ncni/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <style>
+    :root{
+      --bg1:#0b1120; --bg2:#111827; --muted:#94a3b8; --accent:#88b6ff; --accent-2:#6a5cff; --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.18); --focus:#a8c1ff;
+      --card:#0f172a; --border:#1f2937; --text:#eaf1ff; --link:#93c5fd;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{ margin:0; color:var(--text); background:var(--bg2); font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,"Noto Sans",sans-serif; line-height:1.6; }
+    a{color:var(--link); text-decoration:none}
+    a:hover{opacity:.95}
+    a:focus-visible,.btn:focus-visible{outline:3px solid var(--focus); outline-offset:2px}
+    .wrap{width:min(1120px,92%); margin-inline:auto}
+    .skip-link{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden}
+    .skip-link:focus{left:16px; top:16px; width:auto; height:auto; padding:10px 14px; background:#fff; color:#0b1120; border-radius:10px; z-index:1000}
+
+    /* HERO */
+    .hero{display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; min-height:100vh; padding:40px 0;
+      background:radial-gradient(1200px 600px at 20% -10%, rgba(106,92,255,.18), transparent 60%),
+                 radial-gradient(1200px 600px at 80% 110%, rgba(80,200,255,.12), transparent 60%),
+                 linear-gradient(180deg, rgba(11,17,32,.85), rgba(17,24,39,.95)),
+                 url('tlo.jpg');
+      background-size:cover; background-position:center; }
+    @media (min-width:1024px){ .hero{ background-attachment:fixed; } }
+    .hero img{ width:clamp(80px,15vw,120px); height:auto; margin-bottom:20px }
+    .hero h1{ font-size:clamp(2.5rem,6vw,4.5rem); font-weight:800; margin:0 0 18px; text-shadow:0 4px 20px rgba(0,0,0,.3) }
+    .hero p{ max-width:70ch; margin:0 auto 26px; color:var(--muted) }
+
+    .nav{ display:flex; gap:clamp(10px,2.6vw,22px); flex-wrap:wrap; justify-content:center }
+    .nav a{ font-size:clamp(1rem,2.2vw,1.08rem); font-weight:700; color:#eaf1ff; padding:10px 18px; border:1px solid rgba(255,255,255,.2); border-radius:999px; backdrop-filter:blur(5px); background:rgba(255,255,255,.05); transition:all .25s ease }
+    .nav a:hover{ background:rgba(255,255,255,.15); border-color:rgba(255,255,255,.35); transform:translateY(-3px); opacity:1 }
+
+    /* UNIVERSAL */
+    section{ padding:70px 0 }
+    .kicker{font-weight:800; color:#cbd5e1; text-transform:uppercase; letter-spacing:.12em; font-size:.8rem}
+    h2{font-size:clamp(24px,3.4vw,36px); margin:0 0 12px}
+    h3{font-size:clamp(18px,2.4vw,22px); margin:20px 0 10px; color:var(--accent)}
+    .muted{color:var(--muted)}
+    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:24px; list-style:none; padding-left:0; margin:0}
+    .col-3{grid-column:span 3} .col-4{grid-column:span 4} .col-5{grid-column:span 5} .col-6{grid-column:span 6} .col-7{grid-column:span 7} .col-12{grid-column:span 12}
+    @media (max-width:980px){ .col-3,.col-4,.col-5,.col-6,.col-7{grid-column:span 12} }
+
+    .card{ background:rgba(25,33,51,.5); -webkit-backdrop-filter:blur(12px) saturate(120%); backdrop-filter:blur(12px) saturate(120%);
+      border:1px solid rgba(255,255,255,.1); border-radius:var(--radius); box-shadow:var(--shadow); padding:24px; transition:transform .3s, box-shadow .3s; height:100%; display:flex; flex-direction:column}
+    .card:hover{ transform:translateY(-5px); box-shadow:0 15px 35px rgba(0,0,0,.25) }
+    .card ul{ padding-left:20px } .card ul li{ margin-bottom:8px }
+
+    .btn{ padding:10px 14px; border-radius:999px; border:1px solid rgba(255,255,255,.15); background:rgba(255,255,255,.05); color:#eaf1ff; font-weight:800; cursor:pointer; transition:all .2s ease; text-align:center; display:inline-block }
+    .btn:hover{opacity:1; background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.25)}
+    .btn.primary{background:linear-gradient(180deg,var(--accent),#6ea6ff); color:#0b1220; border-color:transparent}
+
+    .contact{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+    @media (max-width:720px){ .contact{grid-template-columns:1fr} }
+
+    /* ND SECTION (Neuroróżnorodność) */
+    .nd{background:radial-gradient(1000px 500px at 15% -10%, rgba(106,92,255,.16), transparent 60%),
+                 radial-gradient(1000px 500px at 85% 110%, rgba(80,200,255,.10), transparent 60%),
+                 linear-gradient(180deg, var(--bg1), var(--bg2))}
+    .nd-tags{list-style:none; padding:0; margin:8px auto 0; display:flex; gap:8px; flex-wrap:wrap; justify-content:center}
+    .nd-tags li{border:1px solid var(--border); background:rgba(255,255,255,.03); padding:6px 10px; border-radius:999px; font-size:14px}
+
+    .nd-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:24px}
+    @media (max-width:980px){ .nd-grid{grid-template-columns:1fr} }
+    .nd-card{ background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00)); border:1px solid var(--border); border-radius:14px; padding:18px }
+    .nd-card h3{ color:var(--accent) }
+    .nd-accent{ border-color: rgba(106,92,255,.35); background: linear-gradient(180deg, rgba(106,92,255,.10), rgba(255,255,255,.01)) }
+    .nd-cta-row{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-top:10px }
+
+    /* COOKIE */
+    .cookie{position:fixed; bottom:0; left:0; right:0; background:rgba(11,18,32,.86); backdrop-filter:saturate(120%) blur(10px); color:var(--muted);
+      padding:16px 0; z-index:100; border-top:1px solid rgba(255,255,255,.08); transform:translateY(120%); opacity:0; transition:.4s; visibility:hidden}
+    .cookie.show{transform:translateY(0); opacity:1; visibility:visible}
+    .cookie .wrap{display:flex; justify-content:space-between; align-items:center; gap:16px}
+    @media (max-width:720px){ .cookie .wrap{flex-direction:column; align-items:flex-start; text-align:center} .cookie p{margin-bottom:12px} }
+      /* OFERTA — cennik i formularze */
+    .price-grid{display:grid; grid-template-columns:repeat(12,1fr); gap:24px; list-style:none; padding-left:0; margin:0}
+    .price-card{background:rgba(25,33,51,.55); border:1px solid rgba(255,255,255,.12); border-radius:20px; padding:24px; box-shadow:var(--shadow); height:100%; display:flex; flex-direction:column; justify-content:space-between}
+    .price-card h3{color:var(--accent); margin-top:0}
+    .price{font-size:clamp(22px,3vw,28px); font-weight:900; letter-spacing:.2px; margin:8px 0 0}
+    .badge{display:inline-block; padding:6px 10px; border-radius:999px; background:linear-gradient(180deg,var(--accent-2),#5b4dff); color:#fff; font-weight:800; font-size:.8rem}
+    .features{padding-left:18px; margin:10px 0}
+    .features li{margin-bottom:6px}
+    @media (max-width:980px){ .price-col{grid-column:span 12} }
+
+    .form{background:rgba(25,33,51,.55); border:1px solid rgba(255,255,255,.12); border-radius:20px; padding:20px; box-shadow:var(--shadow)}
+    .form-row{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+    @media (max-width:720px){ .form-row{grid-template-columns:1fr} }
+    .label{display:block; font-weight:800; margin:6px 0; color:#cbd5e1}
+    .input, .select, .textarea{width:100%; padding:12px 14px; border-radius:14px; border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.05); color:var(--text)}
+    .textarea{min-height:110px; resize:vertical}
+    .hint{color:var(--muted); font-size:.9rem}
+    .form-actions{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:12px}
+    .consents{display:flex; gap:10px; align-items:flex-start; margin-top:10px}
+    .consents input{margin-top:4px}
+      /* HERO refinements */
+    .hero .nav{margin:10px 0 12px}
+    .hero .strap{font-size:clamp(1.2rem,3vw,1.7rem); font-weight:900; letter-spacing:.2px; margin:18px 0 6px; color:#fff}
+    .hero .lead{max-width:75ch; margin:0 auto 14px; color:var(--muted)}
+    .hero-tags{list-style:none; padding:0; margin:10px 0 0; display:flex; gap:0; flex-wrap:wrap; justify-content:center; color:#cbd5e1}
+    .hero-tags li{border:0; background:transparent; padding:0 6px; border-radius:0; font-size:.95rem; color:#cbd5e1} .hero-tags li+li::before{content:'•'; opacity:.55; margin:0 6px 0 2px}
+    @media (min-width:640px){ .hero h1{white-space:nowrap} }
+/* Mobile-first fine-tuning */
+@media (max-width:540px){
+  section{padding:56px 0}
+  .hero{min-height:86vh; padding:28px 0}
+  .hero h1{font-size:2.2rem}
+  .hero .strap{font-size:1.15rem}
+  .hero .lead{font-size:.98rem}
+  .nav a{font-size:.95rem; padding:8px 12px}
+  .card{padding:18px}
+  .btn{padding:9px 12px}
+}
+@media (max-width:390px){
+  .hero h1{font-size:2rem}
+  .hero .strap{font-size:1.05rem}
+  .hero .lead{font-size:.92rem}
+}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Przejdź do treści głównej</a>
+
+  <!-- HERO / HEADER -->
+  <header class="hero" role="banner" aria-label="Sekcja powitalna NCNI">
+    <div class="wrap">
+      <img src="logo.png" alt="Logo NCNI" width="120" height="120" />
+      <h1>Naukowe Centrum Neuroinnowacji</h1>
+      <nav class="nav" aria-label="Główna nawigacja">
+        <a href="#sciezki">Ścieżki Neuro</a>
+        <a href="#oferta">Oferta</a>
+        <a href="#neurodiversity">Neuroróżnorodność</a>
+        <a href="#onas">O nas</a>
+        <a href="#zespol">Zespół</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+      <p class="strap">Pokonaj stres, ból i zmęczenie. Przywróć równowagę ciała i umysłu.</p>
+      <p class="lead">VR i AI dla zdrowia, harmonii i anti‑agingu — z myślą o neuroróżnorodności (ADHD/ASD, dysleksja, wysoka wrażliwość).</p>
+      <ul class="hero-tags" aria-label="Kluczowe moduły">
+        <li>Zero‑Gravity</li>
+        <li>Aromaterapia</li>
+        <li>Muzykoterapia</li>
+        <li>Biofeedback HRV/EEG</li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ŚCIEŻKI NEURO -->
+    <section id="sciezki" aria-labelledby="sciezki-heading">
+      <div class="wrap">
+        <div class="kicker">Nasze ścieżki</div>
+        <h2 id="sciezki-heading">Personalizowane Ścieżki Neuro — wyniki, nie obietnice</h2>
+        <p class="muted" style="max-width:70ch; margin:0 auto 32px; text-align:center">Każdy program tworzymy na podstawie kwalifikacji, pomiarów i Twoich celów. Mierzymy postęp, przeglądamy wyniki i korygujemy plan.</p>
+
+        <ul class="grid">
+          <li class="col-6"><div class="card"><h3>Regulacja Stresu</h3><p><strong>Cel:</strong> obniżenie pobudzenia, stabilizacja nastroju, większa odporność.<br><strong>W środku:</strong> VR relaksacyjny, zero‑gravity, HRV biofeedback, muzykoterapia, aromaterapia, higiena snu.<br><strong>Mierzymy:</strong> HRV (RMSSD), skale stresu/snu, NRS 0–10.<br><strong>Efekt:</strong> spokojniejszy układ nerwowy, szybszy powrót do równowagi.</p><a href="#kontakt" class="btn primary" style="margin-top:16px">Start „Regulacja Stresu” →</a></div></li>
+          <li class="col-6"><div class="card"><h3>Sen & Regeneracja</h3><p><strong>Cel:</strong> łatwiejsze zasypianie, mniej wybudzeń, więcej porannej energii.<br><strong>W środku:</strong> VR pre‑sleep, oddech, HRV‑trening, plan światło/ruch, dietetyka kliniczna i suplementacja pod sen.<br><strong>Mierzymy:</strong> dzienniczek/urządzenie snu, skale senności, HRV nocne.<br><strong>Efekt:</strong> głębszy sen i lepsza regeneracja.</p><a href="#kontakt" class="btn primary" style="margin-top:16px">Start „Sen & Regeneracja” →</a></div></li>
+          <li class="col-6"><div class="card"><h3>Fokus / ADHD</h3><p><strong>Cel:</strong> poprawa koncentracji, kontroli impulsów i organizacji.<br><strong>W środku:</strong> VR fokus, EEG/HRV biofeedback, protokoły aktywacji/regulacji, wsparcie żywieniowe.<br><strong>Mierzymy:</strong> skale uwagi, HRV, checklisty funkcji wykonawczych.<br><strong>Efekt:</strong> dłuższe pasma skupienia, mniejsza męczliwość poznawcza.</p><a href="#kontakt" class="btn primary" style="margin-top:16px">Start „Fokus/ADHD” →</a></div></li>
+          <li class="col-6"><div class="card"><h3>Anti‑Aging Neuro</h3><p><strong>Cel:</strong> spowolnienie starzenia układu nerwowego, utrzymanie sprawności poznawczej.<br><strong>W środku:</strong> VR kognitywny, HRV/oddech, aktywacja sensoryczna, ruch, dietetyka + suplementacja pro‑neuro.<br><strong>Mierzymy:</strong> kwestionariusze, HRV, cele funkcjonalne.<br><strong>Efekt:</strong> większa rezerwa poznawcza, lepsza energia mentalna.</p><a href="#kontakt" class="btn primary" style="margin-top:16px">Start „Anti‑Aging Neuro” →</a></div></li>
+          <li class="col-6"><div class="card"><h3>Ból & Napięcia</h3><p><strong>Cel:</strong> zmniejszenie napięć, lęku bólowego i poprawa komfortu ruchu.<br><strong>W środku:</strong> VR analgesic/relaks, zero‑gravity, oddech przeponowy, muzykoterapia, edukacja neuro‑bólu, wsparcie snu i żywienia przeciwzapalnego.<br><strong>Mierzymy:</strong> NRS 0–10, wpływ bólu na funkcjonowanie, HRV.<br><strong>Efekt:</strong> mniejsza percepcja bólu, większa sprawczość.</p><a href="#kontakt" class="btn primary" style="margin-top:16px">Start „Ból & Napięcia” →</a></div></li>
+          <li class="col-6"><div class="card"><h3>Neuro‑Wellbeing dla Zespołów</h3><p><strong>Cel:</strong> odporność na stres, fokus i regeneracja w zespole (praca/sport).<br><strong>W środku:</strong> krótkie protokoły VR/HRV, mikro‑nawyki, raport zbiorczy (bez danych wrażliwych).<br><strong>Mierzymy:</strong> frekwencję, satysfakcję, agregaty HRV (anonimowo).<br><strong>Efekt:</strong> mniej „presenteeismu”, lepsze skupienie i sen.</p><a href="#kontakt" class="btn primary" style="margin-top:16px">Pilotaż dla firmy →</a></div></li>
+        </ul>
+
+        <div style="margin-top:60px">
+          <h2 style="text-align:center">Jak to działa — 6 kroków</h2>
+          <ul class="grid">
+            <li class="col-6"><div class="card"><h3>Kroki 1–3</h3><ul>
+              <li><strong>Kwalifikacja i cele</strong> — wywiad, przeciwwskazania, priorytety.</li>
+              <li><strong>Pomiar stanu wyjściowego</strong> — HRV, kwestionariusze, (opc.) EEG.</li>
+              <li><strong>Plan ścieżki</strong> — dobór modułów i częstotliwości.</li>
+            </ul></div></li>
+            <li class="col-6"><div class="card"><h3>Kroki 4–6</h3><ul>
+              <li><strong>Sesje immersyjne</strong> — VR/zero‑gravity + biofeedback + sensoryka.</li>
+              <li><strong>Monitoring i korekty</strong> — przegląd danych co 2–4 tygodnie.</li>
+              <li><strong>Utrwalenie efektów</strong> — protokół domowy (aplikacje/terapie cyfrowe, plan snu, żywienie i suplementacja).</li>
+            </ul></div></li>
+          </ul>
+        </div>
+
+        <div style="margin-top:60px">
+          <h2 style="text-align:center">Pakiety i Cennik</h2>
+          <p class="muted" style="text-align:center; margin-bottom:24px">Przykładowe pakiety. Zapytaj o aktualne ceny i dostępność.</p>
+          <ul class="grid">
+            <li class="col-4"><div class="card" style="text-align:center"><h3>START (2 tyg.)</h3><p>Kwalifikacja + 3 sesje + plan domowy + 1 przegląd wyników.</p></div></li>
+            <li class="col-4"><div class="card" style="text-align:center"><h3>CORE (4 tyg.)</h3><p>6 sesji + monitoring HRV + korekta planu + wsparcie dietetyczne.</p></div></li>
+            <li class="col-4"><div class="card" style="text-align:center"><h3>PRO (8 tyg.)</h3><p>12 sesji + rozszerzony biofeedback (opc. EEG) + plan anti‑aging + raport końcowy.</p></div></li>
+          </ul>
+          <div style="text-align:center; margin-top:24px"><a href="#kontakt" class="btn primary">Zobacz terminy →</a></div>
+        </div>
+
+        <div style="margin-top:60px">
+          <h2 style="text-align:center">Mierzalność i bezpieczeństwo</h2>
+          <ul class="grid">
+            <li class="col-6"><div class="card"><h3>Metryki postępu</h3><ul>
+              <li>HRV, kwestionariusze snu/stresu, cele funkcjonalne.</li>
+              <li>Przegląd co 2–4 tygodnie i ewentualna korekta protokołu.</li>
+            </ul></div></li>
+            <li class="col-6"><div class="card"><h3>Zasada „safety first”</h3><ul>
+              <li>Kwalifikacja i przeciwwskazania; jasna ścieżka kliniczna, gdy potrzebna.</li>
+              <li><em>Zastrzeżenie:</em> nasze programy mają charakter well‑being/anti‑aging i nie zastępują porad lekarskich.</li>
+            </ul></div></li>
+          </ul>
+        </div>
+
+        <div style="margin-top:60px">
+          <h2 style="text-align:center">FAQ (skrót)</h2>
+          <ul class="grid">
+            <li class="col-6"><div class="card"><h3>Czas trwania wizyty</h3><p>50–70 min (w zależności od modułów).</p><h3>Kiedy widać efekty?</h3><p>Pierwsze zmiany często po 2–3 tyg., pełniejsze po 4–8 tyg.</p></div></li>
+            <li class="col-6"><div class="card"><h3>Plan domowy i ADHD/ASD</h3><p>Tak — plan domowy jest kluczowy. Ścieżki dostosowujemy do neuroróżnorodności.</p><h3>Czy to leczenie?</h3><p>Nie. W razie wskazań łączymy program z opieką kliniczną.</p></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFERTA -->
+    <section id="oferta" aria-labelledby="oferta-heading">
+      <div class="wrap">
+        <div class="kicker">Oferta</div>
+        <h2 id="oferta-heading">Flagowe terapie <span style="color:var(--accent)">NeuroSanctum</span></h2>
+        <p class="muted" style="max-width:75ch">NeuroSanctum to immersyjne sesje łączące VR, zero‑gravity, muzykoterapię, aromaterapię oraz biofeedback (HRV/EEG). Każdy protokół ma jasny cel, mierniki i plan domowy.</p>
+
+        <ul class="grid" style="margin-top:18px">
+          <li class="col-4"><div class="card"><h3>NeuroSanctum Reset</h3><p>Antystres: wyciszenie, regulacja pobudzenia, głęboki relaks.</p><ul class="features"><li>VR relaksacyjny + zero‑gravity</li><li>HRV‑biofeedback + oddech</li><li>Muzykoterapia + aromaterapia</li></ul></div></li>
+          <li class="col-4"><div class="card"><h3>NeuroSanctum Sleep</h3><p>Sen: łatwiejsze zasypianie, mniej wybudzeń, lepsza regeneracja.</p><ul class="features"><li>VR pre‑sleep + higiena snu</li><li>Plan światło/ruch dobowy</li><li>Wsparcie dietetyczne pod sen</li></ul></div></li>
+          <li class="col-4"><div class="card"><h3>NeuroSanctum Focus</h3><p>Fokus/ADHD: dłuższe pasma skupienia, kontrola impulsów.</p><ul class="features"><li>VR fokus + protokoły aktywacji</li><li>EEG/HRV biofeedback</li><li>Checklisty funkcji wykonawczych</li></ul></div></li>
+          <li class="col-4"><div class="card"><h3>NeuroSanctum Anti‑Aging</h3><p>Rezerwa poznawcza i energia mentalna.</p><ul class="features"><li>VR kognitywny + sensoryka</li><li>HRV/oddech + ruch</li><li>Dietetyka kliniczna + suplementacja</li></ul></div></li>
+          <li class="col-4"><div class="card"><h3>NeuroSanctum Relief</h3><p>Ból & napięcia: mniejsza percepcja bólu, większy komfort.</p><ul class="features"><li>VR analgesic + zero‑gravity</li><li>Oddech przeponowy</li><li>Edukacja neuro‑bólu</li></ul></div></li>
+          <li class="col-4"><div class="card"><h3>Neuro‑Wellbeing (B2B)</h3><p>Odporność na stres i fokus w zespołach.</p><ul class="features"><li>Krótkie protokoły VR/HRV</li><li>Mikro‑nawyki</li><li>Raport zbiorczy (bez danych wrażliwych)</li></ul></div></li>
+        </ul>
+
+        <div style="margin-top:56px">
+          <h2 style="text-align:center">Cennik — pakiety</h2>
+          <p class="muted" style="text-align:center; margin-bottom:18px">Ceny orientacyjne — dopasujemy plan do Twoich potrzeb.</p>
+          <ul class="price-grid grid">
+            <li class="col-4 price-col"><div class="price-card"><div><h3>START (2 tyg.)</h3><ul class="features"><li>Kwalifikacja + 3 sesje</li><li>Plan domowy</li><li>1 przegląd wyników</li></ul></div><div><div class="price">od 990 zł</div></div></div></li>
+            <li class="col-4 price-col"><div class="price-card"><div><h3>CORE (4 tyg.) <span class="badge">Najczęściej wybierany</span></h3><ul class="features"><li>6 sesji</li><li>Monitoring HRV</li><li>Korekta planu + wsparcie dietetyczne</li></ul></div><div><div class="price">od 1 890 zł</div></div></div></li>
+            <li class="col-4 price-col"><div class="price-card"><div><h3>PRO (8 tyg.)</h3><ul class="features"><li>12 sesji</li><li>Rozszerzony biofeedback (opc. EEG)</li><li>Plan anti‑aging + raport końcowy</li></ul></div><div><div class="price">od 3 490 zł</div></div></div></li>
+          </ul>
+
+          <ul class="price-grid grid" style="margin-top:18px">
+            <li class="col-4 price-col"><div class="price-card"><div><h3>Sesja NeuroSanctum 60–70′</h3><ul class="features"><li>VR/zero‑gravity + sensoryka</li><li>Biofeedback HRV</li></ul></div><div><div class="price">od 290 zł</div></div></div></li>
+            <li class="col-4 price-col"><div class="price-card"><div><h3>Dodatek EEG‑neurofeedback</h3><ul class="features"><li>Trening EEG (opcjonalnie)</li></ul></div><div><div class="price">+190 zł</div></div></div></li>
+            <li class="col-4 price-col"><div class="price-card"><div><h3>Konsultacja dietetyczna</h3><ul class="features"><li>Plan kliniczny pod Twój cel</li></ul></div><div><div class="price">250 zł</div></div></div></li>
+          </ul>
+        </div>
+
+        <div style="margin-top:56px">
+          <h2 style="text-align:center">Szybka rezerwacja</h2>
+          <div class="form" role="form" aria-labelledby="form-heading">
+            <h3 id="form-heading" style="margin-top:0">Formularz</h3>
+            <form id="offer-form">
+              <div class="form-row">
+                <div>
+                  <label class="label" for="name">Imię i nazwisko</label>
+                  <input id="name" class="input" type="text" name="name" placeholder="Jan Kowalski" required />
+                </div>
+                <div>
+                  <label class="label" for="phone">Telefon</label>
+                  <input id="phone" class="input" type="tel" name="phone" placeholder="+48 600 000 000" required />
+                </div>
+              </div>
+              <div class="form-row">
+                <div>
+                  <label class="label" for="email">E‑mail</label>
+                  <input id="email" class="input" type="email" name="email" placeholder="kontakt@twojmail.pl" required />
+                </div>
+                <div>
+                  <label class="label" for="package">Pakiet</label>
+                  <select id="package" class="select" name="package">
+                    <option>Sesja pojedyncza</option>
+                    <option>START (2 tyg.)</option>
+                    <option>CORE (4 tyg.)</option>
+                    <option>PRO (8 tyg.)</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div>
+                  <label class="label" for="therapy">Terapia</label>
+                  <select id="therapy" class="select" name="therapy">
+                    <option>NeuroSanctum Reset</option>
+                    <option>NeuroSanctum Sleep</option>
+                    <option>NeuroSanctum Focus</option>
+                    <option>NeuroSanctum Anti‑Aging</option>
+                    <option>NeuroSanctum Relief (Ból & Napięcia)</option>
+                    <option>Neuro‑Wellbeing (B2B)</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="label" for="date">Preferowany termin</label>
+                  <input id="date" class="input" type="datetime-local" name="date" />
+                </div>
+              </div>
+              <div>
+                <label class="label" for="message">Dodatkowe informacje</label>
+                <textarea id="message" class="textarea" name="message" placeholder="Napisz krótko o celu (np. stres/sen/fokus) i dostępności czasowej..."></textarea>
+              </div>
+              <div class="consents">
+                <input id="rodo" type="checkbox" required />
+                <label for="rodo" class="hint">Wyrażam zgodę na kontakt w sprawie oferty. Administratorem danych jest NCNI (ul. Żeromskiego 60/5a, 50‑312 Wrocław). Dane wykorzystamy wyłącznie do obsługi zapytania.</label>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn primary">Wyślij zgłoszenie →</button>
+                <a class="btn" href="mailto:kontakt@ncni.pl">lub napisz: kontakt@ncni.pl</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEURORÓŻNORODNOŚĆ -->
+    <section id="neurodiversity" class="nd" aria-labelledby="nd-heading">
+      <div class="wrap">
+        <div class="kicker">ND‑affirming</div>
+        <h2 id="nd-heading">Neuroróżnorodność — podejście i praktyka w NCNI</h2>
+        <p class="muted" style="max-width:75ch">Różne mózgi. Równe szanse. Projektujemy środowisko, procesy i komunikację tak, by były przewidywalne, sensorycznie przyjazne i elastyczne. Zyskują na tym ludzie i organizacje: retencja, dobrostan, innowacyjność i mniejsze koszty konfliktów.</p>
+        <ul class="nd-tags" aria-label="Profile poznawcze">
+          <li>ADHD/ADD</li><li>Autyzm (ASD)</li><li>Dysleksja</li><li>Dyskalkulia</li>
+          <li>Dysprazja (DCD)</li><li>Tiki/Tourette</li><li>Wysoka wrażliwość</li>
+        </ul>
+
+        <div class="nd-grid" style="margin-top:26px">
+          <div class="nd-card">
+            <h3>Czym jest neuroróżnorodność?</h3>
+            <p>Neuroróżnorodność uznaje naturalną zmienność pracy mózgu i stylów poznawczych i przesuwa akcent z „deficytu” na „różnicę”, którą można mądrze wspierać i wykorzystać. W praktyce wdrażamy jasne instrukcje, pracę w blokach koncentracji, ograniczanie przeciążenia bodźcami i alternatywne ścieżki rekrutacji. Działamy w duchu ND‑affirming (szacunek, autonomia, zgoda) i w oparciu o dane oraz ewaluację. Wsparcie nie zastępuje terapii medycznej — buduje środowisko bezpiecznej, efektywnej i sprawiedliwej pracy i nauki.</p>
+          </div>
+          <div class="nd-card">
+            <h3>Nasz trening neuroróżnorodności</h3>
+            <p>Program wdrożeniowy łączący naukę i praktykę: krótki baseline, nauka rozpoznawania barier poznawczych i sensorycznych, a następnie mikro‑adaptacje w komunikacji, procesach i przestrzeni.</p>
+            <ul>
+              <li><strong>Diagnoza potrzeb</strong> — szybki baseline i mapa barier.</li>
+              <li><strong>Mikro‑adaptacje</strong> — komunikacja, procesy, ergonomia sensoryczna.</li>
+              <li><strong>Ćwiczenia & case’y</strong> — jasne zadania, feedback, higiena spotkań, priorytetyzacja i time‑boxing.</li>
+              <li><strong>Technologie</strong> — moduły VR (uważność, empatia), protokoły HRV‑biofeedbacku.</li>
+              <li><strong>Pomiar efektów</strong> — dobrostan, sprawczość, klarowność ról, retencja (przed/po).</li>
+              <li><strong>Toolkit 30/60/90 dni</strong> — przewodniki, materiały HR/rodzice, mini‑procedury kryzysowe.</li>
+            </ul>
+          </div>
+          <div class="nd-card nd-accent">
+            <h3>Trening i terapia dla neuroróżnorodności</h3>
+            <p>Celem nie jest „naprawianie” ludzi, lecz usuwanie barier systemowych i tworzenie przewidywalnych warunków pracy i nauki. W NCNI łączymy <strong>trening środowiskowy</strong> (adaptacje, narzędzia, edukacja zespołów) z <strong>bezpieczną ścieżką terapeutyczną</strong> — współpracą ze specjalistami, gdy jest to potrzebne. Wsparcie organizacyjne <em>nie zastępuje</em> opieki medycznej, lecz ją uzupełnia.</p>
+            <div class="nd-cta-row">
+              <a href="mailto:kontakt@ncni.pl" class="btn">Umów konsultację</a>
+              <a href="#kontakt" class="btn primary">Pobierz plan 30/60/90 →</a>
+            </div>
+          </div>
+          <div class="nd-card">
+            <h3>Korzyści dla organizacji i szkół</h3>
+            <ul>
+              <li>↑ Retencja i dobrostan, ↓ koszty rotacji i konfliktów.</li>
+              <li>Wyższa innowacyjność i skuteczniejsze rozwiązywanie problemów.</li>
+              <li>Przewidywalne, sprawiedliwe środowisko pracy/nauki.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- O NAS -->
+    <section id="onas" aria-labelledby="onas-heading">
+      <div class="wrap">
+        <div class="kicker">O nas</div>
+        <h2 id="onas-heading">Kim jesteśmy</h2>
+        <div class="grid">
+          <div class="col-7"><div class="card">
+            <p><strong>Naukowe Centrum Neuroinnowacji (NCNI)</strong> to miejsce, w którym nauka, inżynieria i praktyka kliniczna spotykają się z nowoczesnym well‑being i anti‑agingiem. Łączymy VR/AR, AI, biofeedback (EEG/HRV), zero‑gravity relaxation, muzykoterapię, aromaterapię oraz dietetykę kliniczną i terapie cyfrowe, aby skutecznie wspierać mózg, ciało i regenerację układu nerwowego.</p>
+            <h3>Misja</h3>
+            <p>Przyspieszamy zdrowie i wydajność układu nerwowego — od redukcji stresu i lepszego snu, przez wsparcie neuroróżnorodności, po spowalnianie procesów starzenia (anti‑aging) i powrót do formy po obciążeniach. Robimy to mierzalnie, spójnie i bezpiecznie.</p>
+            <h3>Co robimy</h3>
+            <ul>
+              <li><strong>Sesje immersyjne VR & zero‑gravity</strong> — regulacja stresu, nastrój, fokus, sen.</li>
+              <li><strong>Biofeedback (EEG/HRV)</strong> — trening autoregulacji oparty na danych.</li>
+              <li><strong>Muzykoterapia i aromaterapia</strong> — protokoły sensoryczne dla neuroplastyczności.</li>
+              <li><strong>Dietetyka kliniczna i suplementacja</strong> — plany i wsparcie metaboliczne pod cele neuronalne i anti‑aging.</li>
+              <li><strong>Terapie cyfrowe i programy domowe</strong> — skalowalne utrwalenie efektów.</li>
+              <li><strong>R&D (medykamenty i suplementy)</strong> — projektowanie i wdrożenia evidence‑based z uczelniami i przemysłem.</li>
+            </ul>
+          </div></div>
+          <div class="col-5"><div class="card">
+            <h3>Standard pracy</h3>
+            <ul>
+              <li><strong>Evidence‑based</strong> — literatura + dane z pomiarów.</li>
+              <li><strong>Personalizacja</strong> — cele: koncentracja, sen, regeneracja, redukcja lęku, ból, ND, anti‑aging.</li>
+              <li><strong>Mierzalność</strong> — testy wejściowe i okresowe (HRV, wskaźniki snu, kwestionariusze).</li>
+              <li><strong>Bezpieczeństwo</strong> — kwalifikacja, przeciwwskazania, jasna ścieżka kliniczna, gdy potrzebna.</li>
+            </ul>
+            <h3>Dla kogo</h3>
+            <ul>
+              <li>Osoby przeciążone stresem, menedżerowie, twórcy i sportowcy.</li>
+              <li>Osoby z celami: sen, koncentracja, nastrój.</li>
+              <li>Osoby w spektrum ND (ADHD/ASD) szukające narzędzi regulacyjnych.</li>
+              <li>Każdy, kto chce zadbać o anti‑aging układu nerwowego.</li>
+            </ul>
+            <h3>Dlaczego NCNI</h3>
+            <ul>
+              <li>Unikalne połączenie VR/AI + biofeedback + sensoryka + dietetyka kliniczna + R&D.</li>
+              <li>Programy hybrydowe: gabinet + protokoły domowe.</li>
+              <li>Metryki i przegląd postępów — korekty planu.</li>
+              <li>Etyka i transparentność — realne wskazania, bez „magii”.</li>
+            </ul>
+            <h3>Jak pracujemy — w skrócie</h3>
+            <p>1) Kwalifikacja i cele → 2) Pomiar stanu → 3) Plan protokołu → 4) Sesje → 5) Monitoring i korekty → 6) Utrwalenie efektów (home‑use)</p>
+            <p class="muted" style="margin-top:12px"><strong>Zastrzeżenie:</strong> NCNI działa na styku well‑being/anti‑aging i ścieżek klinicznych. Programy nie zastępują porad lekarskich; w razie wskazań łączymy z opieką kliniczną.</p>
+          </div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ZESPÓŁ -->
+    <section id="zespol" style="background:#0b1120" aria-labelledby="zespol-heading">
+      <div class="wrap">
+        <div class="kicker">Zespół i zaplecze</div>
+        <h2 id="zespol-heading">Ludzie i nauka stojące za NCNI</h2>
+        <ul class="grid">
+          <li class="col-4"><div class="card"><h3>dr inż. Marlena Gąsior‑Głogowska</h3><p class="muted">Architekt sensorycznej przestrzeni • Neuroestetyka</p><ul>
+            <li>Mapowanie bodźców i redukcja przebodźcowania.</li>
+            <li>Światło/dźwięk pod relaks i fokus.</li>
+            <li>Aromaty i materiały przyjazne sensorycznie.</li>
+          </ul></div></li>
+          <li class="col-4"><div class="card"><h3>dr hab. inż. Sebastian Kraszewski</h3><p class="muted">Neurobiochemia i żywienie mózgu • <strong>Trener neuroróżnorodności</strong></p><ul>
+            <li>Protokoły koncentracji i odporności na stres.</li>
+            <li>Standaryzacja suplementacji i żywienia.</li>
+          </ul></div></li>
+          <li class="col-4"><div class="card"><h3>Karol Kiszło</h3><p class="muted">Head of NeuroPerformance • NeuroWellbeing Coach</p><ul>
+            <li>Programy Focus & Flow (B2B), Executive NeuroCoaching.</li>
+            <li>Higiena bodźców i standardy pracy głębokiej.</li>
+          </ul></div></li>
+        </ul>
+        <p class="muted" style="margin-top:10px">(Pełne bio i dorobek naukowy partnerów w zakładce „Zespół”.)</p>
+      </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section id="kontakt" style="background:#0b1120" aria-labelledby="kontakt-heading">
+      <div class="wrap">
+        <div class="kicker">Kontakt</div>
+        <h2 id="kontakt-heading">Skontaktuj się z nami</h2>
+        <div class="contact">
+          <div class="card">
+            <h3>Adres</h3>
+            <p>ul. Żeromskiego 60/5a, <strong>50‑312</strong> Wrocław</p>
+            <div style="display:flex; gap:10px; flex-wrap:wrap">
+              <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=ul.+%C5%BBeromskiego+60%2F5a,+50-312+Wroc%C5%82aw">Nawiguj — Google Maps</a>
+              <a class="btn" target="_blank" rel="noopener" href="https://maps.apple.com/?address=%C5%BBeromskiego%2060/5a,%2050-312%20Wroc%C5%82aw">Nawiguj — Apple Maps</a>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Dane kontaktowe</h3>
+            <p><strong>Telefon:</strong> <a href="tel:+48600608333">+48 600 608 333</a><br><strong>E‑mail:</strong> <a href="mailto:kontakt@ncni.pl">kontakt@ncni.pl</a></p>
+            <p class="muted">IG: <a href="https://instagram.com/ncni" target="_blank" rel="noopener noreferrer">@ncni</a></p>
+            <a href="mailto:kontakt@ncni.pl?subject=Umów%20kwalifikację%20NCNI" class="btn primary">Umów kwalifikację →</a>
+          </div>
+        </div>
+        <p class="muted" style="margin-top:12px; text-align:center">Wrocław • kontakt@ncni.pl</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- COOKIES -->
+  <div id="cookie" class="cookie" role="region" aria-label="Baner cookies" aria-live="polite">
+    <div class="wrap">
+      <p>Ta strona używa plików cookie w celu zapewnienia najlepszych wrażeń. <a href="/polityka-prywatnosci">Dowiedz się więcej</a>.</p>
+      <div>
+        <button id="cookie-decline" class="btn" type="button">Odrzuć</button>
+        <button id="cookie-accept" class="btn primary" type="button">Akceptuję</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="wrap" style="padding:20px 0; text-align:center; color:var(--muted); font-size:.9rem">
+      © <span id="year"></span> NCNI. Wszelkie prawa zastrzeżone.
+    </div>
+  </footer>
+
+  <script>
+    // Alias legacy anchors: usuwamy teleporady z nawigacji, ale wspieramy stare linki → #sciezki
+    (function aliasHash(){
+      if(location.hash && location.hash.toLowerCase() === '#teleporady'){
+        const t = document.getElementById('sciezki');
+        if(t){ t.scrollIntoView({behavior:'smooth'}); }
+        history.replaceState(null, '', '#sciezki');
+      }
+    })();
+
+    // Cookie banner + rok w stopce
+    document.addEventListener('DOMContentLoaded', () => {
+      const bar = document.getElementById('cookie');
+      const acc = document.getElementById('cookie-accept');
+      const dec = document.getElementById('cookie-decline');
+
+      if (bar && acc && dec) {
+        setTimeout(() => {
+          if (!localStorage.getItem('cookieConsent')) {
+            bar.classList.add('show');
+          }
+        }, 400);
+
+        function closeBanner(choice) {
+          localStorage.setItem('cookieConsent', choice);
+          bar.classList.remove('show');
+        }
+
+        acc.addEventListener('click', () => closeBanner('accepted'));
+        dec.addEventListener('click', () => closeBanner('declined'));
+      }
+
+      const yearSpan = document.getElementById('year');
+      if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+    });
+  </script>
+  <script>
+    // Prosty builder mailto dla formularza Oferty (działa na GitHub Pages bez backendu)
+    (function(){
+      const form = document.getElementById('offer-form');
+      if(!form) return;
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const pack = document.getElementById('package').value;
+        const ther = document.getElementById('therapy').value;
+        const date = document.getElementById('date').value;
+        const msg  = document.getElementById('message').value.trim();
+        const subject = encodeURIComponent(`Rezerwacja — ${pack} / ${ther}`);
+        const body = encodeURIComponent(
+          `Imię i nazwisko: ${name}
+Telefon: ${phone}
+E‑mail: ${email}
+Pakiet: ${pack}
+Terapia: ${ther}
+Preferowany termin: ${date}
+
+Dodatkowe informacje:
+${msg}
+
+RODO: zgoda na kontakt wyrażona.`
+        );
+        window.location.href = `mailto:kontakt@ncni.pl?subject=${subject}&body=${body}`;
+      });
+    })();
+  </script>
+</body>
+</html>
