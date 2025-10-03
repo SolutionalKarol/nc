@@ -272,8 +272,8 @@
         <div style="margin-top:56px">
           <h2 style="text-align:center">Szybka rezerwacja</h2>
           <div class="form" role="form" aria-labelledby="form-heading">
-            <h3 id="form-heading" style="margin-top:0">Formularz</h3>
-            <form id="offer-form">
+            <h3 id="form-heading" style="margin-top:0">Formularz (bezpośrednio do skrzynki)</h3>
+            <form id="offer-form" novalidate>
               <div class="form-row">
                 <div>
                   <label class="label" for="name">Imię i nazwisko</label>
@@ -325,9 +325,12 @@
                 <label for="rodo" class="hint">Wyrażam zgodę na kontakt w sprawie oferty. Administratorem danych jest NCNI (ul. Żeromskiego 60/5a, 50‑312 Wrocław). Dane wykorzystamy wyłącznie do obsługi zapytania.</label>
               </div>
               <div class="form-actions">
-                <button type="submit" class="btn primary">Wyślij zgłoszenie →</button>
+                <button id="offer-submit" type="submit" class="btn primary">Wyślij zgłoszenie →</button>
                 <a class="btn" href="mailto:kontakt@ncni.pl">lub napisz: kontakt@ncni.pl</a>
+                <a class="btn" href="tel:+48600608333">Zadzwoń teraz</a>
+                <a class="btn" href="https://wa.me/48600608333" target="_blank" rel="noopener">WhatsApp</a>
               </div>
+              <p id="offer-status" class="muted" style="margin-top:8px; display:none"></p>
             </form>
           </div>
         </div>
@@ -563,6 +566,79 @@ ${msg}
 
 RODO: zgoda na kontakt wyrażona.`
         );
+        window.location.href = `mailto:kontakt@ncni.pl?subject=${subject}&body=${body}`;
+      });
+    })();
+  </script>
+  <script>
+    // Konfiguracja szybkiej rezerwacji: ustaw endpoint, aby wysyłać BEZ otwierania poczty
+    // 1) Załóż darmowy formularz na Formspree (lub Netlify Forms) i wklej URL endpointu poniżej
+    // 2) Jeśli zostawisz pusty string, użyjemy bezpiecznego fallbacku mailto: kontakt@ncni.pl
+    const FORMSPREE_ENDPOINT = ""; // np. "https://formspree.io/f/abcdwxyz"
+
+    (function(){
+      const form = document.getElementById('offer-form');
+      const status = document.getElementById('offer-status');
+      const submitBtn = document.getElementById('offer-submit');
+      if(!form) return;
+
+      async function postJSON(url, data){
+        const res = await fetch(url, { method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify(data) });
+        if(!res.ok) throw new Error('HTTP '+res.status);
+        return await res.json().catch(()=>({ok:true}));
+      }
+
+      form.addEventListener('submit', async function(e){
+        e.preventDefault();
+        const payload = {
+          name: document.getElementById('name').value.trim(),
+          phone: document.getElementById('phone').value.trim(),
+          email: document.getElementById('email').value.trim(),
+          pack: document.getElementById('package').value,
+          therapy: document.getElementById('therapy').value,
+          date: document.getElementById('date').value,
+          message: document.getElementById('message').value.trim(),
+          rodo: document.getElementById('rodo').checked ? 'yes' : 'no'
+        };
+
+        // Walidacja prosta
+        if(!payload.name || !payload.phone || !payload.email){
+          status.style.display='block';
+          status.textContent='Uzupełnij proszę imię, telefon i e‑mail.';
+          return;
+        }
+
+        // Jeśli skonfigurowano endpoint — wysyłamy AJAXem
+        if(FORMSPREE_ENDPOINT){
+          try{
+            submitBtn.disabled = true; submitBtn.textContent = 'Wysyłanie…';
+            await postJSON(FORMSPREE_ENDPOINT, payload);
+            status.style.display='block';
+            status.textContent='Dziękujemy! Zgłoszenie zostało wysłane. Wrócimy z terminami.';
+            form.reset();
+          }catch(err){
+            status.style.display='block';
+            status.textContent='Nie udało się wysłać (błąd sieci). Spróbuj ponownie lub użyj przycisku e‑mail.';
+          }finally{
+            submitBtn.disabled = false; submitBtn.textContent = 'Wyślij zgłoszenie →';
+          }
+          return;
+        }
+
+        // Fallback: mailto do skrzynki kontakt@ncni.pl (działa na GitHub Pages)
+        const subject = encodeURIComponent(`Rezerwacja — ${payload.pack} / ${payload.therapy}`);
+        const body = encodeURIComponent(
+`Imię i nazwisko: ${payload.name}
+Telefon: ${payload.phone}
+E‑mail: ${payload.email}
+Pakiet: ${payload.pack}
+Terapia: ${payload.therapy}
+Preferowany termin: ${payload.date}
+
+Dodatkowe informacje:
+${payload.message}
+
+RODO: zgoda na kontakt wyrażona.`);
         window.location.href = `mailto:kontakt@ncni.pl?subject=${subject}&body=${body}`;
       });
     })();
