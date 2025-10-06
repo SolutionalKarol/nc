@@ -51,11 +51,13 @@
       margin: 0;
       color: var(--text);
       background: var(--bg2);
-      /* Modern Font Stack with "Inter" */
       font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+    }
+    body.nav-open {
+      overflow: hidden;
     }
     a { color: var(--link); text-decoration: none }
     a:hover { opacity: .9 }
@@ -64,6 +66,65 @@
     .wrap { width: min(1120px, 92%); margin-inline: auto }
     .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden }
     .skip-link:focus { left: 16px; top: 16px; width: auto; height: auto; padding: 10px 14px; background: #fff; color: #0b1120; border-radius: 10px; z-index: 1000 }
+
+    /* --- NEW NAVIGATION SYSTEM --- */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 12px 0;
+      transition: background-color 0.3s ease-out, box-shadow 0.3s ease-out;
+    }
+    .site-header.scrolled {
+      background-color: rgba(16, 23, 39, 0.8);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+      border-bottom: 1px solid var(--border);
+    }
+    .site-header .wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-brand {
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--text);
+    }
+    .main-nav {
+      display: flex;
+      gap: clamp(10px, 2.6vw, 24px);
+    }
+    .main-nav a {
+      font-size: clamp(0.9rem, 2vw, 1rem);
+      font-weight: 700;
+      color: var(--text);
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: all .25s ease;
+    }
+    .main-nav a:hover, .main-nav a.active {
+      background: rgba(255, 255, 255, .1);
+      opacity: 1;
+    }
+    .mobile-menu-toggle {
+      display: none;
+      background: transparent;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    .mobile-menu-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      margin: 5px 0;
+      transition: all 0.3s ease;
+    }
 
     /* --- HERO REFINEMENTS --- */
     .hero {
@@ -88,21 +149,6 @@
     .hero h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 900; margin: 0 0 18px; text-shadow: 0 4px 20px rgba(0, 0, 0, .3) }
     .hero p { max-width: 70ch; margin: 0 auto 26px; color: var(--muted) }
     
-    .nav { position: sticky; top: 16px; z-index: 50; display: flex; gap: clamp(10px, 2.6vw, 16px); flex-wrap: wrap; justify-content: center; margin-bottom: 12px; padding: 8px; background: rgba(16, 23, 39, 0.5); backdrop-filter: blur(10px); border-radius: 999px; border: 1px solid var(--border); }
-    .nav a {
-      font-size: clamp(0.9rem, 2vw, 1rem);
-      font-weight: 700;
-      color: var(--text);
-      padding: 10px 18px;
-      border: 1px solid transparent;
-      border-radius: 999px;
-      transition: all .25s ease;
-    }
-    .nav a:hover, .nav a.active {
-      background: rgba(255, 255, 255, .1);
-      border-color: rgba(255, 255, 255, .3);
-      opacity: 1;
-    }
     .hero .strap { font-size: clamp(1.2rem, 3vw, 1.7rem); font-weight: 800; letter-spacing: .2px; margin: 18px 0 6px; color: #fff }
     .hero .lead { max-width: 75ch; margin: 0 auto 14px; color: var(--muted) }
     .hero-tags { list-style: none; padding: 0; margin: 10px 0 0; display: flex; gap: 0; flex-wrap: wrap; justify-content: center; color: #cbd5e1 }
@@ -119,9 +165,6 @@
     .grid { display: grid; gap: 24px; list-style: none; padding-left: 0; margin: 0 }
     
     .grid-dynamic { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-    
-    @media (max-width: 980px) { .col-4, .col-5, .col-7 { grid-column: span 12 } }
-    @media (max-width: 720px) { .col-3, .col-6 { grid-column: span 12 } } /* Improved stacking for mobile */
     
     .card {
       background: var(--card);
@@ -169,40 +212,24 @@
     .btn.primary:hover { background: linear-gradient(180deg, #8cb5ff, #7faeff); }
 
     /* --- PREMIUM UPGRADES --- */
-    /* 1. Scroll Animations */
     .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
     .fade-in.is-visible { opacity: 1; transform: translateY(0); }
-    /* 2. Back to Top Button */
     .back-to-top { position: fixed; bottom: 20px; right: 20px; background: var(--accent); color: var(--bg1); width: 44px; height: 44px; border-radius: 50%; border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 100; opacity: 0; transform: translateY(100px); transition: opacity 0.3s, transform 0.3s; }
     .back-to-top.visible { opacity: 1; transform: translateY(0); }
-    /* 3. Accordion */
     details { background: rgba(255, 255, 255, .03); border-radius: 14px; border: 1px solid var(--border); margin-bottom: 12px; padding: 8px 16px; }
     summary { cursor: pointer; font-weight: 700; padding: 8px 0; color: var(--accent); }
     summary::marker { content: '▸ '; color: var(--accent); font-size: 1.2em; }
     details[open] summary::marker { content: '▾ '; }
     
-    /* NEW: Expanded Bio in Card */
     .card details { margin-top: 16px; background: transparent; border: none; padding: 0; }
     .card summary { padding: 8px 12px; border-radius: 999px; background: rgba(255, 255, 255, .05); display: inline-block; font-size: 0.85rem; color: var(--text); }
     .card details .bio-content h5 { font-size: 1rem; color: var(--accent-2); margin-top: 16px; margin-bottom: 8px; font-weight: 700; }
     .card details .bio-content ul { padding-left: 18px; font-size: 0.9rem; }
     .card details .bio-content p { font-size: 0.95rem; }
 
-
     /* --- NEW OFFER STRUCTURE --- */
-    .path-selector-bar {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 16px;
-      margin-bottom: 56px;
-      padding: 16px;
-      background: var(--card);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-    }
+    .path-selector-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-bottom: 56px; padding: 16px; background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); }
     .path-selector-bar p { margin: 0; font-weight: 700; }
-    
     .offer-category { margin-bottom: 48px; }
     .offer-category-title { font-size: 1.5rem; font-weight: 800; color: var(--text); margin-bottom: 24px; padding-bottom: 8px; border-bottom: 2px solid var(--border); }
     .quick-booking-section { text-align: center; background: var(--card); padding: 40px; border-radius: var(--radius); margin-top: 60px; }
@@ -212,12 +239,7 @@
     .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 18px }
     @media (max-width: 720px) { .contact { grid-template-columns: 1fr } }
 
-    .nd {
-      background:
-        radial-gradient(1000px 500px at 15% -10%, rgba(138, 92, 255, .16), transparent 60%),
-        radial-gradient(1000px 500px at 85% 110%, rgba(122, 162, 255, .10), transparent 60%),
-        linear-gradient(180deg, var(--bg1), var(--bg2));
-    }
+    .nd { background: radial-gradient(1000px 500px at 15% -10%, rgba(138, 92, 255, .16), transparent 60%), radial-gradient(1000px 500px at 85% 110%, rgba(122, 162, 255, .10), transparent 60%), linear-gradient(180deg, var(--bg1), var(--bg2)); }
     .nd-tags { list-style: none; padding: 0; margin: 8px auto 0; display: flex; gap: 8px; flex-wrap: wrap; justify-content: center }
     .nd-tags li { border: 1px solid var(--border); background: rgba(255, 255, 255, .03); padding: 6px 10px; border-radius: 999px; font-size: 14px }
     
@@ -226,21 +248,52 @@
     .cookie .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px }
     @media (max-width: 720px) { .cookie .wrap { flex-direction: column; align-items: flex-start; text-align: center } .cookie p { margin-bottom: 12px } }
 
-    /* --- MOBILE-FIRST FINE-TUNING --- */
+    /* --- MOBILE & RESPONSIVE NAVIGATION --- */
+    @media (max-width: 979px) {
+      .mobile-menu-toggle { display: block; }
+      .main-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: min(400px, 80vw);
+        height: 100vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+        background: var(--bg1);
+        box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+        transition: right 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      .main-nav.is-open {
+        right: 0;
+      }
+      .main-nav a {
+        font-size: 1.2rem;
+      }
+      .mobile-menu-toggle.is-active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .mobile-menu-toggle.is-active span:nth-child(2) {
+        opacity: 0;
+      }
+      .mobile-menu-toggle.is-active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+      }
+    }
+
     @media (max-width: 540px) {
       section { padding: 60px 0 }
-      .hero { min-height: 90vh; padding: 28px 0 }
-      .nav { position: static; top: 0; gap: 8px; }
+      .hero { padding-top: 80px; min-height: 90vh; } /* Add padding-top to avoid overlap with nav */
       .hero h1 { font-size: 2.2rem }
       .hero .strap { font-size: 1.15rem }
       .hero .lead { font-size: .98rem }
-      .nav a { font-size: .85rem; padding: 8px 12px }
       .card { padding: 20px }
       .btn { padding: 10px 16px; font-size: 0.9rem; }
       .path-selector-bar { flex-direction: column; align-items: center; text-align: center; }
     }
     @media (max-width: 390px) {
-      .hero h1 { font-size: 2rem; white-space: normal; } /* Allow wrapping on smallest screens */
+      .hero h1 { font-size: 2rem; white-space: normal; }
       .hero .strap { font-size: 1.05rem }
       .hero .lead { font-size: .92rem }
     }
@@ -252,20 +305,32 @@
 <body>
   <a class="skip-link" href="#main">Przejdź do treści głównej</a>
 
-  <!-- HERO / HEADER -->
-  <header class="hero" role="banner" aria-label="Sekcja powitalna NCNI">
+  <!-- NEW NAVIGATION -->
+  <header id="site-header" class="site-header">
+    <div class="wrap">
+        <a href="#" class="nav-brand">NCNI</a>
+        <nav id="main-nav" class="main-nav">
+            <a href="#sciezki">Ścieżki Neuro</a>
+            <a href="#oferta">Oferta</a>
+            <a href="#neurodiversity">Neuroróżnorodność</a>
+            <a href="#onas">O nas</a>
+            <a href="#zespol">Zespół</a>
+            <a href="#techlab">Tech Lab</a>
+            <a href="#kontakt">Kontakt</a>
+        </nav>
+        <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero" role="banner" aria-label="Sekcja powitalna NCNI">
     <div class="wrap">
       <img src="logo.png" alt="Logo NCNI" width="120" height="120" class="fade-in" />
       <h1 class="fade-in">Naukowe Centrum Neuroinnowacji</h1>
-      <nav class="nav fade-in" aria-label="Główna nawigacja">
-        <a href="#sciezki">Ścieżki Neuro</a>
-        <a href="#oferta">Oferta</a>
-        <a href="#neurodiversity">Neuroróżnorodność</a>
-        <a href="#onas">O nas</a>
-        <a href="#zespol">Zespół</a>
-        <a href="#techlab">Tech Lab</a>
-        <a href="#kontakt">Kontakt</a>
-      </nav>
       <p class="strap fade-in">Pokonaj stres, ból i zmęczenie. Przywróć równowagę ciała i umysłu.</p>
       <p class="lead fade-in">VR i AI dla zdrowia, harmonii i anti‑agingu — z myślą o neuroróżnorodności (ADHD/ASD, dysleksja, wysoka wrażliwość).</p>
       <ul class="hero-tags fade-in" aria-label="Kluczowe moduły">
@@ -277,7 +342,7 @@
         <li><a href="tel:+48600608333">📞 +48 600 608 333</a></li>
       </ul>
     </div>
-  </header>
+  </section>
 
   <main id="main">
     <!-- ŚCIEŻKI NEURO -->
@@ -291,9 +356,9 @@
 
         <ul class="grid grid-dynamic">
           <li class="fade-in"><div class="card"><h3>Regulacja Stresu</h3><p><strong>Cel:</strong> obniżenie pobudzenia, stabilizacja nastroju, większa odporność.<br><strong>W środku:</strong> VR relaksacyjny, zero‑gravity, HRV biofeedback, muzykoterapia, aromaterapia, higiena snu.<br><strong>Mierzymy:</strong> HRV (RMSSD), skale stresu/snu, NRS 0–10.<br><strong>Efekt:</strong> spokojniejszy układ nerwowy, szybszy powrót do równowagi.</p><a href="#kontakt" class="btn primary" style="margin-top:auto">Start „Regulacja Stresu” →</a></div></li>
-          <li class="fade-in"><div class="card"><h3>Sen & Regeneracja</h3><p><strong>Cel:</strong> łatwiejsze zasypianie, mniej wybudzeń, więcej porannej energii.<br><strong>W środku:</strong> VR pre‑sleep, oddech, HRV‑trening, plan światło/ruch, dietetyka kliniczna i suplementacja pod sen.<br><strong>Mierzymy:</strong> dzienniczek/urządzenie snu, skale senności, HRV nocne.<br><strong>Efekt:</strong> głębszy sen i lepsza regeneracja.</p<a href="#kontakt" class="btn primary" style="margin-top:auto">Start „Sen & Regeneracja” →</a></div></li>
-          <li class="fade-in"><div class="card"><h3>Fokus / ADHD</h3><p><strong>Cel:</strong> poprawa koncentracji, kontroli impulsów i organizacji.<br><strong>W środku:</strong> VR fokus, EEG/HRV biofeedback, protokoły aktywacji/regulacji, wsparcie żywieniowe.<br><strong>Mierzymy:</strong> skale uwagi, HRV, checklisty funkcji wykonawczych.<br><strong>Efekt:</strong> dłuższe pasma skupienia, mniejsza męczliwość poznawcza.</p<a href="#kontakt" class="btn primary" style="margin-top:auto">Start „Fokus/ADHD” →</a></div></li>
-          <li class="fade-in"><div class="card"><h3>Anti‑Aging Neuro</h3><p><strong>Cel:</strong> spowolnienie starzenia układu nerwowego, utrzymanie sprawności poznawczej.<br><strong>W środku:</strong> VR kognitywny, HRV/oddech, aktywacja sensoryczna, ruch, dietetyka + suplementacja pro‑neuro.<br><strong>Mierzymy:</strong> kwestionariusze, HRV, cele funkcjonalne.<br><strong>Efekt:</strong> większa rezerwa poznawcza, lepsza energia mentalna.</p<a href="#kontakt" class="btn primary" style="margin-top:auto">Start „Anti‑Aging Neuro” →</a></div></li>
+          <li class="fade-in"><div class="card"><h3>Sen & Regeneracja</h3><p><strong>Cel:</strong> łatwiejsze zasypianie, mniej wybudzeń, więcej porannej energii.<br><strong>W środku:</strong> VR pre‑sleep, oddech, HRV‑trening, plan światło/ruch, dietetyka kliniczna i suplementacja pod sen.<br><strong>Mierzymy:</strong> dzienniczek/urządzenie snu, skale senności, HRV nocne.<br><strong>Efekt:</strong> głębszy sen i lepsza regeneracja.</p><a href="#kontakt" class="btn primary" style="margin-top:auto">Start „Sen & Regeneracja” →</a></div></li>
+          <li class="fade-in"><div class="card"><h3>Fokus / ADHD</h3><p><strong>Cel:</strong> poprawa koncentracji, kontroli impulsów i organizacji.<br><strong>W środku:</strong> VR fokus, EEG/HRV biofeedback, protokoły aktywacji/regulacji, wsparcie żywieniowe.<br><strong>Mierzymy:</strong> skale uwagi, HRV, checklisty funkcji wykonawczych.<br><strong>Efekt:</strong> dłuższe pasma skupienia, mniejsza męczliwość poznawcza.</p><a href="#kontakt" class="btn primary" style="margin-top:auto">Start „Fokus/ADHD” →</a></div></li>
+          <li class="fade-in"><div class="card"><h3>Anti‑Aging Neuro</h3><p><strong>Cel:</strong> spowolnienie starzenia układu nerwowego, utrzymanie sprawności poznawczej.<br><strong>W środku:</strong> VR kognitywny, HRV/oddech, aktywacja sensoryczna, ruch, dietetyka + suplementacja pro‑neuro.<br><strong>Mierzymy:</strong> kwestionariusze, HRV, cele funkcjonalne.<br><strong>Efekt:</strong> większa rezerwa poznawcza, lepsza energia mentalna.</p><a href="#kontakt" class="btn primary" style="margin-top:auto">Start „Anti‑Aging Neuro” →</a></div></li>
         </ul>
       </div>
     </section>
@@ -617,7 +682,7 @@
 
       // --- Active Nav on Scroll ---
       const sections = document.querySelectorAll('section[id]');
-      const navLinks = document.querySelectorAll('.nav a');
+      const navLinks = document.querySelectorAll('.main-nav a');
       const navObserver = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
               if (entry.isIntersecting) {
@@ -631,6 +696,48 @@
           });
       }, { rootMargin: '-50% 0px -50% 0px' });
       sections.forEach(section => navObserver.observe(section));
+      
+      // --- Mobile Menu Toggle ---
+      const toggleButton = document.getElementById('mobile-menu-toggle');
+      const mainNav = document.getElementById('main-nav');
+      const navLinksMobile = mainNav.querySelectorAll('a');
+
+      toggleButton.addEventListener('click', () => {
+        mainNav.classList.toggle('is-open');
+        toggleButton.classList.toggle('is-active');
+        document.body.classList.toggle('nav-open');
+        const isExpanded = mainNav.classList.contains('is-open');
+        toggleButton.setAttribute('aria-expanded', isExpanded);
+      });
+
+      navLinksMobile.forEach(link => {
+        link.addEventListener('click', () => {
+            if(mainNav.classList.contains('is-open')) {
+                mainNav.classList.remove('is-open');
+                toggleButton.classList.remove('is-active');
+                document.body.classList.remove('nav-open');
+                toggleButton.setAttribute('aria-expanded', 'false');
+            }
+        });
+      });
+
+      // --- Scroll Header Style ---
+      const siteHeader = document.getElementById('site-header');
+      window.addEventListener('scroll', () => {
+          if(window.scrollY > 50) {
+              siteHeader.classList.add('scrolled');
+          } else {
+              siteHeader.classList.remove('scrolled');
+          }
+      });
+
+      // --- Brand logo scroll to top ---
+      const brandLogo = document.querySelector('.nav-brand');
+      brandLogo.addEventListener('click', (e) => {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
     });
 
     // --- Legacy & Cookie Scripts ---
@@ -642,8 +749,6 @@
       }
     })();
 
-    // This is a separate event listener, which is fine.
-    // DOMContentLoaded can have multiple listeners.
     document.addEventListener('DOMContentLoaded', () => {
       const bar = document.getElementById('cookie');
       const acc = document.getElementById('cookie-accept');
