@@ -6,6 +6,8 @@
   <title>NCNI — Naukowe Centrum Neuroinnowacji</title>
   <meta name="description" content="NCNI: VR/AR, AI, biofeedback EEG/HRV, zero‑gravity, muzykoterapia, aromaterapia, dietetyka kliniczna i terapie cyfrowe. Mierzalna regulacja stresu, sen, fokus i anti‑aging układu nerwowego. Wrocław." />
   <link rel="canonical" href="https://solutionalkarol.github.io/nc/" />
+  <!-- Suggestion: Preload the main background image to improve perceived loading speed -->
+  <link rel="preload" href="tlo.jpg" as="image">
 
   <!-- Google Fonts: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -298,6 +300,22 @@
     
     .footer-credit { opacity: .9 }
     @media(max-width: 540px) { .footer-credit { display: block; margin-top: 6px } }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 16px;
+    }
+    .social-links a {
+      color: var(--muted);
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+    .social-links a:hover {
+      color: var(--text);
+      transform: translateY(-2px);
+      opacity: 1; /* Override default link hover opacity */
+    }
   </style>
 </head>
 <body>
@@ -644,7 +662,19 @@
 
   <footer>
     <div class="wrap" style="padding:20px 0; text-align:center; color:var(--muted); font-size:.9rem">
-      © <span id="year">2025</span> NCNI. Wszelkie prawa zastrzeżone. <span class="footer-credit">Designed & built by Karol Kiszło</span>
+      <div class="social-links">
+        <a href="https://x.com/Neuroinnowacje" target="_blank" rel="noopener" aria-label="Profil NCNI na platformie X">
+          <!-- Zmieniono ikonę na oficjalne logo X -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+          </svg>
+        </a>
+        <a href="https://youtube.com/@Neuroinnowacje" target="_blank" rel="noopener" aria-label="Kanał NCNI na YouTube">
+          <i data-lucide="youtube"></i>
+        </a>
+      </div>
+      <!-- Suggestion: Removed hardcoded year. It will be populated by JS to always be current. -->
+      © <span id="year"></span> NCNI. Wszelkie prawa zastrzeżone. <span class="footer-credit">Designed & built by Karol Kiszło</span>
     </div>
   </footer>
 
@@ -718,7 +748,11 @@
             toggleButton.setAttribute('aria-expanded', isExpanded);
         };
 
-        toggleButton.addEventListener('click', toggleMenu);
+        toggleButton.addEventListener('click', (e) => {
+            // Stop click from bubbling up to the document listener which would close the menu immediately
+            e.stopPropagation();
+            toggleMenu();
+        });
 
         navLinksMobile.forEach(link => {
           link.addEventListener('click', () => {
@@ -726,6 +760,15 @@
                 toggleMenu();
               }
           });
+        });
+
+        // Improvement: Close mobile menu when clicking outside of it
+        document.addEventListener('click', (e) => {
+            const isNavOpen = mainNav.classList.contains('is-open');
+            // Check if the nav is open and the click was not inside the nav or on the toggle button itself
+            if (isNavOpen && !mainNav.contains(e.target) && !toggleButton.contains(e.target)) {
+                toggleMenu();
+            }
         });
       }
 
@@ -784,4 +827,6 @@
   </script>
 </body>
 </html>
+
+
 
