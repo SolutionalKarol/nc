@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NCNI — Neuroróżnorodność (ND-affirming)</title>
+  <meta name="description" content="ND-affirming: ADHD/ADD, ASD, dysleksja, dyskalkulia, DCD, tiki/Tourette, wysoka wrażliwość oraz Metoda Kraszewskiego. NCNI — Wrocław." />
+  <link rel="canonical" href="https://neuroinnowacje.pl/neuroroznorodnosc" />
+
+  <style>
+    :root{
+      /* Paleta NCNI */
+      --bg:#0b1120;            /* granat tło */
+      --card:#111827;          /* karty */
+      --ink:#e6ecff;           /* jasny tekst */
+      --muted:#9fb0d8;         /* opis pomocniczy */
+      --teal:#0ea5a4;          /* turkus */
+      --teal-strong:#14b8b0;   /* hover turkus */
+      --gold:#d4af37;          /* akcent złoty */
+      --ring:#233146;          /* obwódka aktywna */
+      --chip:#131c2a;          /* tło chipów */
+    }
+
+    html{scroll-behavior:smooth}
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;
+      background: radial-gradient(1200px 600px at 50% -200px, #0f172a 0%, var(--bg) 60%);
+      color:var(--ink);
+      line-height:1.6;
+    }
+    .container{max-width:1100px; margin-inline:auto; padding:24px;}
+    header{position:sticky; top:0; z-index:20; backdrop-filter:saturate(120%) blur(6px);}
+    .nav{
+      background:linear-gradient(180deg, rgba(11,17,32,.92), rgba(11,17,32,.85));
+      border-bottom:1px solid #111827;
+    }
+    .brand{font-weight:800; letter-spacing:.5px}
+    .brand small{font-weight:600; color:var(--muted)}
+    h1{font-size:clamp(28px,5vw,46px); line-height:1.15; margin:24px 0 8px}
+    .eyebrow{letter-spacing:.18em; color:var(--muted); font-size:.8rem}
+    .lead{color:var(--muted); max-width:72ch}
+
+    /* Chips (kółka) */
+    .chips{
+      display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 6px; 
+    }
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:.55rem .95rem; border-radius:999px;
+      background:var(--chip); color:var(--ink);
+      border:1px solid #1c2740;
+      text-decoration:none; font-weight:600; font-size:.95rem;
+      transition:transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .chip:hover{transform:translateY(-1px); background:#18243a; border-color:#2a3956}
+    .chip:focus{outline:2px solid var(--teal); outline-offset:2px}
+    .chip.active{background:linear-gradient(180deg, var(--teal), var(--teal-strong)); color:#001417; border-color:transparent; box-shadow:0 0 0 3px var(--ring)}
+
+    /* Sekcje */
+    section.block{
+      background:linear-gradient(180deg,#0e1626, #0b1120);
+      border:1px solid #16233a; border-radius:18px;
+      padding:22px; margin:18px 0;
+    }
+    section.block h3{margin:0 0 6px; font-size:1.4rem}
+    section.block p{color:var(--muted); margin:0}
+    .more{display:inline-block; margin-top:10px; color:var(--teal-strong); font-weight:600; text-decoration:none}
+    .more:hover{text-decoration:underline}
+
+    /* „Powrót do góry” */
+    .to-top{
+      position:fixed; right:16px; bottom:16px; z-index:30;
+      width:44px; height:44px; border-radius:50%; border:1px solid #22314e;
+      display:grid; place-items:center; color:var(--ink); background:#0e1626; text-decoration:none;
+      box-shadow:0 10px 24px rgba(0,0,0,.35);
+    }
+    .to-top:hover{background:#132037}
+
+    /* Stopka */
+    footer{color:var(--muted); border-top:1px solid #141f33; margin-top:28px}
+    .foot-grid{display:grid; gap:10px}
+    @media (min-width:720px){ .foot-grid{grid-template-columns:1fr auto} }
+
+    /* Ułatwienie klikalności na mobile */
+    .chip{min-height:40px}
+
+    /* Redukcja ruchu dla preferujących prostotę */
+    @media (prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      .chip,.chip:hover{transition:none}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Pasek tytułu -->
+  <header class="nav">
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+      <div class="brand">NCNI <small>• Naukowe Centrum Neuro Innowacji</small></div>
+      <nav style="display:flex; gap:14px; font-weight:600;">
+        <a href="#start" class="more" aria-label="Idź do początku sekcji">Start</a>
+        <a href="#spis" class="more" aria-label="Spis sekcji">Spis</a>
+        <a href="#kontakt" class="more" aria-label="Kontakt">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="start" class="container" style="padding-top:18px;">
+    <div class="eyebrow">ND-AFFIRMING</div>
+    <h1>Neuroróżnorodność — podejście i praktyka w NCNI</h1>
+    <p class="lead">
+      Różne mózgi. Równe szanse. Projektujemy środowisko, procesy i komunikację tak, by były przewidywalne,
+      sensorycznie przyjazne i elastyczne. Zyskują na tym ludzie i organizacje: retencja, dobrostan,
+      innowacyjność i mniejsze koszty konfliktów.
+    </p>
+
+    <!-- KÓŁKA / TAGI -->
+    <div class="chips" id="spis" role="tablist" aria-label="Lista zagadnień ND">
+      <a class="chip" href="#adhd" role="tab" aria-controls="adhd">ADHD/ADD</a>
+      <a class="chip" href="#asd" role="tab" aria-controls="asd">Autyzm (ASD)</a>
+      <a class="chip" href="#dysleksja" role="tab" aria-controls="dysleksja">Dysleksja</a>
+      <a class="chip" href="#dyskalkulia" role="tab" aria-controls="dyskalkulia">Dyskalkulia</a>
+      <a class="chip" href="#dcd" role="tab" aria-controls="dcd">Dysprazja (DCD)</a>
+      <a class="chip" href="#tourette" role="tab" aria-controls="tourette">Tiki/Tourette</a>
+      <a class="chip" href="#wysoka-wrazliwosc" role="tab" aria-controls="wysoka-wrazliwosc">Wysoka wrażliwość</a>
+      <a class="chip" href="#metoda-kraszewskiego" role="tab" aria-controls="metoda-kraszewskiego">
+        <span style="width:.55rem;height:.55rem;border-radius:50%;background:var(--gold);display:inline-block"></span>
+        Metoda Kraszewskiego
+      </a>
+    </div>
+
+    <!-- SEKCJE KONTENTU -->
+    <section id="adhd" class="block" tabindex="-1">
+      <h3>ADHD / ADD</h3>
+      <p>Wsparcie skupienia, regulacja bodźców i impulsów. Programy łączą VR, trening oddechu i biofeedback EEG/HRV. 
+         W pracy zespołowej stosujemy „rytmy sprintu”, mikro-przerwy sensoryczne i klarowną strukturę zadań.</p>
+      <a class="more" href="#">Dowiedz się więcej →</a>
+    </section>
+
+    <section id="asd" class="block" tabindex="-1">
+      <h3>Autyzm (ASD)</h3>
+      <p>Projektujemy środowisko sensorycznie przewidywalne, pracę z rytuałami i wspierającą komunikacją.
+         W sesjach używamy spokojnych scen VR, modulacji dźwięku i pracy nad regulacją napięcia.</p>
+      <a class="more" href="#">Dowiedz się więcej →</a>
+    </section>
+
+    <section id="dysleksja" class="block" tabindex="-1">
+      <h3>Dysleksja</h3>
+      <p>Strategie kompensacyjne, trening uwagi wzrokowo-słuchowej i budowanie przyjaznego „pipeline’u pracy”
+         z narzędziami AI (czytanie wspomagane, TTS/STS, dyktowanie).</p>
+      <a class="more" href="#">Dowiedz się więcej →</a>
+    </section>
+
+    <section id="dyskalkulia" class="block" tabindex="-1">
+      <h3>Dyskalkulia</h3>
+      <p>Wsparcie rozumienia ilości/relacji, wizualizacje 3D w VR i grywalizowane mikro-ćwiczenia.
+         Budujemy odporność na stres zadaniowy i wzmacniamy poczucie skuteczności.</p>
+      <a class="more" href="#">Dowiedz się więcej →</a>
+    </section>
+
+    <section id="dcd" class="block" tabindex="-1">
+      <h3>Dysprazja (DCD)</h3>
+      <p>Koordynacja, propriocepcja i bezpieczeństwo ruchowe. Łączymy łagodne sceny VR, biofeedback oddechowy i sekwencje
+         ruchowe w trybie „slow-flow”.</p>
+      <a class="more" href="#">Dowiedz się więcej →</a>
+    </section>
+
+    <section id="tourette" class="block" tabindex="-1">
+      <h3>Tiki / Tourette</h3>
+      <p>Redukcja pobudzenia, reset napięcia i praca z nawykiem reakcji. Stosujemy krótkie protokoły
+         oddechowe oraz scenariusze VR o niskiej stymulacji.</p>
+      <a class="more" href="#">Dowiedz się więcej →</a>
+    </section>
+
+    <section id="wysoka-wrazliwosc" class="block" tabindex="-1">
+      <h3>Wysoka wrażliwość (HSP)</h3>
+      <p>Higiena bodźców, „przestrzenie wytchnienia” i mikro-rytuały regeneracji. Edukujemy zespoły,
+         jak projektować spotkania i komunikację przyjazną HSP.</p>
+      <a class="more" href="#">Dowiedz się więcej →</a>
+    </section>
+
+    <section id="metoda-kraszewskiego" class="block" tabindex="-1" aria-label="Metoda Kraszewskiego">
+      <h3>Metoda Kraszewskiego</h3>
+      <p>
+        Opracowana w NCNI przez dr hab. inż. Sebastiana Kraszewskiego i Karola Kisłę metoda łączy neuromodulację,
+        biofeedback (EEG/HRV), immersję VR oraz protokoły oddechowe. Cel: precyzyjna regulacja stresu,
+        poprawa koncentracji i wspieranie neuroplastyczności. Stosujemy ją w ścieżkach Focus, Sen/Regeneracja,
+        Emocje/Resilience i Anti-Aging układu nerwowego.
+      </p>
+      <a class="more" href="metoda-kraszewskiego.html">Dedykowana strona metody →</a>
+    </section>
+
+    <a href="#start" class="to-top" aria-label="Powrót do góry">↑</a>
+  </main>
+
+  <footer id="kontakt" class="container">
+    <div class="foot-grid" style="padding:16px 0 26px;">
+      <div>
+        <div style="font-weight:700">Naukowe Centrum Neuro Innowacji (NCNI)</div>
+        <div>ul. Żeromskiego 60/5a, 50-312 Wrocław, Polska</div>
+        <div>E-mail: <a class="more" href="mailto:kontakt@ncni.pl">kontakt@ncni.pl</a> • Tel.: <a class="more" href="tel:+48600608333">+48 600 608 333</a></div>
+      </div>
+      <div style="text-align:right; align-self:end;">Designed &amp; built by Karol Kiszło</div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll-spy + aktywacja chipów
+    (function(){
+      const chips = Array.from(document.querySelectorAll('.chip'));
+      const ids   = chips.map(c => c.getAttribute('href'));
+      const sections = ids.map(id => document.querySelector(id)).filter(Boolean);
+
+      // aktywuj chip wskazany #hashem po wejściu/odświeżeniu
+      function activateByHash(){
+        const h = location.hash || ids[0];
+        setActive(h);
+      }
+
+      function setActive(targetId){
+        chips.forEach(c => c.classList.toggle('active', c.getAttribute('href') === targetId));
+      }
+
+      // podświetlanie podczas przewijania
+      const obs = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){
+            const id = '#'+e.target.id;
+            history.replaceState(null, '', id); // aktualizuj hash bez skoków
+            setActive(id);
+          }
+        });
+      }, { rootMargin: '-40% 0px -50% 0px', threshold: 0.01 });
+
+      sections.forEach(s => s && obs.observe(s));
+      window.addEventListener('hashchange', activateByHash);
+      activateByHash();
+    })();
+  </script>
+</body>
+</html>
