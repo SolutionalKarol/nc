@@ -2,30 +2,31 @@
 <html lang="pl">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width-device-width, initial-scale=1" />
-  <!-- ORYGINALNY TYTUŁ I OPIS -->
-  <title>NCNI — Naukowe Centrum Neuroinnowacji</title>
-  <meta name="description" content="NCNI: VR/AR, AI, biofeedback EEG/HRV, zero-gravity, muzykoterapia, aromaterapia, dietetyka kliniczna i terapie cyfrowe. Mierzalna regulacja stresu, sen, fokus i anti-aging układu nerwowego. Wrocław." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- ZOPTymalizowane Tagi dla AI i SEO -->
+  <title>Naukowe Terapie ADHD, PTSD, Stres | NCNI Wrocław</title>
+  <meta name="description" content="Naukowe Centrum Neuroinnowacji (NCNI) we Wrocławiu. Prowadzimy terapie cyfrowe VR, biofeedback i zero-gravity dla ADHD, PTSD, stresu i neuroróżnorodności. Metodyka dr hab. inż. S. Kraszewskiego." />
   
   <link rel="canonical" href="https://solutionalkarol.github.io/nc/" />
 
   <!-- Assets -->
-  <link rel="preload" href="tlo.jpg" as="image">
+  <link rel="preload" href="do.jpg" as="image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- Open Graph -->
+  <!-- Open Graph (ZAKTUALIZOWANE) -->
   <meta name="theme-color" content="#0b1120" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="pl_PL" />
-  <meta property="og:title" content="NCNI — Naukowe Centrum Neuroinnowacji" />
-  <meta property="og:description" content="VR/AI, Zero-Gravity, biofeedback EEG/HRV, neuroaromaterapia. Mierzalna regulacja stresu, sen, fokus i anti-aging układu nerwowego." />
+  <meta property="og:title" content="Naukowe Terapie ADHD, PTSD, Stres | NCNI Wrocław" />
+  <meta property="og:description" content="NCNI: Terapie cyfrowe VR, biofeedback, zero-gravity dla ADHD, PTSD, stresu. Metodyka naukowa dr hab. inż. S. Kraszewskiego." />
   <meta property="og:image" content="https://solutionalkarol.github.io/nc/og-image.jpg" />
   <meta property="og:url" content="https://solutionalkarol.github.io/nc/" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- WZMOCNIONA "WIZYTÓWKA" DLA AI -->
+  <!-- WIZYTÓWKA DLA AI Z LINKIEM DO GOOGLE SCHOLAR -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -61,7 +62,7 @@
         "jobTitle": "Dyrektor Naukowy",
         "description": "Twórca metodyki badawczej i protokołów terapeutycznych NCNI, ekspert w dziedzinie neurotechnologii i biofeedbacku.",
         "knowsAbout": ["Neurotechnologia", "Biofeedback", "Terapie Cyfrowe", "EEG", "ADHD", "PTSD"],
-        "sameAs": "TUTAJ_WKLEJ_LINK_DO_PROFILU_NAUKOWEGO_NP_PWr"
+        "sameAs": "https://scholar.google.pl/citations?user=Y_29s-AAAAAJ&hl=pl"
       },
       {
         "@type": "Person",
@@ -106,16 +107,16 @@
     /* Hero */
     .hero{
       display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;
-      min-height:100vh; padding:96px 0 40px; /* 96px top to clear fixed nav */
+      min-height:100vh; padding:96px 0 40px;
       background:
         radial-gradient(1200px 600px at 20% -10%, rgba(138,92,255,.18), transparent 60%),
         radial-gradient(1200px 600px at 80% 110%, rgba(122,162,255,.15), transparent 60%),
         linear-gradient(180deg, rgba(10,15,31,.85), rgba(16,23,39,.95)),
-        url('tlo.jpg') center/cover no-repeat;
+        url('do.jpg') center/cover no-repeat;
     }
     @media (min-width:1024px){ .hero{background-attachment:fixed} }
     .hero img{width:clamp(80px,15vw,120px); height:auto; margin-bottom:20px}
-    .hero h1{font-size:clamp(2.4rem,6vw,4.2rem); font-weight:900; margin:0 0 18px; text-shadow:0 4px 20px rgba(0,0,0,.3)}
+    .hero h1{font-size:clamp(2.4rem,6vw,4.2rem); font-weight:900; margin:0 0 18px; text-shadow:0 4px 20px rgba(0,0,0,.3);}
     .hero .strap{font-size:clamp(1.2rem,3vw,1.7rem); font-weight:800; color:#fff; margin:18px 0 6px}
     .hero .lead{max-width:75ch; margin:0 auto 14px; color:var(--muted)}
     .hero-tags{list-style:none; display:flex; flex-wrap:wrap; gap:0; justify-content:center; padding:0; margin:10px 0 0; color:#cbd5e1}
@@ -125,9 +126,10 @@
     /* Sections / cards */
     section{padding:80px 0}
     .kicker{font-weight:800; color:#cbd5e1; text-transform:uppercase; letter-spacing:.12em; font-size:.8rem}
-    h2{font-size:clamp(26px,3.4vw,38px); font-weight:800; margin:0 0 12px}
-    h3{font-size:clamp(19px,2.4vw,24px); font-weight:700; margin:20px 0 10px; color:var(--accent)}
-    h4{font-size:clamp(1.1rem,2vw,1.2rem); margin:0 0 8px; font-weight:700}
+    h2, h3, h4{color:var(--text)}
+    h2{font-size:clamp(26px,3.4vw,38px); font-weight:800; margin:0 0 12px;}
+    h3{font-size:clamp(19px,2.4vw,24px); font-weight:700; margin:20px 0 10px;}
+    h4{font-size:clamp(1.1rem,2vw,1.2rem); margin:0 0 8px; font-weight:700;}
     .section-subtitle{font-size:1.1rem; max-width:75ch; margin:0 auto 40px; color:var(--muted)}
     .grid{display:grid; gap:24px; list-style:none; padding:0; margin:0}
     .grid-dynamic{grid-template-columns:repeat(auto-fit, minmax(280px,1fr))}
@@ -138,14 +140,16 @@
     }
     .card:hover{transform:translateY(-5px); box-shadow:0 15px 35px rgba(0,0,0,.3); border-color:rgba(122,162,255,.3)}
     .card-actions{margin-top:auto; padding-top:16px; display:flex; flex-wrap:wrap; gap:10px; align-items:center}
+    
     .btn{padding:10px 18px; border-radius:999px; border:1px solid rgba(255,255,255,.15); background:rgba(255,255,255,.05); color:var(--text); font-weight:700; cursor:pointer; transition:.2s; text-align:center; display:inline-block; font-size:.9rem}
     .btn:hover{opacity:1; background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.25)}
     .btn.primary{background:linear-gradient(180deg, var(--accent), #6ea6ff); color:#0b1220; border-color:transparent; font-weight:800}
     .btn.primary:hover{background:linear-gradient(180deg,#8cb5ff,#7faeff)}
 
+
     .fade-in{opacity:0; transform:translateY(20px); transition:opacity .6s, transform .6s}
     .fade-in.is-visible{opacity:1; transform:translateY(0)}
-    .back-to-top{position:fixed; right:20px; bottom:20px; background:var(--accent); color:#0b1220; width:44px; height:44px; border-radius:50%; border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:100; opacity:0; transform:translateY(100px); transition:opacity .3s, transform .3s}
+    .back-to-top{position:fixed; right:20px; bottom:20px; background:var(--accent); color:#0b1120; width:44px; height:44px; border-radius:50%; border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:100; opacity:0; transform:translateY(100px); transition:opacity .3s, transform .3s}
     .back-to-top.visible{opacity:1; transform:translateY(0)}
 
     .nd{background:
@@ -427,9 +431,11 @@
     <div class="wrap" style="padding:20px 0; text-align:center; color:var(--muted); font-size:.9rem">
       <div class="social-links">
         <a href="https://x.com/Neuroinnowacje" target="_blank" rel="noopener" aria-label="Profil NCNI na platformie X">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-f7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
         </a>
-        <a href="https://youtube.com/@Neuroinnowacje" target="_blank" rel="noopener" aria-label="Kanał NCNI na YouTube">YT</a>
+        <a href="https://youtube.com/@Neuroinnowacje" target="_blank" rel="noopener" aria-label="Kanał NCNI na YouTube">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.411 0 5.822 0 12s.488 8.589 4.385 8.816c3.6.245 11.626.246 15.23 0C23.512 20.589 24 18.178 24 12s-.488-8.589-4.385-8.816ZM9.545 15.568V8.432L15.818 12l-6.273 3.568Z"/></svg>
+        </a>
       </div>
       © <span id="year"></span> NCNI. Wszelkie prawa zastrzeżone. <span class="footer-credit" style="opacity: 0.7;">Designed & built by Karol Kiszło</span>
     </div>
