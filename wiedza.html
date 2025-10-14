@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wiedza • NCNI</title>
+  <meta name="description" content="Publikacje, artykuły i materiały edukacyjne NCNI. VR/AI, biofeedback, neuroregeneracja, dieta neuroprotekcyjna." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { margin:0; font-family:Inter,sans-serif; background:#0b1120; color:#e6ecff; line-height:1.6 }
+    a { color:#7aa2ff; text-decoration:none }
+    header { background:#101727; padding:12px 0; position:sticky; top:0; z-index:10; }
+    .wrap { width:min(1100px,90%); margin:auto }
+    .nav { display:flex; justify-content:space-between; align-items:center; }
+    .brand { font-weight:800; font-size:1.4rem; color:#fff; }
+    .nav a { color:#e6ecff; margin-left:12px; font-weight:600 }
+    .hero { padding:60px 0 30px; text-align:center; background:linear-gradient(180deg,#101727,#0b1120) }
+    .hero h1 { font-size:2.4rem; font-weight:900; margin-bottom:10px }
+    .hero p { color:#9fb0d8; max-width:70ch; margin:auto }
+    .tabs { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; background:#0f172a; padding:10px; position:sticky; top:64px; z-index:5; border-bottom:1px solid rgba(255,255,255,.1) }
+    .tabs a { padding:8px 16px; border-radius:999px; border:1px solid rgba(255,255,255,.1); color:#e6ecff; font-weight:700 }
+    .tabs a.active { background:linear-gradient(180deg,#7aa2ff,#8a5cff); color:#03121a; border:none }
+    .content { width:min(1000px,90%); margin:40px auto }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px }
+    .card { background:#141b2f; border:1px solid rgba(255,255,255,.08); border-radius:18px; overflow:hidden; }
+    .card img { width:100%; height:180px; object-fit:cover }
+    .pad { padding:16px }
+    h3 { margin:6px 0; font-size:1.2rem; color:#7aa2ff }
+    p.lead { color:#9fb0d8; font-size:.95rem }
+    footer { border-top:1px solid rgba(255,255,255,.08); text-align:center; padding:20px; color:#9fb0d8; font-size:.9rem; margin-top:40px }
+    button#top { position:fixed; bottom:20px; right:20px; width:44px; height:44px; border:none; border-radius:50%; background:#7aa2ff; color:#03121a; font-weight:900; cursor:pointer; display:none }
+    button#top.show { display:block }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a href="index.html" class="brand">NCNI</a>
+      <nav>
+        <a href="index.html">Strona główna</a>
+        <a href="index.html#kontakt">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <h1>Wiedza • NCNI</h1>
+      <p>Publikacje, artykuły, materiały video i raporty badawcze z zakresu VR, AI, biofeedbacku, neuroregeneracji oraz dietetyki klinicznej.</p>
+    </div>
+  </section>
+
+  <nav class="tabs">
+    <a href="#publikacje">Publikacje</a>
+    <a href="#video">Video</a>
+    <a href="#zdjecia">Zdjęcia</a>
+    <a href="#artykuly">Artykuły</a>
+    <a href="#aktualnosci">Aktualności</a>
+  </nav>
+
+  <main class="content">
+    <div id="grid" class="grid"></div>
+  </main>
+
+  <footer>© <span id="year"></span> Naukowe Centrum Neuroinnowacji — Wrocław • kontakt@ncni.pl • +48 600 608 333</footer>
+  <button id="top">↑</button>
+
+  <script>
+    const posts = [
+      {cat:'publikacje', title:'Metoda Kraszewskiego – integracja VR·EEG', lead:'Założenia, protokoły i wyniki pilotażu NCNI.', img:'wiedza-metoda.jpg', url:'#'},
+      {cat:'video', title:'Prezentacja NCNI', lead:'Kim jesteśmy i jak łączymy VR, AI i biofeedback.', img:'wiedza-video.jpg', url:'https://www.youtube.com/@Neuroinnowacje'},
+      {cat:'artykuly', title:'Dieta neuroprotekcyjna', lead:'Polifenole, omega-3, mikrobiom i stres oksydacyjny.', img:'wiedza-dieta.jpg', url:'#'},
+      {cat:'zdjecia', title:'VR-EEG Day', lead:'Kulisy prac badawczych NCNI Tech Lab.', img:'wiedza-galeria.jpg', url:'#'},
+      {cat:'aktualnosci', title:'Nowy protokół HRV-ZeroG', lead:'Połączenie biofeedbacku i zero-gravity dla regulacji układu nerwowego.', img:'wiedza-hrv.jpg', url:'#'}
+    ];
+
+    const grid = document.getElementById('grid');
+    const tabs = document.querySelectorAll('.tabs a');
+    const topBtn = document.getElementById('top');
+
+    function render(cat){
+      grid.innerHTML = posts.filter(p=>!cat||p.cat===cat)
+        .map(p=>`<a href=\"${p.url}\" class=\"card\"><img src=\"${p.img}\" alt=\"\"><div class=\"pad\"><h3>${p.title}</h3><p class=\"lead\">${p.lead}</p></div></a>`).join('');
+      tabs.forEach(t=>t.classList.toggle('active', t.getAttribute('href')==='#'+cat));
+    }
+
+    window.addEventListener('hashchange', ()=>render(location.hash.replace('#','')));
+    document.addEventListener('DOMContentLoaded', ()=>{
+      render(location.hash.replace('#','')||'publikacje');
+      document.getElementById('year').textContent = new Date().getFullYear();
+      window.addEventListener('scroll', ()=> topBtn.classList.toggle('show', window.scrollY>300));
+      topBtn.addEventListener('click', ()=>window.scrollTo({top:0,behavior:'smooth'}));
+    });
+  </script>
+</body>
+</html>
