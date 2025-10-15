@@ -33,7 +33,6 @@
       --muted: #94a3b8;
       --accent: #7aa2ff;
       --accent-2: #8a5cff;
-      /* UPDATED GRADIENT to match screenshot */
       --accent-gradient: linear-gradient(105deg, #a855f7, #38bdf8);
       --link: #93c5fd;
       --focus: #a8c1ff;
@@ -48,7 +47,11 @@
     body {
       margin: 0;
       color: var(--text);
-      background: var(--bg2);
+      background-color: var(--bg2);
+      background-image: url('tlo.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
       font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
@@ -344,37 +347,37 @@
                 <div id="adhd" class="card content-block fade-in" tabindex="-1">
                   <h3>ADHD / ADD</h3>
                   <p>Wsparcie skupienia, regulacja bodźców i impulsów. Programy łączą VR, trening oddechu i biofeedback EEG/HRV. W pracy zespołowej stosujemy „rytmy sprintu”, mikro-przerwy sensoryczne i klarowną strukturę zadań.</p>
-                  <a class="more-link" href="#">Dowiedz się więcej →</a>
+                  <a class="more-link" href="adhd.html">Dowiedz się więcej →</a>
                 </div>
                 <div id="asd" class="card content-block fade-in" tabindex="-1">
                   <h3>Autyzm (ASD)</h3>
                   <p>Projektujemy środowisko sensorycznie przewidywalne, pracę z rytuałami i wspierającą komunikacją. W sesjach używamy spokojnych scen VR, modulacji dźwięku i pracy nad regulacją napięcia.</p>
-                  <a class="more-link" href="#">Dowiedz się więcej →</a>
+                  <a class="more-link" href="asd.html">Dowiedz się więcej →</a>
                 </div>
                 <div id="dysleksja" class="card content-block fade-in" tabindex="-1">
                   <h3>Dysleksja</h3>
                   <p>Strategie kompensacyjne, trening uwagi wzrokowo-słuchowej i budowanie przyjaznego „pipeline’u pracy” z narzędziami AI (czytanie wspomagane, TTS/STS, dyktowanie).</p>
-                  <a class="more-link" href="#">Dowiedz się więcej →</a>
+                  <a class="more-link" href="dysleksja.html">Dowiedz się więcej →</a>
                 </div>
                 <div id="dyskalkulia" class="card content-block fade-in" tabindex="-1">
                   <h3>Dyskalkulia</h3>
                   <p>Wsparcie rozumienia ilości/relacji, wizualizacje 3D w VR i grywalizowane mikro-ćwiczenia. Budujemy odporność na stres zadaniowy i wzmacniamy poczucie skuteczności.</p>
-                  <a class="more-link" href="#">Dowiedz się więcej →</a>
+                  <a class="more-link" href="dyskalkulia.html">Dowiedz się więcej →</a>
                 </div>
                 <div id="dcd" class="card content-block fade-in" tabindex="-1">
                   <h3>Dysprazja (DCD)</h3>
                   <p>Koordynacja, propriocepcja i bezpieczeństwo ruchowe. Łączymy łagodne sceny VR, biofeedback oddechowy i sekwencje ruchowe w trybie „slow-flow”.</p>
-                  <a class="more-link" href="#">Dowiedz się więcej →</a>
+                  <a class="more-link" href="dcd.html">Dowiedz się więcej →</a>
                 </div>
                 <div id="tourette" class="card content-block fade-in" tabindex="-1">
                   <h3>Tiki / Tourette</h3>
                   <p>Redukcja pobudzenia, reset napięcia i praca z nawykiem reakcji. Stosujemy krótkie protokoły oddechowe oraz scenariusze VR o niskiej stymulacji.</p>
-                  <a class="more-link" href="#">Dowiedz się więcej →</a>
+                  <a class="more-link" href="tourette.html">Dowiedz się więcej →</a>
                 </div>
                 <div id="wysoka-wrazliwosc" class="card content-block fade-in" tabindex="-1">
                   <h3>Wysoka wrażliwość (HSP)</h3>
                   <p>Higiena bodźców, „przestrzenie wytchnienia” i mikro-rytuały regeneracji. Edukujemy zespoły, jak projektować spotkania i komunikację przyjazną HSP.</p>
-                  <a class="more-link" href="#">Dowiedz się więcej →</a>
+                  <a class="more-link" href="hsp.html">Dowiedz się więcej →</a>
                 </div>
                 <div id="metoda-kraszewskiego" class="card content-block fade-in" tabindex="-1" aria-label="Metoda Kraszewskiego">
                   <h3>Metoda Kraszewskiego</h3>
@@ -496,8 +499,8 @@
             if(e.isIntersecting) {
               const id = '#' + e.target.id;
               if (e.intersectionRatio > 0.6) {
-                 history.replaceState(null, '', id);
-                 setActive(id);
+                  history.replaceState(null, '', id);
+                  setActive(id);
               }
             }
           });
