@@ -15,6 +15,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
 
+  <!-- Lightgallery.js for Galleries -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery.min.css" />
+
   <!-- Open Graph / Twitter -->
   <meta name="theme-color" content="#0b1120" />
   <meta property="og:type" content="website" />
@@ -211,12 +214,32 @@
       border-color: rgba(122, 162, 255, 0.3);
       opacity: 1;
     }
-    .article-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-bottom: 1px solid var(--border);
+    .article-card.gallery-card {
+        cursor: pointer;
     }
+    
+    .article-card-image {
+        height: 200px;
+        background-color: var(--bg1);
+        border-bottom: 1px solid var(--border);
+    }
+    .article-card-image > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .thumbnail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      height: 100%;
+    }
+    .thumbnail-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     .article-card-content {
       padding: 20px;
       display: flex;
@@ -323,15 +346,59 @@
   </footer>
 
   <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/lightgallery.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       // --- DATABASE (Easy to update) ---
       const posts = [
-        {cat:'publikacje', title:'Metoda Kraszewskiego – integracja VR·EEG', lead:'Założenia, protokoły i wyniki pilotażu NCNI.', img:'https://placehold.co/600x400/0A0F1F/e2e8f0?text=Publikacja', url:'#'},
-        {cat:'video', title:'Prezentacja NCNI', lead:'Kim jesteśmy i jak łączymy VR, AI i biofeedback.', img:'https://placehold.co/600x400/0A0F1F/e2e8f0?text=Video', url:'https://www.youtube.com/@Neuroinnowacje'},
-        {cat:'artykuly', title:'Dieta neuroprotekcyjna', lead:'Polifenole, omega-3, mikrobiom i stres oksydacyjny.', img:'https://placehold.co/600x400/0A0F1F/e2e8f0?text=Artykuł', url:'#'},
-        {cat:'zdjecia', title:'VR-EEG Day', lead:'Kulisy prac badawczych NCNI Tech Lab.', img:'https://placehold.co/600x400/0A0F1F/e2e8f0?text=Galeria', url:'#'},
-        {cat:'aktualnosci', title:'Nowy protokół HRV-ZeroG', lead:'Połączenie biofeedbacku i zero-gravity dla regulacji układu nerwowego.', img:'https://placehold.co/600x400/0A0F1F/e2e8f0?text=Aktualności', url:'#'}
+        {
+          cat: 'zdjecia', 
+          title: 'Materiały promocyjne NCNI', 
+          lead: 'Oficjalne grafiki i materiały informacyjne.',
+          gallery: [
+            { src: 'stres.png', subHtml: '<h4>Pokonaj stres, ból i zmęczenie</h4><p>Nasza główna misja i oferta.</p>' },
+            { src: 'tlo.jpg', subHtml: '<h4>Tło graficzne NCNI</h4><p>Wizualna identyfikacja naszej marki.</p>' }
+          ]
+        },
+        {
+          cat: 'publikacje', 
+          title: 'Metoda Kraszewskiego – integracja VR·EEG', 
+          lead: 'Założenia, protokoły i wyniki pilotażu NCNI.', 
+          img: 'https://placehold.co/600x400/0A0F1F/e2e8f0?text=Publikacja', 
+          url: '#'
+        },
+        {
+          cat: 'video', 
+          title: 'Prezentacja NCNI', 
+          lead: 'Kim jesteśmy i jak łączymy VR, AI i biofeedback.', 
+          img: 'https://placehold.co/600x400/0A0F1F/e2e8f0?text=Video', 
+          url: 'https://www.youtube.com/@Neuroinnowacje'
+        },
+        {
+          cat: 'artykuly', 
+          title: 'Dieta neuroprotekcyjna', 
+          lead: 'Polifenole, omega-3, mikrobiom i stres oksydacyjny.', 
+          img: 'https://placehold.co/600x400/0A0F1F/e2e8f0?text=Artykuł', 
+          url: '#'
+        },
+        {
+          cat: 'zdjecia', 
+          title: 'VR-EEG Day w NCNI Tech Lab', 
+          lead: 'Kulisy naszych prac badawczych i testów sprzętu.',
+          gallery: [
+            { src: 'https://placehold.co/1200x800/1e293b/ffffff?text=Zdjęcie+1', subHtml: '<h4>Stanowisko badawcze</h4><p>Integracja systemów VR i EEG.</p>' },
+            { src: 'https://placehold.co/1200x800/1e293b/ffffff?text=Zdjęcie+2', subHtml: '<h4>Analiza danych</h4><p>Wizualizacja fal mózgowych w czasie rzeczywistym.</p>' },
+            { src: 'https://placehold.co/1200x800/1e293b/ffffff?text=Zdjęcie+3', subHtml: '<h4>Prof. Kraszewski podczas sesji</h4><p>Kalibracja protokołu biofeedback.</p>' },
+            { src: 'https://placehold.co/1200x800/1e293b/ffffff?text=Zdjęcie+4', subHtml: '<h4>Nowy sprzęt</h4><p>Testy eye-trackingu.</p>' }
+          ]
+        },
+        {
+          cat: 'aktualnosci', 
+          title: 'Nowy protokół HRV-ZeroG', 
+          lead: 'Połączenie biofeedbacku i zero-gravity dla regulacji układu nerwowego.', 
+          img: 'https://placehold.co/600x400/0A0F1F/e2e8f0?text=Aktualności', 
+          url: '#'
+        }
       ];
 
       // --- ELEMENTS ---
@@ -354,21 +421,65 @@
           ? posts
           : posts.filter(p => p.cat === category);
 
-        grid.innerHTML = filteredPosts.map(post => `
-          <a href="${post.url}" target="_blank" rel="noopener" class="article-card fade-in">
-            <img src="${post.img}" alt="Miniatura artykułu: ${post.title}" loading="lazy">
-            <div class="article-card-content">
-              <h3>${post.title}</h3>
-              <p>${post.lead}</p>
-            </div>
-          </a>
-        `).join('');
+        grid.innerHTML = filteredPosts.map((post, index) => {
+          if (post.cat === 'zdjecia' && post.gallery) {
+            const galleryId = `gallery-${index}`;
+            const hiddenLinks = post.gallery.map(img => 
+                `<a href="${img.src}" data-sub-html="${img.subHtml || ''}"></a>`
+            ).join('');
+            
+            const thumbnailImages = post.gallery.slice(0, 4).map(img => 
+                `<img src="${img.src}" alt="Miniatura zdjęcia z galerii ${post.title}" loading="lazy">`
+            ).join('');
+
+            return `
+              <div class="article-card gallery-card fade-in" data-gallery-id="${galleryId}">
+                <div class="article-card-image">
+                  <div class="thumbnail-grid">${thumbnailImages}</div>
+                </div>
+                <div class="article-card-content">
+                  <h3>${post.title}</h3>
+                  <p>${post.lead}</p>
+                </div>
+                <div id="${galleryId}" style="display: none;">${hiddenLinks}</div>
+              </div>
+            `;
+          } else {
+            return `
+              <a href="${post.url}" target="_blank" rel="noopener" class="article-card fade-in">
+                <div class="article-card-image">
+                  <img src="${post.img}" alt="Miniatura artykułu: ${post.title}" loading="lazy">
+                </div>
+                <div class="article-card-content">
+                  <h3>${post.title}</h3>
+                  <p>${post.lead}</p>
+                </div>
+              </a>
+            `;
+          }
+        }).join('');
         
         grid.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
       };
       
       // Animate initial hero content
       document.querySelectorAll('.hero .fade-in').forEach(el => observer.observe(el));
+
+      // --- GALLERY INITIALIZATION ---
+      grid.addEventListener('click', (e) => {
+          const card = e.target.closest('.gallery-card');
+          if (card) {
+              const galleryId = card.dataset.galleryId;
+              const galleryElement = document.getElementById(galleryId);
+              if (galleryElement) {
+                  const lg = lightGallery(galleryElement, {
+                      speed: 500,
+                      download: false
+                  });
+                  lg.openGallery();
+              }
+          }
+      });
 
       // --- TAB FILTERING LOGIC ---
       const handleTabClick = (e) => {
