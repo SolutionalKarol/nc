@@ -24,7 +24,7 @@
 
   <style>
     :root{
-      --bg:#0b1120;         /* tło */
+      --bg:#0b1120;        /* tło */
       --panel:#111827;      /* karty */
       --ink:#e6ecff;        /* tekst jasny */
       --muted:#9fb0d8;      /* tekst pomocniczy */
@@ -35,7 +35,14 @@
       --ok:#34d399;         /* akcent zielony */
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,Arial,sans-serif;line-height:1.6}
+    html,body{margin:0;padding:0;color:var(--ink);font-family:'Inter',system-ui,Arial,sans-serif;line-height:1.6}
+    body {
+      background-color: var(--bg);
+      background-image: url('tlo.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
     a{color:var(--brand);text-decoration:none}
     a:hover{opacity:.9;text-decoration:underline}
     .wrap{max-width:1100px;margin:0 auto;padding:24px}
@@ -51,12 +58,14 @@
     .kicker{color:var(--muted);text-transform:uppercase;letter-spacing:.14em;font-size:12px}
     h1{font-size:40px;line-height:1.15;margin:8px 0 6px}
     .hero p{max-width:820px;color:#cbd5e1}
-    .features{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
-    .feature-item{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:12px;color:#cfe3ff;background:#0f172a;font-weight:600;font-size:14px;}
-    .feature-item svg{width:18px;height:18px;stroke:var(--brand);stroke-width:2;}
-    .feature-item.gold{border:1px solid #2b2b14;background:#17140b;color:#ffe9a6}
+    
+    .features{display:flex;flex-wrap:wrap;gap:16px;margin-top:24px;align-items:center;}
+    .feature-item{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:15px;color:#cfe3ff;}
+    .feature-item svg{width:20px;height:20px;stroke:var(--brand);stroke-width:2.5;}
+    .feature-item.gold{padding:8px 14px;border:1px solid #2b2b14;background:#17140b;color:#ffe9a6;border-radius:12px;}
     .feature-item.gold svg{stroke:var(--gold);}
-    .cta{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:22px}
+    
+    .cta{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:28px}
     .btn{display:inline-block;padding:12px 16px;border-radius:12px;border:1px solid var(--line);background:#0f172a;color:var(--ink);font-weight:600}
     .btn.primary{background-image:linear-gradient(90deg,var(--brand2),var(--brand));border:0}
     .grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:28px}
@@ -73,7 +82,7 @@
     .ok{color:var(--ok);font-weight:700}
   </style>
 
-  <!-- JSON-LD (dla AI/SEO) -->
+  <!-- JSON-LD (skrót pod AI/SEO: MedicalCondition + Article) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -103,107 +112,100 @@
       <a class="back" href="neuroroznorodnosc.html">← Wróć do Neuroróżnorodności</a>
     </header>
 
-    <main>
-      <section class="hero">
-        <div class="kicker">Neuro • Świadomość • Technologia • Elegancja</div>
-        <h1>ADHD — regulacja uwagi i impulsów w NCNI</h1>
-        <p>
-          Pracujemy z ADHD poprzez mierzalną regulację napięcia i uwagi: <strong>VR</strong> (sceny spokojne, symulacje zadań),
-          <strong>biofeedback EEG/HRV</strong>, trening oddechowy i higienę bodźców. Uczymy prostych <em>rytuałów pracy
-          głębokiej</em>, które da się wdrożyć w codzienność w domu, szkole i zespole.
-        </p>
-        <div class="features">
-          <div class="feature-item">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h3l3-9 4 18 3-9h3"/></svg>
-            <span>VR + biofeedback</span>
-          </div>
-          <div class="feature-item">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
-            <span>Rytuały Focus & Flow</span>
-          </div>
-          <div class="feature-item">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-            <span>Higiena bodźców</span>
-          </div>
-          <div class="feature-item gold">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-            <span>Metoda Kraszewskiego</span>
-          </div>
+    <section class="hero">
+      <div class="kicker">Neuro • Świadomość • Technologia • Elegancja</div>
+      <h1>ADHD — regulacja uwagi i impulsów w NCNI</h1>
+      <p>
+        Pracujemy z ADHD poprzez mierzalną regulację napięcia i uwagi: <strong>VR</strong> (sceny spokojne, symulacje zadań),
+        <strong>biofeedback EEG/HRV</strong>, trening oddechowy i higienę bodźców. Uczymy prostych <em>rytuałów pracy
+        głębokiej</em>, które da się wdrożyć w codzienność w domu, szkole i zespole.
+      </p>
+      <div class="features">
+        <div class="feature-item">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 15.5 18 2l-3.5 3.5L12 8l-2.5-2.5L6 2l3.5 3.5L12 8zM2 18l3.5-3.5L8 17l-2.5 2.5L2 22l3.5-3.5L8 17zM22 6l-3.5 3.5L17 7l2.5-2.5L22 2l-3.5 3.5L17 7z"></path></svg>
+          VR + biofeedback
         </div>
-        <div class="cta">
-          <a class="btn primary" href="tel:+48600608333">Zadzwoń: +48 600 608 333</a>
-          <a class="btn" href="mailto:kontakt@ncni.pl">kontakt@ncni.pl</a>
+        <div class="feature-item">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zM12 6v6l4 2"></path></svg>
+          Rytuały Focus & Flow
         </div>
-      </section>
+        <div class="feature-item">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 6.5C14.5 5.5 13 4 12 4s-2.5 1.5-3.5 2.5"/><path d="M18.5 9.5C16.5 7.5 14 6 12 6s-4.5 1.5-6.5 3.5"/><path d="M21.5 12.5c-3.17-3.17-6.5-5-9.5-5s-6.33 1.83-9.5 5"/><path d="M4 19.5c1-1 2.5-2.5 3.5-3.5"/><path d="m8 12-2 2 4 4 2-2"/></svg>
+          Higiena bodźców
+        </div>
+        <div class="feature-item gold">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="m12 1-3.4 3.4c-1.4 1.4-1.4 3.7 0 5.1l7.1 7.1c1.4 1.4 3.7 1.4 5.1 0l3.4-3.4c1.4-1.4 1.4-3.7 0-5.1L17.1 1c-1.4-1.4-3.7-1.4-5.1 0Z"></path><path d="m11 13 2.5-2.5"></path><path d="m5 6 2.5-2.5"></path><path d="m2 15 2.5-2.5"></path><path d="m13 2 2.5-2.5"></path><path d="M2.1 12.9a3.5 3.5 0 0 0 0 4.9l7.1 7.1c1.4 1.4 3.7 1.4 4.9 0l7.1-7.1a3.5 3.5 0 0 0 0-4.9L14.1 2.9a3.5 3.5 0 0 0-4.9 0Z"></path></svg>
+          Metoda Kraszewskiego
+        </div>
+      </div>
+      <div class="cta">
+        <a class="btn primary" href="tel:+48600608333">Zadzwoń: +48 600 608 333</a>
+        <a class="btn" href="mailto:kontakt@ncni.pl">kontakt@ncni.pl</a>
+      </div>
+    </section>
 
-      <section class="grid">
-        <article class="card">
-          <h3>Jak pracujemy z ADHD (skrót)</h3>
-          <ul class="list">
-            <li><strong>Diagnoza funkcjonalna</strong> — krótki wywiad + testy uwagi/impulsów; ustalamy cele i „sytuacje krytyczne”.</li>
-            <li><strong>Protokół VR</strong> — sceny redukujące pobudzenie + scenariusze zadań z kontrolą bodźców.</li>
-            <li><strong>EEG/HRV biofeedback</strong> — uczymy autoregulacji (oddech, rytm serca, fale uwagi).</li>
-            <li><strong>Rytuały dnia</strong> — 3–5 mikro-nawyków: start pracy, przerwa sensoryczna, domknięcie.</li>
-            <li><strong>Transfer do życia</strong> — checklisty, timery, modyfikacja środowiska i komunikacji.</li>
-          </ul>
-        </article>
+    <section class="grid">
+      <article class="card">
+        <h3>Jak pracujemy z ADHD (skrót)</h3>
+        <ul class="list">
+          <li><strong>Diagnoza funkcjonalna</strong> — krótki wywiad + testy uwagi/impulsów; ustalamy cele i „sytuacje krytyczne”.</li>
+          <li><strong>Protokół VR</strong> — sceny redukujące pobudzenie + scenariusze zadań z kontrolą bodźców.</li>
+          <li><strong>EEG/HRV biofeedback</strong> — uczymy autoregulacji (oddech, rytm serca, fale uwagi).</li>
+          <li><strong>Rytuały dnia</strong> — 3–5 mikro-nawyków: start pracy, przerwa sensoryczna, domknięcie.</li>
+          <li><strong>Transfer do życia</strong> — checklisty, timery, modyfikacja środowiska i komunikacji.</li>
+        </ul>
+      </article>
 
-        <aside class="card">
-          <h3>Dla kogo</h3>
-          <p class="muted">Dzieci 8+, młodzież, dorośli; także zespoły w firmach (standardy Focus & Flow).</p>
-          <h3>Efekty, które mierzymy</h3>
-          <ul class="list">
-            <li>czas utrzymania uwagi / liczba przerw przerywających,</li>
-            <li>HRV (regulacja pobudzenia), subiektywne VAS stresu,</li>
-            <li>spadek prokrastynacji / chaosu zadaniowego.</li>
-          </ul>
-          <div class="badge"><span class="ok">●</span> Postęp co 4–6 sesji (mini-raport)</div>
-        </aside>
-      </section>
+      <aside class="card">
+        <h3>Dla kogo</h3>
+        <p class="muted">Dzieci 8+, młodzież, dorośli; także zespoły w firmach (standardy Focus & Flow).</p>
+        <h3>Efekty, które mierzymy</h3>
+        <ul class="list">
+          <li>czas utrzymania uwagi / liczba przerw przerywających,</li>
+          <li>HRV (regulacja pobudzenia), subiektywne VAS stresu,</li>
+          <li>spadek prokrastynacji / chaosu zadaniowego.</li>
+        </ul>
+        <div class="badge"><span class="ok">●</span> Postęp co 4–6 sesji (mini-raport)</div>
+      </aside>
+    </section>
 
-      <section class="grid">
-        <article class="card">
-          <h3>Przebieg programu</h3>
-          <ol class="list">
-            <li><strong>Konsultacja startowa</strong> (60–75 min): cele, mapa bodźców, testy krótkie.</li>
-            <li><strong>Sesje terapeutyczne</strong> (50–60 min): VR + biofeedback + protokoły oddechu.</li>
-            <li><strong>Domowe mikronawyki</strong> (5–10 min/dzień): lista „low-effort, high-impact”.</li>
-            <li><strong>Przegląd i adaptacja</strong> co 4–6 spotkań; raport i rekomendacje.</li>
-          </ol>
-        </article>
+    <section class="grid">
+      <article class="card">
+        <h3>Przebieg programu</h3>
+        <ol class="list">
+          <li><strong>Konsultacja startowa</strong> (60–75 min): cele, mapa bodźców, testy krótkie.</li>
+          <li><strong>Sesje terapeutyczne</strong> (50–60 min): VR + biofeedback + protokoły oddechu.</li>
+          <li><strong>Domowe mikronawyki</strong> (5–10 min/dzień): lista „low-effort, high-impact”.</li>
+          <li><strong>Przegląd i adaptacja</strong> co 4–6 spotkań; raport i rekomendacje.</li>
+        </ol>
+      </article>
 
-        <aside class="card">
-          <h3>Organizacja & lokalizacja</h3>
-          <p>NCNI — Naukowe Centrum Neuro Innowacji<br>
-          ul. Żeromskiego 60/5a, 50-312 Wrocław</p>
-          <div class="contact">
-            <span class="badge">📞 +48 600 608 333</span>
-            <span class="badge">✉️ kontakt@ncni.pl</span>
-          </div>
-          <p class="muted" style="margin-top:10px">Sesje stacjonarnie i wybrane elementy zdalnie (konsultacje, materiały).</p>
-        </aside>
-      </section>
+      <aside class="card">
+        <h3>Organizacja & lokalizacja</h3>
+        <p>NCNI — Naukowe Centrum Neuro Innowacji<br>
+        ul. Żeromskiego 60/5a, 50-312 Wrocław</p>
+        <div class="contact">
+          <span class="badge">📞 +48 600 608 333</span>
+          <span class="badge">✉️ kontakt@ncni.pl</span>
+        </div>
+        <p class="muted" style="margin-top:10px">Sesje stacjonarnie i wybrane elementy zdalnie (konsultacje, materiały).</p>
+      </aside>
+    </section>
 
-      <section class="card faq">
-        <h3>FAQ (krótko)</h3>
-        <h4>Czy VR i biofeedback są bezpieczne?</h4>
-        <p>Tak — korzystamy z protokołów o niskiej intensywności bodźców i monitorujemy reakcje. Dobór scen jest indywidualny.</p>
-        <h4>Ile sesji to sensowny start?</h4>
-        <p>Rekomendujemy <strong>8–12 sesji</strong> z przeglądem po 4–6 spotkaniach. To pozwala ocenić transfer do codzienności.</p>
-        <h4>Czy to zastępuje leczenie?</h4>
-        <p>Nie. To wsparcie niefarmakologiczne i trening samoregulacji, które może działać komplementarnie z innymi formami terapii.</p>
-        <p class="muted">Pełne opracowanie naukowe znajdziesz w zakładce <a href="wiedza.html#adhd">Wiedza → ADHD</a>.</p>
-      </section>
-    </main>
+    <section class="card faq">
+      <h3>FAQ (krótko)</h3>
+      <h4>Czy VR i biofeedback są bezpieczne?</h4>
+      <p>Tak — korzystamy z protokołów o niskiej intensywności bodźców i monitorujemy reakcje. Dobór scen jest indywidualny.</p>
+      <h4>Ile sesji to sensowny start?</h4>
+      <p>Rekomendujemy <strong>8–12 sesji</strong> z przeglądem po 4–6 spotkaniach. To pozwala ocenić transfer do codzienności.</p>
+      <h4>Czy to zastępuje leczenie?</h4>
+      <p>Nie. To wsparcie niefarmakologiczne i trening samoregulacji, które może działać komplementarnie z innymi formami terapii.</p>
+    </section>
 
     <footer>
-      <div class="wrap" style="text-align: center;">
-        © Naukowe Centrum Neuro Innowacji (NCNI) • <span class="muted">Projekt &amp; produkcja: Karol Kiszło</span>
-      </div>
+      <div>© Naukowe Centrum Neuro Innowacji (NCNI) • <span class="muted">Projekt &amp; produkcja: Karol Kiszło</span></div>
     </footer>
   </div>
 </body>
 </html>
-
-
 
