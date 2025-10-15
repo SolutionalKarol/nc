@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wysoka Wrażliwość (HSP) — podejście NCNI: higiena bodźców, regeneracja | NCNI</title>
+  <meta name="description" content="Wsparcie dla osób wysoko wrażliwych (HSP) w NCNI. Uczymy higieny bodźców, wprowadzamy mikro-rytuały regeneracji i projektujemy przyjazne sensorycznie środowiska. Wrocław." />
+  <link rel="canonical" href="https://solutionalkarol.github.io/nc/wysoka-wrazliwosc.html" />
+  <meta name="theme-color" content="#0b1120" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="pl_PL" />
+  <meta property="og:title" content="Wysoka Wrażliwość (HSP) — podejście NCNI: higiena bodźców i regeneracja" />
+  <meta property="og:description" content="Zintegrowane wsparcie dla osób wysoko wrażliwych (HSP): higiena bodźców, mikro-rytuały regeneracji i projektowanie środowiska." />
+  <meta property="og:url" content="https://solutionalkarol.github.io/nc/wysoka-wrazliwosc.html" />
+  <meta property="og:site_name" content="Naukowe Centrum Neuro Innowacji (NCNI)" />
+  <meta property="og:image" content="https://solutionalkarol.github.io/nc/tlo.jpg" />
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b1120;        /* tło */
+      --panel:#111827;      /* karty */
+      --ink:#e6ecff;        /* tekst jasny */
+      --muted:#9fb0d8;      /* tekst pomocniczy */
+      --line:#22304a;       /* obrysy */
+      --brand:#06b6d4;      /* turkus */
+      --brand2:#7c3aed;     /* fiolet do gradientu */
+      --gold:#f2c94c;       /* akcent złoty */
+      --ok:#34d399;         /* akcent zielony */
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;color:var(--ink);font-family:'Inter',system-ui,Arial,sans-serif;line-height:1.6}
+    body {
+      background-color: var(--bg);
+      background-image: url('tlo.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    a{color:var(--brand);text-decoration:none}
+    a:hover{opacity:.9;text-decoration:underline}
+    .wrap{width:min(1100px, 94%);margin:0 auto;padding:24px 0}
+    header.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+    .logo{display:flex;gap:10px;align-items:center}
+    .logo img{height:36px;width:36px;border-radius:12px}
+    .logo b{font-weight:800;letter-spacing:.5px}
+    .back{font-size:14px;color:var(--muted)}
+    .hero{margin-top:12px;padding: clamp(24px, 5vw, 48px);border-radius:20px;background:
+      radial-gradient(1200px 600px at 100% -10%, rgba(124,58,237,.18), transparent 60%),
+      radial-gradient(1000px 600px at -10% 0%, rgba(6,182,212,.14), transparent 55%),
+      var(--panel);}
+    .kicker{color:var(--muted);text-transform:uppercase;letter-spacing:.14em;font-size:12px}
+    h1{font-size:clamp(28px, 5.5vw, 40px);line-height:1.2;margin:8px 0 6px}
+    .hero p{max-width:820px;color:#cbd5e1}
+    
+    .features{display:flex;flex-wrap:wrap;gap:16px;margin-top:24px;align-items:center;}
+    .feature-item{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:15px;color:#cfe3ff;}
+    a.feature-item:hover{text-decoration:none; opacity: .85;}
+    .feature-item svg{width:20px;height:20px;stroke:var(--brand);stroke-width:2.5;}
+    .feature-item.gold{padding:8px 14px;border:1px solid #2b2b14;background:#17140b;color:#ffe9a6;border-radius:12px;}
+    .feature-item.gold svg{stroke:var(--gold);}
+    
+    .cta{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:28px}
+    .btn{display:inline-block;padding:12px 16px;border-radius:12px;border:1px solid var(--line);background:#0f172a;color:var(--ink);font-weight:600}
+    .btn.primary{background-image:linear-gradient(90deg,var(--brand2),var(--brand));border:0}
+    .grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:28px}
+    @media(min-width:900px){.grid{grid-template-columns:1.1fr 1fr}}
+    .card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px}
+    .card h3{margin:0 0 8px}
+    .list{margin:0;padding-left:18px}
+    .list li{margin:6px 0}
+    .muted{color:var(--muted)}
+    .faq h4{margin:16px 0 8px}
+    footer{margin:40px 0 20px;text-align:center;color:var(--muted);font-size:14px}
+    .contact{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+    .badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:#0f172a;color:#cfe3ff}
+    .ok{color:var(--ok);font-weight:700}
+  </style>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Wysoka Wrażliwość (HSP) — podejście NCNI: higiena bodźców, regeneracja",
+    "author": { "@type": "Organization", "name": "Naukowe Centrum Neuro Innowacji (NCNI)" },
+    "about": {
+      "@type": "Thing",
+      "name": "Highly Sensitive Person (HSP)",
+      "alternateName": "Wysoka Wrażliwość"
+    },
+    "publisher": { "@type": "Organization", "name": "NCNI", "url": "https://neuroinnowacje.pl" },
+    "datePublished": "2025-10-15",
+    "dateModified": "2025-10-15",
+    "mainEntityOfPage": {"@type":"WebPage","@id":"https://solutionalkarol.github.io/nc/wysoka-wrazliwosc.html"}
+  }
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="nav">
+      <div class="logo">
+        <img src="logo.png" alt="NCNI logo">
+        <b>NCNI</b>
+      </div>
+      <a class="back" href="neuroroznorodnosc.html">← Wróć do Neuroróżnorodności</a>
+    </header>
+
+    <section class="hero">
+      <div class="kicker">Świadomość • Granice • Regeneracja • Środowisko</div>
+      <h1>Wysoka Wrażliwość (HSP) — ochrona i regeneracja w NCNI</h1>
+      <p>
+        Wspieramy w zarządzaniu energią i ochronie przed przestymulowaniem. Uczymy <strong>higieny bodźców</strong>,
+        wprowadzamy „przestrzenie wytchnienia” i <strong>mikro-rytuały regeneracji</strong>. Edukujemy zespoły, jak
+        projektować spotkania i komunikację przyjazną osobom wysoko wrażliwym.
+      </p>
+      <div class="features">
+        <div class="feature-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          Higiena bodźców
+        </div>
+        <div class="feature-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+          Rytuały regeneracji
+        </div>
+        <div class="feature-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><line x1="10" y1="9" x2="8" y2="9"></line></svg>
+          Projektowanie środowiska
+        </div>
+        <a href="metoda-kraszewskiego.html" class="feature-item gold">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="m12 1-3.4 3.4c-1.4 1.4-1.4 3.7 0 5.1l7.1 7.1c1.4 1.4 3.7 1.4 5.1 0l3.4-3.4c1.4-1.4 1.4-3.7 0-5.1L17.1 1c-1.4-1.4-3.7-1.4-5.1 0Z"></path><path d="m11 13 2.5-2.5"></path><path d="m5 6 2.5-2.5"></path><path d="m2 15 2.5-2.5"></path><path d="m13 2 2.5-2.5"></path><path d="M2.1 12.9a3.5 3.5 0 0 0 0 4.9l7.1 7.1c1.4 1.4 3.7 1.4 4.9 0l7.1-7.1a3.5 3.5 0 0 0 0-4.9L14.1 2.9a3.5 3.5 0 0 0-4.9 0Z"></path></svg>
+          Metoda Kraszewskiego
+        </a>
+      </div>
+      <div class="cta">
+        <a class="btn primary" href="tel:+48600608333">Zadzwoń: +48 600 608 333</a>
+        <a class="btn" href="mailto:kontakt@ncni.pl">kontakt@ncni.pl</a>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h3>Jak wspieramy osoby wysoko wrażliwe (skrót)</h3>
+        <ul class="list">
+          <li><strong>Indywidualna mapa bodźców</strong> — identyfikacja osobistych wyzwalaczy przestymulowania i zasobów regeneracyjnych.</li>
+          <li><strong>Trening przerw sensorycznych</strong> — nauka krótkich, skutecznych technik na "reset" układu nerwowego w ciągu dnia.</li>
+          <li><strong>Projektowanie środowiska</strong> — audyt i optymalizacja otoczenia (dom, biuro) pod kątem hałasu, światła i innych bodźców.</li>
+          <li><strong>Techniki uziemienia (grounding)</strong> — praca z oddechem i ciałem (biofeedback HRV) w celu szybkiego powrotu do równowagi.</li>
+          <li><strong>Asertywność i komunikacja</strong> — wsparcie w komunikowaniu swoich potrzeb i stawianiu granic w relacjach i pracy.</li>
+        </ul>
+      </article>
+
+      <aside class="card">
+        <h3>Dla kogo</h3>
+        <p class="muted">Osoby wysoko wrażliwe (HSP), które czują się przytłoczone i chcą lepiej zarządzać swoją energią. Także dla liderów i zespołów.</p>
+        <h3>Efekty, które mierzymy</h3>
+        <ul class="list">
+          <li>zmniejszenie poczucia przestymulowania i zmęczenia,</li>
+          <li>szybsza i głębsza regeneracja na co dzień,</li>
+          <li>większa świadomość i akceptacja swoich potrzeb,</li>
+          <li>poprawa efektywności i satysfakcji z pracy.</li>
+        </ul>
+        <div class="badge"><span class="ok">●</span> Konkretny plan higieny sensorycznej po 3-4 sesjach</div>
+      </aside>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h3>Przebieg programu</h3>
+        <ol class="list">
+          <li><strong>Konsultacja i psychoedukacja</strong> (60 min): czym jest WWO, mapa bodźców, cele.</li>
+          <li><strong>Sesje treningowe</strong> (50-60 min): techniki regeneracji, praca z biofeedbackiem, planowanie.</li>
+          <li><strong>Wdrożenie mikro-rytuałów</strong>: stworzenie spersonalizowanego banku "resetów sensorycznych".</li>
+          <li><strong>Audyt i projektowanie środowiska</strong>: konsultacje dot. optymalizacji domu/biura.</li>
+        </ol>
+      </article>
+
+      <aside class="card">
+        <h3>Organizacja & lokalizacja</h3>
+        <p>NCNI — Naukowe Centrum Neuro Innowacji<br>
+        ul. Żeromskiego 60/5a, 50-312 Wrocław</p>
+        <div class="contact">
+          <span class="badge">📞 +48 600 608 333</span>
+          <span class="badge">✉️ kontakt@ncni.pl</span>
+        </div>
+        <p class="muted" style="margin-top:10px">Sesje stacjonarne oraz konsultacje i psychoedukacja online.</p>
+      </aside>
+    </section>
+
+    <section class="card faq">
+      <h3>FAQ (krótko)</h3>
+      <h4>Czy wysoka wrażliwość to zaburzenie?</h4>
+      <p>Nie. Jest to neutralna, wrodzona cecha temperamentu, związana z głębszym przetwarzaniem bodźców. Nie jest to choroba, ale może być źródłem wyzwań w świecie nieprzystosowanym do WWO.</p>
+      <h4>Czy to znaczy, że jestem "przewrażliwiony/a"?</h4>
+      <p>Absolutnie nie. Wysoka wrażliwość to nie "nadwrażliwość emocjonalna", ale głębsze przetwarzanie informacji sensorycznych. To często wiąże się z empatią, kreatywnością i sumiennością.</p>
+      <h4>Czy mogę pracować w głośnym biurze (open space)?</h4>
+      <p>Tak, choć wymaga to świadomego zarządzania energią. Uczymy strategii, jak tworzyć swój "kokon sensoryczny" (np. przez słuchawki z redukcją szumu) i planować regularne przerwy regeneracyjne.</p>
+    </section>
+
+    <footer>
+      <div>© Naukowe Centrum Neuro Innowacji (NCNI) • <span class="muted">Projekt & produkcja: Karol Kiszło</span></div>
+    </footer>
+  </div>
+</body>
+</html>
