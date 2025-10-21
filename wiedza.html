@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Wiedza • NCNI</title>
-  <meta name="description" content="Baza wiedzy NCNI. Publikacje, artykuły i materiały edukacyjne z zakresu VR/AI, biofeedbacku, neuroregeneracji i dietetyki neuroprotekcyjnej." />
-  <link rel="canonical" href="https://solutionalkarol.github.io/nc/wiedza.html" />
-  
-  <!-- Preload Background Image -->
+  <title>Wiedza • NCNI — Naukowe Centrum Neuroinnowacji</title>
+  <meta name="description" content="Baza wiedzy NCNI. Artykuły, przewodniki i materiały wideo z zakresu VR/AI, biofeedbacku, HRV, neuroróżnorodności i neuroregeneracji." />
+  <link rel="canonical" href="https://ncni.pl/wiedza.html" />
+
+  <!-- Preload grafiki tła (lokalny plik w repo) -->
   <link rel="preload" href="tlo.jpg" as="image">
 
   <!-- Google Fonts: Inter -->
@@ -15,557 +15,265 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- Lightgallery.js for Galleries -->
+  <!-- LightGallery dla galerii zdjęć -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery.min.css" />
 
-  <!-- Open Graph / Twitter -->
+  <!-- Open Graph / Twitter (produkcyjnie na ncni.pl) -->
   <meta name="theme-color" content="#0b1120" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="pl_PL" />
-  <meta property="og:title" content="Wiedza • NCNI" />
-  <meta property="og:description" content="Baza wiedzy NCNI. Publikacje, artykuły i materiały edukacyjne z zakresu VR/AI, biofeedbacku i neuroregeneracji." />
-  <meta property="og:image" content="https://solutionalkarol.github.io/nc/og-image.jpg" />
-  <meta property="og:url" content="https://solutionalkarol.github.io/nc/wiedza.html" />
+  <meta property="og:title" content="Wiedza • NCNI — Naukowe Centrum Neuroinnowacji" />
+  <meta property="og:description" content="Artykuły i przewodniki NCNI: neuroróżnorodność, VR/AI, biofeedback, HRV." />
+  <meta property="og:image" content="https://ncni.pl/og-image.jpg" />
+  <meta property="og:url" content="https://ncni.pl/wiedza.html" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <style>
-    /* --- UNIFIED NCNI STYLES --- */
-    :root {
-      --bg1: #0A0F1F;
-      --bg2: #101727;
-      --card: rgba(22, 29, 47, 0.6);
-      --border: rgba(255, 255, 255, 0.1);
-      --text: #e2e8f0;
-      --muted: #94a3b8;
-      --accent: #7aa2ff;
-      --accent-2: #8a5cff;
-      --accent-gradient: linear-gradient(105deg, #a855f7, #38bdf8);
-      --link: #93c5fd;
-      --focus: #a8c1ff;
-      --radius: 18px;
-      --shadow: 0 10px 30px rgba(0, 0, 0, .2);
-    }
+    :root{ --bg1:#0A0F1F; --bg2:#101727; --card:rgba(22,29,47,.6); --border:rgba(255,255,255,.1); --text:#e2e8f0; --muted:#94a3b8; --accent:#7aa2ff; --accent-2:#8a5cff; --accent-gradient:linear-gradient(105deg,#a855f7,#38bdf8); --link:#93c5fd; --focus:#a8c1ff; --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.2);} 
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0; color:var(--text); background:var(--bg2); font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale}
+    body.nav-open{overflow:hidden}
+    a{color:var(--link); text-decoration:none}
+    a:hover{opacity:.9}
+    a:focus-visible,.btn:focus-visible{outline:3px solid var(--focus); outline-offset:2px; border-radius:999px}
+    img{max-width:100%; height:auto}
+    .wrap{width:min(1120px,92%); margin-inline:auto}
+    .skip-link{position:absolute; left:-9999px}
+    .skip-link:focus{left:16px; top:16px; padding:10px 14px; background:#fff; color:#0b1120; border-radius:10px; z-index:1000}
 
-    * { box-sizing: border-box }
-    html { scroll-behavior: smooth }
-    
-    body {
-      margin: 0;
-      color: var(--text);
-      background: var(--bg2);
-      font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-    body.nav-open {
-      overflow: hidden;
-    }
-    a { color: var(--link); text-decoration: none }
-    a:hover { opacity: .9 }
-    a:focus-visible, .btn:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 999px; }
+    /* Header / Nav */
+    .site-header{position:fixed; top:0; inset-inline:0; z-index:1000; padding:12px 0; transition:background .3s, box-shadow .3s}
+    .site-header.scrolled{background:rgba(16,23,39,.8); backdrop-filter:blur(10px); box-shadow:0 4px 30px rgba(0,0,0,.1); border-bottom:1px solid var(--border)}
+    .site-header .wrap{display:flex; justify-content:space-between; align-items:center}
+    .nav-brand{font-weight:800; font-size:1.5rem; color:var(--text)}
+    .main-nav{display:flex; gap:clamp(10px,2.6vw,24px)}
+    .main-nav a{font-size:clamp(.9rem,2vw,1rem); font-weight:700; color:var(--text); padding:8px 12px; border-radius:8px; transition:.25s}
+    .main-nav a:hover,.main-nav a.active{background:rgba(255,255,255,.1); opacity:1}
+    .mobile-menu-toggle{display:none; background:transparent; border:none; padding:8px; cursor:pointer; z-index:1001}
+    .mobile-menu-toggle span{display:block; width:24px; height:2px; background:var(--text); margin:5px 0; transition:.3s}
 
-    .wrap { width: min(1120px, 92%); margin-inline: auto }
-    .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden }
-    .skip-link:focus { left: 16px; top: 16px; width: auto; height: auto; padding: 10px 14px; background: #fff; color: #0b1120; border-radius: 10px; z-index: 1000 }
+    /* Hero */
+    .hero{display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; min-height:70vh; padding:80px 0 40px; background:
+      radial-gradient(1200px 600px at 20% -10%, rgba(138,92,255,.18), transparent 60%),
+      radial-gradient(1200px 600px at 80% 110%, rgba(122,162,255,.15), transparent 60%),
+      linear-gradient(180deg, rgba(10,15,31,.85), rgba(16,23,39,.95)),
+      url('tlo.jpg') center/cover no-repeat}
+    .hero img{width:clamp(80px,15vw,120px); height:auto; margin-bottom:20px}
+    .hero h1{font-size:clamp(2.2rem,5.2vw,3.6rem); font-weight:900; margin:0 0 18px; text-shadow:0 4px 20px rgba(0,0,0,.3)}
+    .lead{font-size:1.1rem; max-width:75ch; margin:0 auto 24px; color:var(--muted)}
 
-    /* --- NAVIGATION SYSTEM --- */
-    .site-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      padding: 12px 0;
-      transition: background-color 0.3s ease-out, box-shadow 0.3s ease-out;
-    }
-    .site-header.scrolled {
-      background-color: rgba(16, 23, 39, 0.8);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 30px rgba(0,0,0,0.1);
-      border-bottom: 1px solid var(--border);
-    }
-    .site-header .wrap {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .nav-brand {
-      font-weight: 800;
-      font-size: 1.5rem;
-      color: var(--text);
-    }
-    .main-nav {
-      display: flex;
-      gap: clamp(10px, 2.6vw, 24px);
-    }
-    .main-nav a {
-      font-size: clamp(0.9rem, 2vw, 1rem);
-      font-weight: 700;
-      color: var(--text);
-      padding: 8px 12px;
-      border-radius: 8px;
-      transition: all .25s ease;
-    }
-    .main-nav a:hover, .main-nav a.active {
-      background: rgba(255, 255, 255, .1);
-      opacity: 1;
-    }
-    .mobile-menu-toggle {
-      display: none;
-      background: transparent;
-      border: none;
-      padding: 8px;
-      cursor: pointer;
-      z-index: 1001;
-    }
-    .mobile-menu-toggle span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--text);
-      margin: 5px 0;
-      transition: all 0.3s ease;
-    }
-    
-    /* --- HERO SECTION (UNIFIED) --- */
-    .hero {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      min-height: 70vh;
-      padding: 80px 0 40px;
-      background:
-        radial-gradient(1200px 600px at 20% -10%, rgba(138, 92, 255, .18), transparent 60%),
-        radial-gradient(1200px 600px at 80% 110%, rgba(122, 162, 255, .15), transparent 60%),
-        linear-gradient(180deg, rgba(10, 15, 31, .85), rgba(16, 23, 39, .95)),
-        url('tlo.jpg');
-      background-size: cover;
-      background-position: center;
-    }
-    .hero img { width: clamp(80px, 15vw, 120px); height: auto; margin-bottom: 20px }
-    h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 900; margin: 0 0 18px; text-shadow: 0 4px 20px rgba(0, 0, 0, .3) }
-    .lead { font-size: 1.1rem; max-width: 75ch; margin: 0 auto 24px; color: var(--muted); }
+    /* Tabs & Grid */
+    .tabs-nav{display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin:24px 0; padding:12px; list-style:none; position:sticky; top:72px; z-index:900; background:rgba(16,23,39,.8); backdrop-filter:blur(10px); border-radius:var(--radius); border:1px solid var(--border)}
+    .tab{border:1px solid var(--border); background:rgba(255,255,255,.03); padding:10px 16px; border-radius:999px; font-size:15px; font-weight:700; color:var(--text); transition:.2s; cursor:pointer}
+    .tab:hover{background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.2); transform:translateY(-2px)}
+    .tab.active{background:var(--accent-gradient); color:#fff; border-color:transparent; box-shadow:0 6px 20px rgba(168,85,247,.25)}
 
-    /* --- TABS & GRID --- */
-    .tabs-nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      margin: 24px 0;
-      padding: 12px;
-      list-style: none;
-      position: sticky;
-      top: 68px; /* Height of header */
-      z-index: 900;
-      background: rgba(16, 23, 39, 0.8);
-      backdrop-filter: blur(10px);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-    }
-    .tab {
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, .03);
-      padding: 10px 16px;
-      border-radius: 999px;
-      font-size: 15px;
-      font-weight: 700;
-      text-decoration: none;
-      color: var(--text);
-      transition: all 0.2s ease;
-      cursor: pointer;
-    }
-    .tab:hover {
-      background: rgba(255, 255, 255, .08);
-      border-color: rgba(255, 255, 255, .2);
-      transform: translateY(-2px);
-    }
-    .tab.active {
-      background: var(--accent-gradient);
-      color: #fff;
-      border-color: transparent;
-      box-shadow: 0 6px 20px rgba(168, 85, 247, 0.25);
-    }
-    
-    .articles-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
-      margin-top: 40px;
-      padding-bottom: 60px;
-    }
-    .article-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      text-decoration: none;
-      color: var(--text);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: transform .3s, box-shadow .3s, border-color .3s;
-    }
-    .article-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, .3);
-      border-color: rgba(122, 162, 255, 0.3);
-      opacity: 1;
-    }
-    .article-card.gallery-card {
-        cursor: pointer;
-    }
-    
-    .article-card-image {
-        height: 200px;
-        background-color: var(--bg1);
-        border-bottom: 1px solid var(--border);
-    }
-    .article-card-image > img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-    .thumbnail-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2px;
-      height: 100%;
-    }
-    .thumbnail-grid img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    .articles-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:24px; margin-top:40px; padding-bottom:60px}
+    .article-card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); color:var(--text); text-decoration:none; overflow:hidden; display:flex; flex-direction:column; transition:transform .3s, box-shadow .3s, border-color .3s}
+    .article-card:hover{transform:translateY(-5px); box-shadow:0 15px 35px rgba(0,0,0,.3); border-color:rgba(122,162,255,.3)}
+    .article-card-image{height:200px; background-color:var(--bg1); border-bottom:1px solid var(--border)}
+    .article-card-image img{width:100%; height:100%; object-fit:cover}
+    .thumbnail-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:2px; height:100%}
+    .thumbnail-grid img{width:100%; height:100%; object-fit:cover}
+    .article-card-content{padding:20px; display:flex; flex-direction:column; flex-grow:1}
+    .article-card h3{font-size:1.2rem; margin:0 0 8px}
+    .article-card p{margin:0; color:var(--muted); flex-grow:1}
 
-    .article-card-content {
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-    .article-card h3 {
-      font-size: 1.25rem;
-      margin: 0 0 8px;
-      color: var(--text);
-    }
-    .article-card p {
-      margin: 0;
-      color: var(--muted);
-      flex-grow: 1;
-    }
+    /* UX dodatki */
+    .fade-in{opacity:0; transform:translateY(20px); transition:opacity .6s, transform .6s}
+    .fade-in.is-visible{opacity:1; transform:translateY(0)}
+    .back-to-top{position:fixed; bottom:20px; right:20px; background:var(--accent); color:#0b1220; width:44px; height:44px; border-radius:50%; border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:100; opacity:0; transform:translateY(100px); transition:opacity .3s, transform .3s; box-shadow:var(--shadow)}
+    .back-to-top.visible{opacity:1; transform:translateY(0)}
 
-    /* --- PREMIUM UPGRADES --- */
-    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
-    .fade-in.is-visible { opacity: 1; transform: translateY(0); }
-    .back-to-top { 
-      position: fixed; bottom: 20px; right: 20px; background: var(--accent); color: var(--bg1); width: 44px; height: 44px; border-radius: 50%; border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 100; opacity: 0; transform: translateY(100px); transition: all 0.3s ease; box-shadow: var(--shadow);
+    /* Mobile nav */
+    @media (max-width:979px){
+      .mobile-menu-toggle{display:block}
+      .main-nav{position:fixed; top:0; right:-100%; width:min(400px,80vw); height:100vh; flex-direction:column; justify-content:center; align-items:center; gap:24px; background:var(--bg1); box-shadow:-10px 0 30px rgba(0,0,0,.2); transition:right .4s cubic-bezier(.23,1,.32,1)}
+      .main-nav.is-open{right:0}
+      .mobile-menu-toggle.is-active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+      .mobile-menu-toggle.is-active span:nth-child(2){opacity:0}
+      .mobile-menu-toggle.is-active span:nth-child(3){transform:rotate(-45deg) translate(7px,-6px)}
     }
-    .back-to-top:hover {
-      background-color: var(--accent-2); transform: translateY(-3px); box-shadow: 0 10px 25px rgba(138, 92, 255, 0.3);
-    }
-    .back-to-top.visible { opacity: 1; transform: translateY(0); }
-    
-    .cookie { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(11, 18, 32, .9); backdrop-filter: saturate(120%) blur(10px); color: var(--muted); padding: 16px 0; z-index: 100; border-top: 1px solid rgba(255, 255, 255, .08); transform: translateY(120%); opacity: 0; transition: .4s; visibility: hidden }
-    .cookie.show { transform: translateY(0); opacity: 1; visibility: visible }
-    
-    .footer-credit { opacity: .9 }
-    .social-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; }
-
-    /* --- RESPONSIVE & MOBILE --- */
-    @media (max-width: 979px) {
-      .mobile-menu-toggle { display: block; }
-      .main-nav {
-        position: fixed; top: 0; right: -100%; width: min(400px, 80vw); height: 100vh; flex-direction: column; justify-content: center; align-items: center; gap: 24px; background: var(--bg1); box-shadow: -10px 0 30px rgba(0,0,0,0.2); transition: right 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-      }
-      .main-nav.is-open { right: 0; }
-      .mobile-menu-toggle.is-active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-      .mobile-menu-toggle.is-active span:nth-child(2) { opacity: 0; }
-      .mobile-menu-toggle.is-active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
-    }
-    @media (max-width: 720px) { .cookie .wrap { flex-direction: column; align-items: flex-start; text-align: center } .cookie p { margin-bottom: 12px } }
   </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Przejdź do treści głównej</a>
 
-  <!-- UNIFIED NAVIGATION -->
   <header id="site-header" class="site-header">
     <div class="wrap">
-      <a href="index.html" class="nav-brand" title="Przejdź do strony głównej">NCNI</a>
-      <nav id="main-nav" class="main-nav">
+      <a href="index.html" class="nav-brand" aria-label="Powrót na stronę główną">NCNI</a>
+      <nav id="main-nav" class="main-nav" aria-label="Główne menu">
         <a href="index.html#sciezki">Ścieżki Neuro</a>
         <a href="index.html#oferta">Oferta</a>
         <a href="neuroroznorodnosc.html">Neuroróżnorodność</a>
-        <a href="wiedza.html" class="active">Wiedza</a>
+        <a href="wiedza.html" class="active" aria-current="page">Wiedza</a>
         <a href="index.html#onas">O nas</a>
         <a href="index.html#zespol">Zespół</a>
         <a href="index.html#kontakt">Kontakt</a>
       </nav>
-      <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Menu" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+      <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero">
-        <div class="wrap">
-            <img src="logo.png" alt="Logo NCNI" class="fade-in" />
-            <h1 class="fade-in">Baza Wiedzy NCNI</h1>
-            <p class="lead fade-in">Publikacje, artykuły, materiały video i raporty badawcze z zakresu VR, AI, biofeedbacku, neuroregeneracji oraz dietetyki klinicznej.</p>
-        </div>
+    <section class="hero" aria-label="Wiedza NCNI">
+      <div class="wrap">
+        <img src="logo.png" alt="Logo NCNI" class="fade-in" />
+        <h1 class="fade-in">Baza Wiedzy NCNI</h1>
+        <p class="lead fade-in">Artykuły, przewodniki i materiały wideo: neuroróżnorodność, VR/AI, biofeedback, HRV i neuroregeneracja.</p>
+      </div>
     </section>
 
     <div class="wrap">
-        <nav class="tabs-nav fade-in" aria-label="Filtruj bazę wiedzy">
-            <a href="#wszystkie" class="tab" data-category="wszystkie">Wszystkie</a>
-            <a href="#publikacje" class="tab" data-category="publikacje">Publikacje</a>
-            <a href="#video" class="tab" data-category="video">Video</a>
-            <a href="#zdjecia" class="tab" data-category="zdjecia">Zdjęcia</a>
-            <a href="#artykuly" class="tab" data-category="artykuly">Artykuły</a>
-            <a href="#aktualnosci" class="tab" data-category="aktualnosci">Aktualności</a>
-        </nav>
+      <nav class="tabs-nav fade-in" aria-label="Filtruj bazę wiedzy">
+        <a href="#wszystkie" class="tab" data-category="wszystkie">Wszystkie</a>
+        <a href="#publikacje" class="tab" data-category="publikacje">Publikacje</a>
+        <a href="#video" class="tab" data-category="video">Video</a>
+        <a href="#zdjecia" class="tab" data-category="zdjecia">Zdjęcia</a>
+        <a href="#artykuly" class="tab" data-category="artykuly">Artykuły</a>
+        <a href="#aktualnosci" class="tab" data-category="aktualnosci">Aktualności</a>
+      </nav>
 
-        <div id="articles-grid" class="articles-grid">
-            <!-- Content will be injected by JavaScript -->
-        </div>
+      <div id="articles-grid" class="articles-grid" aria-live="polite"></div>
     </div>
   </main>
-  
-  <button class="back-to-top" aria-label="Wróć na górę strony" title="Wróć na górę"><i data-lucide="arrow-up" aria-hidden="true"></i></button>
 
-  <div id="cookie" class="cookie" role="region" aria-label="Baner cookies" aria-live="polite">
-  </div>
+  <button class="back-to-top" aria-label="Wróć na górę strony" title="Wróć na górę">↑</button>
 
-  <footer id="footer">
+  <footer>
+    <div class="wrap" style="padding:20px 0; text-align:center; color:var(--muted); font-size:.9rem">
+      <div class="social-links" aria-label="Linki społecznościowe" style="display:flex; justify-content:center; gap:24px; margin-bottom:16px">
+        <a href="https://x.com/Neuroinnowacje" target="_blank" rel="noopener" aria-label="Profil NCNI na platformie X">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" role="img" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+        </a>
+        <a href="https://youtube.com/@Neuroinnowacje" target="_blank" rel="noopener" aria-label="Kanał NCNI na YouTube">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" role="img" aria-hidden="true"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.411 0 5.822 0 12s.488 8.589 4.385 8.816c3.6.245 11.626.246 15.23 0C23.512 20.589 24 18.178 24 12s-.488-8.589-4.385-8.816ZM9.545 15.568V8.432L15.818 12l-6.273 3.568Z"/></svg>
+        </a>
+      </div>
+      © <span id="year"></span> NCNI. Wszelkie prawa zastrzeżone. <span class="footer-credit" style="opacity:.7">Designed &amp; built by Karol Kiszło</span>
+    </div>
   </footer>
 
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/lightgallery.min.js"></script>
+  <!-- CDN skrypty z defer (nie blokują renderu) -->
+  <script defer src="https://unpkg.com/lucide@latest"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/lightgallery.min.js"></script>
+
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // --- DATABASE (Easy to update) ---
-      const posts = [
-        {
-          cat: 'zdjecia', 
-          title: 'Materiały promocyjne NCNI', 
-          lead: 'Oficjalne grafiki i materiały informacyjne.',
-          gallery: [
-            { src: 'stres.png', subHtml: '<h4>Pokonaj stres, ból i zmęczenie</h4><p>Nasza główna misja i oferta.</p>' },
-            { src: 'tlo.jpg', subHtml: '<h4>Tło graficzne NCNI</h4><p>Wizualna identyfikacja naszej marki.</p>' }
-          ]
-        },
-        {
-          cat: 'publikacje', 
-          title: 'Metoda Kraszewskiego – integracja VR·EEG', 
-          lead: 'Założenia, protokoły i wyniki pilotażu NCNI.', 
-          img: 'https://placehold.co/600x400/0A0F1F/e2e8f0?text=Publikacja', 
-          url: '#'
-        },
-        {
-          cat: 'video', 
-          title: 'Prezentacja NCNI', 
-          lead: 'Kim jesteśmy i jak łączymy VR, AI i biofeedback.', 
-          img: 'https://placehold.co/600x400/0A0F1F/e2e8f0?text=Video', 
-          url: 'https://www.youtube.com/@Neuroinnowacje'
-        },
-        {
-          cat: 'artykuly', 
-          title: 'Dieta neuroprotekcyjna', 
-          lead: 'Polifenole, omega-3, mikrobiom i stres oksydacyjny.', 
-          img: 'https://placehold.co/600x400/0A0F1F/e2e8f0?text=Artykuł', 
-          url: '#'
-        },
-        {
-          cat: 'zdjecia', 
-          title: 'VR-EEG Day w NCNI Tech Lab', 
-          lead: 'Kulisy naszych prac badawczych i testów sprzętu.',
-          gallery: [
-            { src: 'https://placehold.co/1200x800/1e293b/ffffff?text=Zdjęcie+1', subHtml: '<h4>Stanowisko badawcze</h4><p>Integracja systemów VR i EEG.</p>' },
-            { src: 'https://placehold.co/1200x800/1e293b/ffffff?text=Zdjęcie+2', subHtml: '<h4>Analiza danych</h4><p>Wizualizacja fal mózgowych w czasie rzeczywistym.</p>' },
-            { src: 'https://placehold.co/1200x800/1e293b/ffffff?text=Zdjęcie+3', subHtml: '<h4>Prof. Kraszewski podczas sesji</h4><p>Kalibracja protokołu biofeedback.</p>' },
-            { src: 'https://placehold.co/1200x800/1e293b/ffffff?text=Zdjęcie+4', subHtml: '<h4>Nowy sprzęt</h4><p>Testy eye-trackingu.</p>' }
-          ]
-        },
-        {
-          cat: 'aktualnosci', 
-          title: 'Nowy protokół HRV-ZeroG', 
-          lead: 'Połączenie biofeedbacku i zero-gravity dla regulacji układu nerwowego.', 
-          img: 'https://placehold.co/600x400/0A0F1F/e2e8f0?text=Aktualności', 
-          url: '#'
-        }
-      ];
+  document.addEventListener('DOMContentLoaded', () => {
+    // Baza postów (tylko działające zasoby lokalne i bez 404)
+    const posts = [
+      {
+        cat:'zdjecia', title:'Materiały NCNI — identyfikacja', lead:'Oficjalne grafiki i tło marki.',
+        gallery:[
+          {src:'tlo.jpg', subHtml:'<h4>Identyfikacja NCNI</h4><p>Gradient + tło marki.</p>'},
+          {src:'logo.png', subHtml:'<h4>Logo NCNI</h4><p>Wersja podstawowa.</p>'}
+        ]
+      },
+      {cat:'publikacje', title:'Metoda Kraszewskiego (zarys)', lead:'Założenia, protokoły i metryki NCNI.', img:'tlo.jpg', url:'metoda-kraszewskiego.html'},
+      {cat:'video', title:'Prezentacja NCNI', lead:'Kim jesteśmy i jak łączymy VR/AI z biofeedbackiem.', img:'tlo.jpg', url:'https://www.youtube.com/@Neuroinnowacje'},
+      {cat:'artykuly', title:'Dieta neuroprotekcyjna — skrót', lead:'Polifenole, omega‑3, mikrobiom, stres oksydacyjny.', img:'tlo.jpg', url:'#'},
+      {cat:'aktualnosci', title:'Nowy protokół HRV‑ZeroG', lead:'Połączenie biofeedbacku i zero‑gravity.', img:'tlo.jpg', url:'#'}
+    ];
 
-      // --- ELEMENTS ---
-      const grid = document.getElementById('articles-grid');
-      const tabs = document.querySelectorAll('.tab');
-      const siteHeader = document.getElementById('site-header');
+    const grid = document.getElementById('articles-grid');
+    const tabs = document.querySelectorAll('.tab');
+    const header = document.getElementById('site-header');
 
-      // --- OBSERVER FOR ANIMATIONS ---
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-          }
-        });
-      }, { threshold: 0.1 });
+    // Animacje on-scroll
+    const io = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target);} }),{threshold:.1});
+    document.querySelectorAll('.fade-in').forEach(el=>io.observe(el));
 
-      // --- RENDER FUNCTION ---
-      const renderPosts = (category) => {
-        const filteredPosts = (category === 'wszystkie' || !category)
-          ? posts
-          : posts.filter(p => p.cat === category);
-
-        grid.innerHTML = filteredPosts.map((post, index) => {
-          if (post.cat === 'zdjecia' && post.gallery) {
-            const galleryId = `gallery-${index}`;
-            const hiddenLinks = post.gallery.map(img => 
-                `<a href="${img.src}" data-sub-html="${img.subHtml || ''}"></a>`
-            ).join('');
-            
-            const thumbnailImages = post.gallery.slice(0, 4).map(img => 
-                `<img src="${img.src}" alt="Miniatura zdjęcia z galerii ${post.title}" loading="lazy">`
-            ).join('');
-
-            return `
-              <div class="article-card gallery-card fade-in" data-gallery-id="${galleryId}">
-                <div class="article-card-image">
-                  <div class="thumbnail-grid">${thumbnailImages}</div>
-                </div>
-                <div class="article-card-content">
-                  <h3>${post.title}</h3>
-                  <p>${post.lead}</p>
-                </div>
-                <div id="${galleryId}" style="display: none;">${hiddenLinks}</div>
-              </div>
-            `;
-          } else {
-            return `
-              <a href="${post.url}" target="_blank" rel="noopener" class="article-card fade-in">
-                <div class="article-card-image">
-                  <img src="${post.img}" alt="Miniatura artykułu: ${post.title}" loading="lazy">
-                </div>
-                <div class="article-card-content">
-                  <h3>${post.title}</h3>
-                  <p>${post.lead}</p>
-                </div>
-              </a>
-            `;
-          }
-        }).join('');
-        
-        grid.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-      };
-      
-      // Animate initial hero content
-      document.querySelectorAll('.hero .fade-in').forEach(el => observer.observe(el));
-
-      // --- GALLERY INITIALIZATION ---
-      grid.addEventListener('click', (e) => {
-          const card = e.target.closest('.gallery-card');
-          if (card) {
-              const galleryId = card.dataset.galleryId;
-              const galleryElement = document.getElementById(galleryId);
-              if (galleryElement) {
-                  const lg = lightGallery(galleryElement, {
-                      speed: 500,
-                      download: false
-                  });
-                  lg.openGallery();
-              }
-          }
-      });
-
-      // --- TAB FILTERING LOGIC ---
-      const handleTabClick = (e) => {
-        e.preventDefault();
-        const category = e.currentTarget.dataset.category;
-        
-        tabs.forEach(t => t.classList.remove('active'));
-        e.currentTarget.classList.add('active');
-        
-        history.pushState(null, '', `#${category}`);
-        renderPosts(category);
-      };
-
-      tabs.forEach(tab => tab.addEventListener('click', handleTabClick));
-
-      // --- INITIAL LOAD ---
-      const currentCategory = location.hash.replace('#', '') || 'wszystkie';
-      const activeTab = document.querySelector(`.tab[data-category="${currentCategory}"]`) || document.querySelector('.tab[data-category="wszystkie"]');
-      if(activeTab) activeTab.classList.add('active');
-      renderPosts(currentCategory);
-
-      // --- STANDARD SCRIPTS (Header, Back-to-Top, Mobile Menu, etc.) ---
-      if (siteHeader) {
-        window.addEventListener('scroll', () => {
-          siteHeader.classList.toggle('scrolled', window.scrollY > 50);
-        });
-      }
-      
-      const backToTopButton = document.querySelector('.back-to-top');
-      if (backToTopButton) {
-          window.addEventListener('scroll', () => {
-            backToTopButton.classList.toggle('visible', window.scrollY > 300);
-          });
-          backToTopButton.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-      }
-
-      const toggleButton = document.getElementById('mobile-menu-toggle');
-      const mainNav = document.getElementById('main-nav');
-      if (toggleButton && mainNav) {
-        const toggleMenu = () => {
-            mainNav.classList.toggle('is-open');
-            toggleButton.classList.toggle('is-active');
-            document.body.classList.toggle('nav-open');
-            toggleButton.setAttribute('aria-expanded', mainNav.classList.contains('is-open'));
-        };
-        toggleButton.addEventListener('click', (e) => { e.stopPropagation(); toggleMenu(); });
-        document.addEventListener('click', (e) => {
-            if (mainNav.classList.contains('is-open') && !mainNav.contains(e.target) && !toggleButton.contains(e.target)) toggleMenu();
-        });
-      }
-      
-      // --- DYNAMIC FOOTER & COOKIE BANNER ---
-      document.getElementById('footer').innerHTML = `
-        <div class="wrap" style="padding:20px 0; text-align:center; color:var(--muted); font-size:.9rem">
-          <div class="social-links">
-            <a href="https://x.com/Neuroinnowacje" target="_blank" rel="noopener" aria-label="Profil NCNI na platformie X">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
-            </a>
-            <a href="https://youtube.com/@Neuroinnowacje" target="_blank" rel="noopener" aria-label="Kanał NCNI na YouTube"><i data-lucide="youtube"></i></a>
-          </div>
-          © <span id="year">${new Date().getFullYear()}</span> NCNI. Wszelkie prawa zastrzeżone. <span class="footer-credit">Designed & built by Karol Kiszło</span>
+    function cardGalleryMarkup(post, index){
+      const gid = `gallery-${index}`;
+      const hidden = post.gallery.map(i=>`<a href="${i.src}" data-sub-html='${i.subHtml||''}'></a>`).join('');
+      const thumbs = post.gallery.slice(0,4).map(i=>`<img src="${i.src}" alt="Miniatura: ${post.title}" loading="lazy">`).join('');
+      return `
+        <div class="article-card fade-in" data-gallery-id="${gid}">
+          <div class="article-card-image"><div class="thumbnail-grid">${thumbs}</div></div>
+          <div class="article-card-content"><h3>${post.title}</h3><p>${post.lead}</p></div>
+          <div id="${gid}" style="display:none">${hidden}</div>
         </div>`;
-      
-      const cookieContainer = document.getElementById('cookie');
-      cookieContainer.innerHTML = `
-        <div class="wrap" style="display: flex; justify-content: space-between; align-items: center; gap: 16px;">
-          <p style="margin:0;">Ta strona używa plików cookie. <a href="#">Dowiedz się więcej</a>.</p>
-          <div>
-            <button id="cookie-decline" class="btn" type="button" style="margin-right: 8px;">Odrzuć</button>
-            <button id="cookie-accept" class="btn" type="button">Akceptuję</button>
-          </div>
-        </div>`;
-      
-      const bar = cookieContainer;
-      const acc = document.getElementById('cookie-accept');
-      const dec = document.getElementById('cookie-decline');
-      if (bar && acc && dec) {
-        setTimeout(() => { if (!localStorage.getItem('cookieConsent')) bar.classList.add('show'); }, 400);
-        const closeBanner = (c) => { localStorage.setItem('cookieConsent', c); bar.classList.remove('show'); };
-        acc.addEventListener('click', () => closeBanner('accepted'));
-        dec.addEventListener('click', () => closeBanner('declined'));
-      }
-        
-       lucide.createIcons();
+    }
+
+    function cardLinkMarkup(post){
+      return `
+        <a href="${post.url}" class="article-card fade-in" ${post.url.startsWith('http') ? 'target="_blank" rel="noopener"' : ''}>
+          <div class="article-card-image"><img src="${post.img}" alt="Miniatura: ${post.title}" loading="lazy"></div>
+          <div class="article-card-content"><h3>${post.title}</h3><p>${post.lead}</p></div>
+        </a>`;
+    }
+
+    function render(category){
+      const list = (!category || category==='wszystkie') ? posts : posts.filter(p=>p.cat===category);
+      grid.innerHTML = list.map((p,i)=> p.gallery ? cardGalleryMarkup(p,i) : cardLinkMarkup(p)).join('');
+      grid.querySelectorAll('.fade-in').forEach(el=>io.observe(el));
+    }
+
+    // Galeria (delegacja zdarzeń)
+    grid.addEventListener('click', e=>{
+      const card = e.target.closest('[data-gallery-id]');
+      if(!card) return;
+      const gid = card.getAttribute('data-gallery-id');
+      const el = document.getElementById(gid);
+      if(el){ const lg = lightGallery(el, {speed:500, download:false}); lg.openGallery(); }
     });
+
+    // Karty (filtry)
+    function onTab(e){ e.preventDefault();
+      tabs.forEach(t=>t.classList.remove('active'));
+      e.currentTarget.classList.add('active');
+      const cat = e.currentTarget.dataset.category; history.pushState(null,'',`#${cat}`); render(cat);
+    }
+    tabs.forEach(t=>t.addEventListener('click', onTab));
+
+    // Inicjalizacja
+    const current = location.hash.replace('#','') || 'wszystkie';
+    (document.querySelector(`.tab[data-category="${current}"]`) || document.querySelector('.tab[data-category="wszystkie"]').classList).add('active');
+    render(current);
+
+    // Header style on scroll
+    window.addEventListener('scroll', ()=> header.classList.toggle('scrolled', window.scrollY > 50));
+
+    // Back to top
+    const toTop = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', ()=> toTop.classList.toggle('visible', window.scrollY > 300));
+    toTop.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+
+    // Mobile menu
+    const toggleBtn = document.getElementById('mobile-menu-toggle');
+    const mainNav = document.getElementById('main-nav');
+    const toggleMenu = ()=>{ mainNav.classList.toggle('is-open'); toggleBtn.classList.toggle('is-active'); document.body.classList.toggle('nav-open'); toggleBtn.setAttribute('aria-expanded', mainNav.classList.contains('is-open')); };
+    toggleBtn.addEventListener('click', e=>{ e.stopPropagation(); toggleMenu(); });
+    document.addEventListener('click', e=>{ if(mainNav.classList.contains('is-open') && !mainNav.contains(e.target) && !toggleBtn.contains(e.target)) toggleMenu(); });
+
+    // Rok w stopce
+    document.getElementById('year').textContent = new Date().getFullYear();
+  });
+  </script>
+
+  <!-- Dane strukturalne: CollectionPage + ItemList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Wiedza NCNI",
+    "url": "https://ncni.pl/wiedza.html",
+    "about": ["ADHD","ASD","Dysleksja","Dyskalkulia","DCD","Tourette","Wysoka wrażliwość","VR","AI","Biofeedback","HRV"],
+    "hasPart": {"@type":"ItemList","itemListElement":[
+      {"@type":"ListItem","position":1,"url":"https://ncni.pl/adhd.html"},
+      {"@type":"ListItem","position":2,"url":"https://ncni.pl/asd.html"},
+      {"@type":"ListItem","position":3,"url":"https://ncni.pl/dysleksja.html"},
+      {"@type":"ListItem","position":4,"url":"https://ncni.pl/dyskalkulia.html"},
+      {"@type":"ListItem","position":5,"url":"https://ncni.pl/dcd.html"},
+      {"@type":"ListItem","position":6,"url":"https://ncni.pl/tourette.html"},
+      {"@type":"ListItem","position":7,"url":"https://ncni.pl/wysoka-wrazliwosc.html"},
+      {"@type":"ListItem","position":8,"url":"https://ncni.pl/metoda-kraszewskiego.html"},
+      {"@type":"ListItem","position":9,"url":"https://ncni.pl/neuroroznorodnosc.html"}
+    ]}
+  }
   </script>
 </body>
 </html>
-
