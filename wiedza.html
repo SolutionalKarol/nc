@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Wiedza • NCNI — Naukowe Centrum Neuroinnowacji</title>
-  <meta name="description" content="Baza wiedzy NCNI. Artykuły, przewodniki i materiały wideo z zakresu VR/AI, biofeedbacku, HRV, neuroróżnorodności i neuroregeneracji." />
-  <link rel="canonical" href="https://ncni.pl/wiedza.html" />
+  <title>Publikacje • Wiedza NCNI — Naukowe Centrum Neuroinnowacji</title>
+  <meta name="description" content="Publikacje naukowe, raporty i artykuły merytoryczne NCNI." />
+  <link rel="canonical" href="https://ncni.pl/wiedza-publikacje.html" />
 
     <link rel="preload" href="tlo.jpg" as="image">
 
@@ -16,10 +16,10 @@
     <meta name="theme-color" content="#0b1120" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="pl_PL" />
-  <meta property="og:title" content="Wiedza • NCNI — Naukowe Centrum Neuroinnowacji" />
-  <meta property="og:description" content="Artykuły i przewodniki NCNI: neuroróżnorodność, VR/AI, biofeedback, HRV." />
+  <meta property="og:title" content="Publikacje • Wiedza NCNI" />
+  <meta property="og:description" content="Publikacje naukowe, raporty i artykuły merytoryczne NCNI." />
   <meta property="og:image" content="https://ncni.pl/og-image.jpg" />
-  <meta property="og:url" content="https://ncni.pl/wiedza.html" />
+  <meta property="og:url" content="https://ncni.pl/wiedza-publikacje.html" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <style>
@@ -57,22 +57,19 @@
     .hero h1{font-size:clamp(2.2rem,5.2vw,3.6rem); font-weight:900; margin:0 0 18px; text-shadow:0 4px 20px rgba(0,0,0,.3)}
     .lead{font-size:1.1rem; max-width:75ch; margin:0 auto 24px; color:var(--muted)}
 
-    /* Tabs & Grid (Tabs usunięte, ale styl dla grid zostaje) */
-    .tabs-nav{display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin:24px 0; padding:12px; list-style:none; position:sticky; top:72px; z-index:900; background:rgba(16,23,39,.8); backdrop-filter:blur(10px); border-radius:var(--radius); border:1px solid var(--border)}
-    .tab{border:1px solid var(--border); background:rgba(255,255,255,.03); padding:10px 16px; border-radius:999px; font-size:15px; font-weight:700; color:var(--text); transition:.2s; cursor:pointer}
-    .tab:hover{background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.2); transform:translateY(-2px)}
-    .tab.active{background:var(--accent-gradient); color:#fff; border-color:transparent; box-shadow:0 6px 20px rgba(168,85,247,.25)}
-
+    /* Grid (styl dla zakładek usunięty) */
     .articles-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:24px; margin-top:40px; padding-bottom:60px}
     .article-card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); color:var(--text); text-decoration:none; overflow:hidden; display:flex; flex-direction:column; transition:transform .3s, box-shadow .3s, border-color .3s}
     .article-card:hover{transform:translateY(-5px); box-shadow:0 15px 35px rgba(0,0,0,.3); border-color:rgba(122,162,255,.3)}
     .article-card-image{height:200px; background-color:var(--bg1); border-bottom:1px solid var(--border)}
     .article-card-image img{width:100%; height:100%; object-fit:cover}
-    .thumbnail-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:2px; height:100%}
-    .thumbnail-grid img{width:100%; height:100%; object-fit:cover}
     .article-card-content{padding:20px; display:flex; flex-direction:column; flex-grow:1}
     .article-card h3{font-size:1.2rem; margin:0 0 8px}
     .article-card p{margin:0; color:var(--muted); flex-grow:1}
+    .article-card .icon-placeholder {
+      display: flex; align-items: center; justify-content: center; height: 100%;
+      background-color: var(--bg1);
+    }
 
     /* UX dodatki */
     .fade-in{opacity:0; transform:translateY(20px); transition:opacity .6s, transform .6s}
@@ -113,11 +110,11 @@
   </header>
 
   <main id="main">
-    <section class="hero" aria-label="Wiedza NCNI">
+    <section class="hero" aria-label="Publikacje NCNI">
       <div class="wrap">
         <img src="logo.png" alt="Logo NCNI" class="fade-in" />
-        <h1 class="fade-in">Baza Wiedzy NCNI</h1>
-        <p class="lead fade-in">Artykuły, przewodniki i materiały wideo: neuroróżnorodność, VR/AI, biofeedback, HRV i neuroregeneracja.</p>
+        <h1 class="fade-in">Publikacje</h1>
+        <p class="lead fade-in">Przeglądaj publikacje naukowe, raporty i artykuły merytoryczne NCNI.</p>
       </div>
     </section>
 
@@ -125,37 +122,29 @@
     
             <div id="articles-grid" class="articles-grid" aria-live="polite">
         
-                <a href="wiedza-publikacje.html" class="article-card fade-in">
-          <div class="article-card-image" style="background-color: var(--bg1); display: flex; align-items: center; justify-content: center; padding: 20px;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg>
+                <a href="sciezka/do/twojego/pliku.pdf" target="_blank" rel="noopener" class="article-card fade-in">
+          <div class="article-card-image">
+            <div class="icon-placeholder">
+              <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);"><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M18 22H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"></path><line x1="16" x2="8" y1="13" y2="13"></line><line x1="16" x2="8" y1="17" y2="17"></line><line x1="10" x2="8" y1="9" y2="9"></line></svg>
+            </div>
           </div>
           <div class="article-card-content">
-            <h3>Publikacje</h3>
-            <p>Przeglądaj publikacje naukowe i materiały merytoryczne NCNI.</p>
-          </div>
-        </a>
-
-                <a href="https://www.youtube.com/@Neuroinnowacje" target="_blank" rel="noopener" class="article-card fade-in" style="border-color: rgba(255,0,0,.3);">
-          <div class="article-card-image" style="background-color:#c4302b;">
-            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Miniatura kanału YouTube" loading="lazy" style="object-fit: contain; padding: 20px;">
-          </div>
-          <div class="article-card-content">
-            <h3>Nasz kanał YouTube</h3>
-            <p>Materiały wideo, prezentacje i nagrania z wydarzeń NCNI.</p>
-          </div>
-        </a>
-
-                <a href="https://x.com/Neuroinnowacje" target="_blank" rel="noopener" class="article-card fade-in" style="border-color: rgba(0,0,0,.3);">
-          <div class="article-card-image" style="background-color:#000;">
-            <img src="https://www.gstatic.com/images/branding/product/2x/twitter_2023_icon_and_wordmark_default_48dp.png" alt="Miniatura profilu X" loading="lazy" style="object-fit: contain; padding: 20px;">
-          </div>
-          <div class="article-card-content">
-            <h3>Śledź nas na X</h3>
-            <p>Najświeższe aktualności, komunikaty i ciekawostki ze świata neuroinnowacji.</p>
+            <h3>Tytuł Przykładowej Publikacji Naukowej</h3>
+            <p>Krótki opis tego, czego dotyczy ta publikacja, kto jest autorem, lub z jakiej konferencji pochodzi. Np. "Raport z badań nad... (2025)".</p>
           </div>
         </a>
         
-      </div>     </div>
+                <a href="link-do-artykulu.html" class="article-card fade-in">
+          <div class="article-card-image">
+            <img src="https://via.placeholder.com/600x400/101727/7aa2ff?text=Obrazek+Publikacji" alt="Okładka raportu" loading="lazy">
+          </div>
+          <div class="article-card-content">
+            <h3>Inny Artykuł lub Raport</h3>
+            <p>Opis kolejnego materiału. Może to być link do artykułu na blogu, innej podstrony lub zewnętrznego źródła.</p>
+          </div>
+        </a>
+
+              </div>     </div>
   </main>
 
   <button class="back-to-top" aria-label="Wróć na górę strony" title="Wróć na górę">↑</button>
@@ -177,23 +166,11 @@
   <script defer src="https://unpkg.com/lucide@latest"></script>
     <script>
   document.addEventListener('DOMContentLoaded', () => {
-    // Brak tablicy 'posts' i dynamicznego renderowania w wiedza.html
     const header = document.getElementById('site-header');
-    // const tabs = document.querySelectorAll('.tabs-nav .tab'); // USUNIĘTE
 
     // Animacje on-scroll
     const io = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target);} }),{threshold:.1});
     document.querySelectorAll('.fade-in').forEach(el=>io.observe(el));
-
-    // Inicjalizacja zakładek - USUNIĘTE
-    /* const currentPath = window.location.pathname.split('/').pop();
-    const activeTab = document.querySelector(`.tabs-nav .tab[href="${currentPath || 'wiedza.html'}"]`);
-    if (activeTab) {
-      tabs.forEach(t => t.classList.remove('active'));
-      activeTab.classList.add('active');
-    } else {
-      document.querySelector('.tabs-nav .tab[href="wiedza.html"]').classList.add('active');
-    } */
 
     // Header style on scroll
     window.addEventListener('scroll', ()=> header.classList.toggle('scrolled', window.scrollY > 50));
@@ -219,20 +196,13 @@
   {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Wiedza NCNI",
-    "url": "https://ncni.pl/wiedza.html",
-    "about": ["ADHD","ASD","Dysleksja","Dyskalkulia","DCD","Tourette","Wysoka wrażliwość","VR","AI","Biofeedback","HRV"],
-    "hasPart": {"@type":"ItemList","itemListElement":[
-      {"@type":"ListItem","position":1,"url":"https://ncni.pl/adhd.html"},
-      {"@type":"ListItem","position":2,"url":"https://ncni.pl/asd.html"},
-      {"@type":"ListItem","position":3,"url":"https://ncni.pl/dysleksja.html"},
-      {"@type":"ListItem","position":4,"url":"https://ncni.pl/dyskalkulia.html"},
-      {"@type":"ListItem","position":5,"url":"https://ncni.pl/dcd.html"},
-      {"@type":"ListItem","position":6,"url":"https://ncni.pl/tourette.html"},
-      {"@type":"ListItem","position":7,"url":"https://ncni.pl/wysoka-wrazliwosc.html"},
-      {"@type":"ListItem","position":8,"url":"https://ncni.pl/metoda-kraszewskiego.html"},
-      {"@type":"ListItem","position":9,"url":"https://ncni.pl/neuroroznorodnosc.html"}
-    ]}
+    "name": "Publikacje NCNI",
+    "url": "https://ncni.pl/wiedza-publikacje.html",
+    "about": ["Publikacje naukowe","Raporty","Neuroinnowacje","Biofeedback","HRV"],
+    "publisher": {
+      "@type": "Organization",
+      "name": "NCNI - Naukowe Centrum Neuroinnowacji"
+    }
   }
   </script>
 </body>
