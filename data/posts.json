@@ -1,0 +1,20 @@
+[
+  {
+    "cat": "aktualnosci",
+    "title": "Nowy protokół HRV-ZeroG",
+    "lead": "Połączenie biofeedbacku HRV i pozycji zero-gravity – start pilotażu.",
+    "img": "tlo.jpg",
+    "url": "https://x.com/Neuroinnowacje",
+    "datePublished": "2025-11-04",
+    "tags": ["HRV","ZeroG","pilotaż"]
+  },
+  {
+    "cat": "aktualnosci",
+    "title": "Partnerstwo NCNI × PWr",
+    "lead": "Rozpoczynamy prace B+R nad protokołami VR/AI + biofeedback.",
+    "img": "tlo.jpg",
+    "url": "https://x.com/Neuroinnowacje",
+    "datePublished": "2025-11-04",
+    "tags": ["B+R","VR","AI"]
+  }
+]
