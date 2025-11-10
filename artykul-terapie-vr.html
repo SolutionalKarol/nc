@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artykuł: Terapie VR i Neuroróżnorodność | Baza Wiedzy NCNI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* === USTAWIENIA KOLORÓW NCNI === */
+            /* Karol, wklej tutaj swoje główne kolory marki */
+            /* Zmieniłem domyślne na bardziej "premium biotech" - możesz je nadpisać */
+
+            --brand-primary: #0A2540; /* Głębszy granat (zamiast fioletu) */
+            --brand-primary-dark: #061729; /* Ciemniejszy granat */
+            --brand-secondary: #7C3AED; /* Żywy fiolet (jako drugi) */
+            --brand-accent: #00F0FF; /* Cyber-cyjan */
+
+            /* === Stałe kolory === */
+            --white: #FFFFFF;
+            --gray-bg: #F8F9FA;
+            --gray-border: #E5E7EB;
+            --gray-text: #6B7280;
+            --text-dark: #1F2937;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Trebuchet MS', sans-serif;
+            background-color: var(--white);
+            color: var(--text-dark);
+            line-height: 1.7; /* Lepsza czytelność */
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* HEADER */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 40px;
+            background: linear-gradient(135deg, var(--brand-primary-dark) 0%, var(--brand-secondary) 100%);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* NOWY BANNER TYTUŁOWY STRONY - CZYSTSZY */
+        .page-title-banner {
+            background: var(--white); /* Czysta biel */
+            padding: 30px 40px; /* Więcej oddechu */
+            text-align: left;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--gray-border);
+        }
+        .page-title-banner h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--brand-primary-dark);
+        }
+        .page-title-banner p {
+            font-size: 1rem;
+            color: var(--gray-text);
+        }
+
+        /* COPYRIGHT BANNER - PRZENIESIONY DO STOPKI */
+        .copyright-banner {
+            background: rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 20px 40px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .copyright-banner h3 {
+            color: var(--white); /* ZMIANA: z --brand-primary na --white (było niewidoczne) */
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .copyright-banner p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+
+        .copyright-banner strong {
+            color: var(--white);
+        }
+
+        /* MAIN CONTAINER */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            /* Użycie nowych domyślnych kolorów */
+            background: linear-gradient(135deg, rgba(10, 37, 64, 0.08), rgba(0, 240, 255, 0.08));
+            border-radius: 12px;
+            padding: 60px 40px;
+            margin-bottom: 50px;
+            border-left: 6px solid var(--brand-primary);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            color: var(--brand-primary-dark);
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--gray-text);
+            line-height: 1.7;
+            max-width: 800px;
+        }
+
+        /* VR THERAPY INTRO SECTION */
+        .vr-intro {
+            background: var(--white);
+            border: 1px solid var(--gray-border); /* Subtelniejszy border */
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03); /* Subtelny cień */
+        }
+
+        .vr-intro h2 {
+            color: var(--brand-primary-dark);
+            font-size: 2rem;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--brand-primary);
+        }
+
+        .vr-intro .intro-text {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .vr-intro .intro-text p {
+            font-size: 1rem;
+            color: var(--gray-text);
+            line-height: 1.8;
+        }
+
+        .vr-highlight {
+            background: linear-gradient(135deg, rgba(10, 37, 64, 0.1), rgba(0, 240, 255, 0.1));
+            border-left: 4px solid var(--brand-primary);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .vr-highlight h3 {
+            color: var(--brand-primary);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .vr-highlight ul {
+            list-style-position: inside;
+            color: var(--gray-text);
+            line-height: 1.8;
+        }
+
+        .vr-highlight li {
+            margin-bottom: 8px;
+        }
+
+        /* RESEARCH HIGHLIGHTS */
+        .research-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        /* === NOWY "PREMIUM CARD" DESIGN === */
+        /* Stosuje się do wszystkich kart na stronie dla spójności */
+        .research-card,
+        .therapy-card,
+        .why-vr-item,
+        .source-item {
+            background: var(--white);
+            border: 1px solid var(--gray-border);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+                        box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+                        border-color 0.3s ease;
+        }
+
+        .research-card:hover,
+        .therapy-card:hover,
+        .why-vr-item:hover,
+        .source-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+            border-color: var(--brand-primary); /* Podświetlenie krawędzi */
+        }
+        /* ================================== */
+
+        /* STYL DLA NOWYCH IKON SVG */
+        .icon-svg {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 15px;
+            color: var(--brand-primary);
+            stroke-width: 1.5;
+        }
+
+        .research-card .icon {
+            /* Styl dla kontenera ikony, jeśli potrzebny */
+        }
+
+        .research-card h3 {
+            color: var(--brand-primary-dark);
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+        }
+
+        .research-card p {
+            color: var(--gray-text);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .research-card .stat {
+            background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* VR THERAPY APPLICATIONS */
+        .therapy-section {
+            margin-bottom: 50px;
+        }
+
+        .therapy-section h2 {
+            color: var(--brand-primary-dark);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--brand-primary);
+        }
+
+        .therapy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+        
+        .therapy-card {
+            background: var(--white); /* Ujednolicone tło */
+            border-color: var(--gray-border); /* Ujednolicenie */
+        }
+
+        .therapy-card .badge {
+            display: inline-block;
+            background: var(--brand-primary);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        
+        /* POPRAWKA LAYOUTU IKON (FLEXBOX) */
+        .therapy-card .icon-svg-small {
+            width: 32px;
+            height: 32px;
+            color: var(--brand-secondary);
+            stroke-width: 1.5;
+            flex-shrink: 0; /* Zapobiega kurczeniu się ikony */
+            /* Usunięto float i margin-right */
+        }
+
+        .therapy-card h3 {
+            color: var(--brand-secondary);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            display: flex; /* NOWY FLEXBOX */
+            align-items: center; /* Wyrównanie */
+            gap: 12px; /* Odstęp */
+            /* min-height usunięty */
+        }
+
+        .therapy-card p {
+            color: var(--gray-text);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            /* clear: both usunięty */
+        }
+
+        .therapy-card ul {
+            list-style-position: inside;
+            color: var(--gray-text);
+            font-size: 0.9rem;
+        }
+
+        .therapy-card li {
+            margin-bottom: 8px;
+            padding-left: 10px;
+        }
+
+        .therapy-card-effectiveness {
+            color: var(--brand-primary);
+            display: block;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+
+        /* SCIENTIFIC EVIDENCE SECTION */
+        .evidence-section {
+            background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+            color: white;
+            padding: 50px 40px;
+            border-radius: 12px;
+            margin: 50px 0;
+        }
+
+        .evidence-section h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .evidence-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .evidence-box {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 25px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            transition: background 0.3s ease;
+        }
+        .evidence-box:hover {
+             background: rgba(255, 255, 255, 0.2);
+        }
+
+        .evidence-box h3 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .evidence-box p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        /* WHY VR IS UNIQUE */
+        .why-vr {
+            background: var(--gray-bg);
+            padding: 40px;
+            border-radius: 12px;
+            margin: 50px 0;
+        }
+
+        .why-vr h2 {
+            color: var(--brand-primary-dark);
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .why-vr-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .why-vr-item {
+            background: var(--white); /* Ujednolicone */
+            border-left: none; /* Usunięte na rzecz nowego stylu karty */
+            /* border-left: 4px solid var(--brand-primary); */
+        }
+
+        .why-vr-item h3 {
+            color: var(--brand-primary);
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .why-vr-item .icon-svg-small {
+            width: 24px;
+            height: 24px;
+            color: var(--brand-primary);
+            stroke-width: 2;
+            flex-shrink: 0;
+        }
+
+        .why-vr-item p {
+            color: var(--gray-text);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* SOURCES SECTION */
+        .sources-section {
+            background: var(--gray-bg);
+            padding: 40px;
+            border-radius: 12px;
+            margin: 50px 0;
+        }
+
+        .sources-section h2 {
+            color: var(--brand-primary-dark);
+            margin-bottom: 25px;
+        }
+
+        .sources-section p {
+            color: var(--gray-text);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .sources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .source-item {
+            background: white;
+            padding: 15px;
+            /* Usunięte border-left na rzecz ujednoliconego stylu karty */
+        }
+
+        .source-item strong {
+            display: block;
+            color: var(--text-dark);
+        }
+
+        .source-item span {
+            font-size: 0.9rem;
+            color: var(--gray-text);
+        }
+
+        /* Usunięte specyficzne bordery */
+        /* .source-item:nth-child(odd) { ... } */
+        /* .source-item:nth-child(even) { ... } */
+
+
+        /* FOOTER */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 50px 40px;
+            margin-top: 80px;
+        }
+
+        footer .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        footer h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--white); /* ZMIANA: z --brand-primary na --white (było niewidoczne) */
+        }
+
+        footer p,
+        footer a {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        footer a {
+            text-decoration: none;
+            color: var(--brand-secondary); /* ZMIANA: z --brand-primary na --brand-secondary (było niewidoczne) */
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-divider {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 25px;
+            margin-top: 25px;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+            text-align: center;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            header {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .page-title-banner {
+                padding: 20px;
+                text-align: center;
+            }
+            .page-title-banner h2 {
+                font-size: 1.5rem;
+            }
+            .page-title-banner p {
+                font-size: 0.9rem;
+            }
+
+            nav {
+                gap: 15px;
+                font-size: 0.85rem;
+            }
+
+            .hero {
+                padding: 30px 20px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .vr-intro .intro-text {
+                grid-template-columns: 1fr;
+            }
+
+            .therapy-section h2,
+            .why-vr h2,
+            .sources-section h2 {
+                font-size: 1.6rem;
+            }
+
+            .copyright-banner {
+                padding: 20px;
+            }
+        }
+
+        /* SCROLLBAR */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--gray-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--brand-primary);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--brand-primary-dark);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <a href="/" class="logo">
+            <!-- IKONA 🧠 -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M216.8,103.28a71.32,71.32,0,0,0-5.46-24.8,72,72,0,0,0-129.8-24.32,80,80,0,1,0-36.65,107.41,72,72,0,0,0,131.52,47.88,80,80,0,0,0,40.39-106.17Zm-1.63,16.59a72,72,0,0,0-36.27,95.53,8.12,8.12,0,0,0,.61,1.14,72,72,0,0,0-118.41-43,8.12,8.12,0,0,0,.61-1.14,80,80,0,0,0,28.78-100.32,8.12,8.12,0,0,0,.61-1.14,72,72,0,1,0,123.67-46.66,8.12,8.12,0,0,0,.61,1.14A79.44,79.44,0,0,0,215.17,119.87Z"></path></svg>
+            NCNI — Wiedza
+        </a>
+        <nav>
+            <a href="#vr-therapy">Terapie VR</a>
+            <a href="#applications">Zastosowania</a>
+            <a href="#evidence">Badania</a>
+            <a href="#contact">Kontakt</a>
+        </nav>
+    </header>
+
+    <!-- NOWY BANNER Z TYTUŁEM STRONY -->
+    <div class="page-title-banner">
+        <h2>Naukowe Centrum Neuroinnowacji</h2>
+        <p>Baza Wiedzy: Terapie VR i Neuroróżnorodność</p>
+    </div>
+
+    <main class="container">
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <h1>
+                <!-- IKONA 🧠 -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" viewBox="0 0 256 256" style="margin-bottom: -8px; margin-right: 5px; color: var(--brand-primary-dark);"><path d="M216.8,103.28a71.32,71.32,0,0,0-5.46-24.8,72,72,0,0,0-129.8-24.32,80,80,0,1,0-36.65,107.41,72,72,0,0,0,131.52,47.88,80,80,0,0,0,40.39-106.17Zm-1.63,16.59a72,72,0,0,0-36.27,95.53,8.12,8.12,0,0,0,.61,1.14,72,72,0,0,0-118.41-43,8.12,8.12,0,0,0,.61-1.14,80,80,0,0,0,28.78-100.32,8.12,8.12,0,0,0,.61-1.14,72,72,0,1,0,123.67-46.66,8.12,8.12,0,0,0,.61,1.14A79.44,79.44,0,0,0,215.17,119.87Z"></path></svg>
+                Terapie VR i Neuroróżnorodność
+            </h1>
+            <p>
+                Poznaj rewolucyjne aplikacje wirtualnej rzeczywistości w diagnostyce, terapii i rehabilitacji zaburzeń
+                neurodevelopmentowych.
+                Ta sekcja gromadzi wiarygodną wiedzę z uniwersytetów i instytutów badawczych USA oraz świata, pomagając
+                pacjentom,
+                specjalistom i opiekunom zrozumieć potencjał VR w neuromedycynie.
+            </p>
+        </section>
+
+        <!-- VR THERAPY INTRO -->
+        <section class="vr-intro" id="vr-therapy">
+            <h2>Czym Jest Terapia VR i Dlaczego Jest Wyjątkowa?</h2>
+
+            <div class="intro-text">
+                <div>
+                    <h3>Definicja Techniczna</h3>
+                    <p>
+                        Terapia VR (Virtual Reality Therapy) to zaawansowana interwencja psychologiczna, neurologiczna i
+                        rehabilitacyjna,
+                        w której pacjent znajduje się w całkowicie zanurzającym (immersyjnym) otoczeniu wirtualnym.
+                        Specjalnie zaprojektowane
+                        scenariusze interaktywne symulują rzeczywiste sytuacje, pozwalając pacjentowi doświadczać,
+                        ćwiczyć i przezwyciężać
+                        wyzwania w bezpiecznym, kontrolowanym środowisku.
+                    </p>
+                </div>
+                <div>
+                    <h3>Dlaczego Jest Wyjątkowa?</h3>
+                    <p>
+                        W przeciwieństwie do tradycyjnych sesji terapeutycznych, VR oferuje
+                        <strong>multisensoryczną immersję</strong> (wzrok, słuch, czasami dotyk),
+                        <strong>adaptacyjne scenariusze w czasie rzeczywistym</strong> dostosowywane do pacjenta,
+                        <strong>biofeedback</strong> monitorujący stres i pobudzenie,
+                        i <strong>powtarzalność bez ryzyka</strong> — pacjent może wielokrotnie ćwiczyć bez konsekwencji
+                        rzeczywistych.
+                    </p>
+                </div>
+            </div>
+
+            <div class="vr-highlight">
+                <h3>Kluczowe Przewagi VR Nad Tradycyjną Terapią</h3>
+                <ul>
+                    <li>✅ Wyższe Zaangażowanie — średnia sesja 22 min (VR) vs. 7.5 min (aplikacje mobilne)</li>
+                    <li>✅ Personalizacja — scenariusze dostosowywane do indywidualnych fobii, wyzwań i tempa</li>
+                    <li>✅ Bezpieczeństwo — pacjent czuje się bezpiecznie, może uniknąć rzeczywistych konsekwencji</li>
+                    <li>✅ Mierzalność — biofeedback, EEG, HRV śledzą rzeczywisty postęp neurologiczny</li>
+                    <li>✅ Dostępność — scenariusze niedostępne w rzeczywistości (np. pokonanie lęku wysokości bez ryzyka)
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- RESEARCH HIGHLIGHTS -->
+        <section class="therapy-section">
+            <h2>
+                <!-- IKONA 🔬 -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256" style="margin-bottom: -6px; margin-right: 5px;"><path d="M244.49,212.12l-51.37-51.37a88.1,88.1,0,1,0-32.37,32.37l51.37,51.37a24,24,0,0,0,33.94-33.94ZM176,112a64,64,0,1,1-64-64A64.07,64.07,0,0,1,176,112Z"></path></svg>
+                Co Mówią Uniwersytety USA i Instytuty Badawcze?
+            </h2>
+
+            <div class="research-highlights">
+                <div class="research-card">
+                    <div class="icon">
+                        <!-- IKONA 🏫 -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.21,12.27L12,18.5l8.79-6.23a2.68,2.68,0,0,0,.21-4.75L12,2.5,3,7.52a2.68,2.68,0,0,0-.21,4.75Z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21,12v6a2,2,0,0,1-2,2H5a2,2,0,0,1-2-2V12" />
+                        </svg>
+                    </div>
+                    <h3>Harvard University</h3>
+                    <p>Badania pokazują, że terapia VR jest skuteczna w redukcji stresu, lęku i depresji.
+                        5 z 9 badanych populacji wykazało znaczną redukcję objawów psychicznych.</p>
+                    <div class="stat">39.4% redukja lęku</div>
+                </div>
+                <div class="research-card">
+                    <div class="icon">
+                        <!-- IKONA 🌲 -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.21,12.27L12,18.5l8.79-6.23a2.68,2.68,0,0,0,.21-4.75L12,2.5,3,7.52a2.68,2.68,0,0,0-.21,4.75Z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21,12v6a2,2,0,0,1-2,2H5a2,2,0,0,1-2-2V12" />
+                        </svg>
+                    </div>
+                    <h3>Stanford University</h3>
+                    <p>Naukowcy ze Stanford odkryli, że zaangażowanie w behawioralne scenariusze w VR
+                        wykazuje porównywalną skuteczność w leczeniu depresji do tradycyjnych terapii.</p>
+                    <div class="stat">Porównywalna skuteczność</div>
+                </div>
+                <div class="research-card">
+                    <div class="icon">
+                        <!-- IKONA 🧬 -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5,19.5c1.1-1.4,2.8-2.6,4.8-3.3c2-0.7,4.3-0.7,6.3,0c2,0.7,3.7,1.9,4.8,3.3" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5,4.5c-1.1,1.4-2.8,2.6-4.8,3.3c-2,0.7-4.3,0.7-6.3,0c-2-0.7-3.7-1.9-4.8-3.3" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12,2v5" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12,17v5" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12,10.1c1.2,0.4,2.3,1.2,3.2,2.3c0.8,1.1,1.3,2.4,1.3,3.8" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12,13.9c-1.2-0.4-2.3-1.2-3.2-2.3C8,10.5,7.5,9.2,7.5,7.8" />
+                        </svg>
+                    </div>
+                    <h3>NIH — National Institutes</h3>
+                    <p>Meta-analizy pokazują, że interwencje VR osiągają wyższe współczynniki zaangażowania
+                        i niższe liczby rezygnacji w porównaniu z tradycyjnymi metodami.</p>
+                    <div class="stat">Wyższy udział pacjentów</div>
+                </div>
+                <div class="research-card">
+                    <div class="icon">
+                        <!-- IKONA 🎯 -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 12H12.01" />
+                        </svg>
+                    </div>
+                    <h3>University of Kansas</h3>
+                    <p>Zespół KU opracował system terapii VR z EEG w czasie rzeczywistym, pozwalający terapeutom
+                        śledzić aktywność mózgu pacjenta i dostosowywać sesje dynamicznie.</p>
+                    <div class="stat">Neurofeedback na żywo</div>
+                </div>
+                <div class="research-card">
+                    <div class="icon">
+                        <!-- IKONA 💪 -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13,5.1C13,4,13.9,3,15,3h3.5c1.1,0,2.1,0.9,2.1,2v0c0,1.1-0.9,2-2.1,2H17" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17,7H9.5C7,7,5,9,5,11.5V21" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8,21v-5.5c0-1.4,1.1-2.5,2.5-2.5H12" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5,12.5V21" />
+                        </svg>
+                    </div>
+                    <h3>Neurorehabilitacja (Multi-Centre)</h3>
+                    <p>Badania pokazują, że VR w rehabilitacji po udarze mózgu poprawia motorykę górnych kończyn,
+                        równowagę, chód i zakres ruchu bardziej niż tradycyjna rehabilitacja.</p>
+                    <div class="stat">+33% poprawa motoryki</div>
+                </div>
+                <div class="research-card">
+                    <div class="icon">
+                        <!-- IKONA 🧠 -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9,20c-1.1,0-2-0.9-2-2V6c0-1.1,0.9-2,2-2h0c1.1,0,2,0.9,2,2v12C11,19.1,10.1,20,9,20z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15,20c-1.1,0-2-0.9-2-2V6c0-1.1,0.9-2,2-2h0c1.1,0,2,0.9,2,2v12C17,19.1,16.1,20,15,20z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12,18c-1.1,0-2-0.9-2-2V8c0-1.1,0.9-2,2-2h0c1.1,0,2,0.9,2,2v8C14,17.1,13.1,18,12,18z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18,16c-1.1,0-2-0.9-2-2V10c0-1.1,0.9-2,2-2h0c1.1,0,2,0.9,2,2v4C20,15.1,19.1,16,18,16z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6,16c-1.1,0-2-0.9-2-2V10c0-1.1,0.9-2,2-2h0c1.1,0,2,0.9,2,2v4C8,15.1,7.1,16,6,16z" />
+                        </svg>
+                    </div>
+                    <h3>Spektrum Autyzmu (ASD)</h3>
+                    <p>Badania pokazują, że immersyjny trening umiejętności społecznych w VR jest skutecznym podejściem
+                        dla dorosłych z autyzmem, ze znaczną poprawą interakcji społecznych.</p>
+                    <div class="stat">Wysoka akceptowalność</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VR THERAPY APPLICATIONS -->
+        <section class="therapy-section" id="applications">
+            <h2>
+                <!-- IKONA 🎮 -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256" style="margin-bottom: -6px; margin-right: 5px;"><path d="M228,80v96a12,12,0,0,1-12,12H40a12,12,0,0,1-12-12V80A12,12,0,0,1,40,68H216A12,12,0,0,1,228,80Zm-68,48a12,12,0,1,0-12,12A12,12,0,0,0,160,128Zm-52,0a12,12,0,1,0-12,12A12,12,0,0,0,108,128Zm-4-40H80V100h24V88Zm80,12h24V88H184v12Z"></path></svg>
+                Konkretne Zastosowania Terapii VR
+            </h2>
+
+            <div class="therapy-grid">
+                <!-- ANXIETY & PHOBIAS -->
+                <div class="therapy-card">
+                    <span class="badge">Zaburzenia Lękowe</span>
+                    <!-- IKONA PRZENIESIONA DO ŚRODKA H3 -->
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg-small" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 12h1m5 0h1m5 0h1m5 0h1" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.2 15.7c-1.2 1.2-1.2 3.1 0 4.2c1.2 1.2 3.1 1.2 4.2 0" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.5 4.2c-1.2 1.2-1.2 3.1 0 4.2c1.2 1.2 3.1 1.2 4.2 0" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.5 4.2c1.2 1.2 1.2 3.1 0 4.2c-1.2 1.2-3.1 1.2-4.2 0" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.8 15.7c1.2 1.2 1.2 3.1 0 4.2c-1.2 1.2-3.1 1.2-4.2 0" />
+                        </svg>
+                        Terapia Ekspozycyjna (VRET)
+                    </h3>
+                    <p>
+                        Virtual Reality Exposure Therapy (VRET) to złoty standard w leczeniu fobii i zaburzeń
+                        lękowych.
+                    </p>
+                    <ul>
+                        <li><strong>Lęk przed wysokością:</strong> Pacjent stopniowo eksploruje wysokie miejsca w VR</li>
+                        <li><strong>Agorafobia:</strong> Symulacje tłumu, transportu publicznego</li>
+                        <li><strong>Fobia społeczna:</strong> Symulowane prezentacje, rozmowy społeczne</li>
+                        <li><strong>PTSD:</strong> Bezpieczna ekspozycja na sytuacje traumatyczne (np. dla weteranów)
+                        </li>
+                    </ul>
+                    <strong class="therapy-card-effectiveness">Efektywność: Meta-analizy wykazują 39.4% redukcję lęku,
+                        31.3% redukcję stresu</strong>
+                </div>
+
+                <!-- ADHD -->
+                <div class="therapy-card">
+                    <span class="badge">ADHD / ADD</span>
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg-small" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                        Trening Funkcji Wykonawczych
+                    </h3>
+                    <p>
+                        Trening poznawczy oparty na VR dla poprawy uwagi, hamowania i funkcji wykonawczych w ADHD.
+                    </p>
+                    <ul>
+                        <li><strong>Trening Koncentracji:</strong> Gry interaktywne budujące uwagę selektywną</li>
+                        <li><strong>Kontrola Hamowania:</strong> Ćwiczenia zmniejszające impulsywność</li>
+                        <li><strong>Pamięć Robocza:</strong> Zadania wspierające pamięć roboczą</li>
+                        <li><strong>Zarządzanie Czasem:</strong> Symulacje organizacji czasu i planowania</li>
+                    </ul>
+                    <strong class="therapy-card-effectiveness">Efektywność: Porównywalna z farmakoterapią
+                        (metylfenidatem)</strong>
+                </div>
+
+                <!-- AUTISM SOCIAL SKILLS -->
+                <div class="therapy-card">
+                    <span class="badge">Spektrum Autyzmu</span>
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg-small" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.6,15.8c1.1-1.1,1.7-2.5,1.7-4c0-1.5-0.6-2.9-1.7-4c-1.1-1.1-2.5-1.7-4-1.7c-1.5,0-2.9,0.6-4,1.7" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.4,8.2C5.3,9.3,4.7,10.7,4.7,12.2c0,1.5,0.6,2.9,1.7,4c1.1,1.1,2.5,1.7,4,1.7c1.5,0,2.9-0.6,4-1.7" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12,21c-3.1,0-5.9-1.3-7.8-3.5" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12,3c3.1,0,5.9,1.3,7.8,3.5" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.8,17.5c1.4-1.8,2.2-4,2.2-6.4c0-2.4-0.8-4.7-2.2-6.4" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.2,11.1C2.8,9.3,2,7,2,4.6C2,2.2,2.8-0.1,4.2,1.7" />
+                        </svg>
+                        Trening Umiejętności Społecznych
+                    </h3>
+                    <p>
+                        Immersyjna terapia VR do treningu interakcji społecznych, komunikacji i emocji.
+                    </p>
+                    <ul>
+                        <li><strong>Scenariusze Społeczne:</strong> Symulowane sytuacje (kawiarnia, spotkanie)</li>
+                        <li><strong>Rozpoznawanie Emocji:</strong> Nauka emocji na twarzach wirtualnych awatarów</li>
+                        <li><strong>Trening Konwersacji:</strong> Ćwiczenie rozmów z asystentami AI</li>
+                        <li><strong>Rozmowy o Pracę:</strong> Przygotowanie do rozmów kwalifikacyjnych</li>
+                    </ul>
+                    <strong class="therapy-card-effectiveness">Efektywność: Znaczna poprawa interakcji społecznych i
+                        rozpoznawania emocji</strong>
+                </div>
+
+                <!-- NEUROREHABILITATION -->
+                <div class="therapy-card">
+                    <span class="badge">Rehabilitacja Neurologiczna</span>
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg-small" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13,5.1C13,4,13.9,3,15,3h3.5c1.1,0,2.1,0.9,2.1,2v0c0,1.1-0.9,2-2.1,2H17" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17,7H9.5C7,7,5,9,5,11.5V21" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8,21v-5.5c0-1.4,1.1-2.5,2.5-2.5H12" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5,12.5V21" />
+                        </svg>
+                        Terapia Motoryczna (Post-Udar)
+                    </h3>
+                    <p>
+                        Rehabilitacja motoryczna oparta na VR dla odzyskania funkcji ruchu po udarze mózgu i urazach.
+                    </p>
+                    <ul>
+                        <li><strong>Terapia Lustrzana:</strong> Wizualna symulacja ruchów zdrowych kończyn</li>
+                        <li><strong>Trening Zadaniowy:</strong> Ćwiczenia codziennych czynności (ADL)</li>
+                        <li><strong>Równowaga i Chód:</strong> Treningi równowagi w bezpiecznych scenariuszach</li>
+                        <li><strong>Funkcje Kończyn Górnych:</strong> Ćwiczenia dla poprawy motoryki rąk</li>
+                    </ul>
+                    <strong class="therapy-card-effectiveness">Efektywność: +33% poprawa HRV, +23.5% wzrost zaangażowania
+                        kognitywnego</strong>
+                </div>
+
+                <!-- MINDFULNESS & RELAXATION -->
+                <div class="therapy-card">
+                    <span class="badge">Zdrowie Psychiczne</span>
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg-small" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12,12c-2.8,0-5-2.2-5-5s2.2-5,5-5s5,2.2,5,5S14.8,12,12,12z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.7,19.7c-2.4-2.4-5.6-3.8-9-3.8c-3.4,0-6.6,1.4-9,3.8" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.1,14.1c1.2,1.2,2.8,1.9,4.5,1.9c1.7,0,3.3-0.7,4.5-1.9" />
+                        </svg>
+                        Mindfulness i Relaksacja w VR
+                    </h3>
+                    <p>
+                        Immersyjna medytacja i techniki relaksacji w naturalnych, spokojnych scenariuszach VR.
+                    </p>
+                    <ul>
+                        <li><strong>Wirtualne Scenariusze:</strong> Plaża, las dla prowadzonej medytacji</li>
+                        <li><strong>Immersja w Naturze:</strong> Leśne krajobrazy, jeziora, góry</li>
+                        <li><strong>Relaksacja z Biofeedback:</strong> Sprzężenie zwrotne tętna i oddechu</li>
+                        <li><strong>Redukcja Stresu (MBSR):</strong> Programy oparte na Mindfulness-Based Stress Reduction
+                        </li>
+                    </ul>
+                    <strong class="therapy-card-effectiveness">Efektywność: Wyższe zaangażowanie niż tradycyjne aplikacje
+                        mindfulness</strong>
+                </div>
+
+                <!-- PSYCHOSIS & HALLUCINATIONS -->
+                <div class="therapy-card">
+                    <span class="badge">Schizofrenia</span>
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg-small" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9,20c-1.1,0-2-0.9-2-2V6c0-1.1,0.9-2,2-2h0c1.1,0,2,0.9,2,2v12C11,19.1,10.1,20,9,20z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15,20c-1.1,0-2-0.9-2-2V6c0-1.1,0.9-2,2-2h0c1.1,0,2,0.9,2,2v12C17,19.1,16.1,20,15,20z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12,18c-1.1,0-2-0.9-2-2V8c0-1.1,0.9-2,2-2h0c1.1,0,2,0.9,2,2v8C14,17.1,13.1,18,12,18z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18,16c-1.1,0-2-0.9-2-2V10c0-1.1,0.9-2,2-2h0c1.1,0,2,0.9,2,2v4C20,15.1,19.1,16,18,16z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6,16c-1.1,0-2-0.9-2-2V10c0-1.1,0.9-2,2-2h0c1.1,0,2,0.9,2,2v4C8,15.1,7.1,16,6,16z" />
+                        </svg>
+                        Terapia Halucynacji Słuchowych
+                    </h3>
+                    <p>
+                        VR z neurofeedbackiem EEG do leczenia halucynacji słuchowych u pacjentów ze schizofrenią.
+                    </p>
+                    <ul>
+                        <li><strong>Trening Habituacji Słuchowej:</strong> Stopniowa habituacja na halucynacje</li>
+                        <li><strong>Testowanie Rzeczywistości:</strong> Ćwiczenia rozróżniania bodźców</li>
+                        <li><strong>Neurofeedback EEG:</strong> Informacja zwrotna w czasie rzeczywistym</li>
+                        <li><strong>Strategie Radzenia Sobie:</strong> Nauka strategii w symulowanych scenariuszach</li>
+                    </ul>
+                    <strong class="therapy-card-effectiveness">Efektywność: Obiecujące wyniki we wczesnych badaniach
+                        klinicznych</strong>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY VR IS UNIQUE -->
+        <section class="why-vr" id="evidence">
+            <h2>
+                <!-- IKONA 🎯 -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256" style="margin-bottom: -6px; margin-right: 5px;"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm0-120a32,32,0,1,0,32,32A32,32,0,0,0,128,96Z"></path></svg>
+                Dlaczego VR Jest Bardziej Skuteczna Niż Tradycyjne Podejścia?
+            </h2>
+
+            <div class="why-vr-grid">
+                <div class="why-vr-item">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg-small" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.3,4.3c-3.7,3.7-3.7,9.8,0,13.5c3.7,3.7,9.8,3.7,13.5,0c3.7-3.7,3.7-9.8,0-13.5C14.1,0.6,8,0.6,4.3,4.3z" /><path stroke-linecap="round" stroke-linejoin="round" d="M12,12c-1.7,0-3-1.3-3-3c0-1.7,1.3-3,3-3c1.7,0,3,1.3,3,3C15,10.7,13.7,12,12,12z" /><path stroke-linecap="round" stroke-linejoin="round" d="M12,12c2.2,0,4,1.8,4,4c0,2.2-1.8,4-4,4c-2.2,0-4-1.8-4-4C8,13.8,9.8,12,12,12z" /></svg>
+                        1️⃣ Kontrolowana Immersja i Poczucie Obecności (Presence)
+                    </h3>
+                    <p>
+                        Pacjent rzeczywiście <strong>czuje się obecny</strong> w scenariuszu, co aktywuje podobne
+                        odpowiedzi emocjonalne i neuronalne jak rzeczywistość,
+                        ale w całkowicie bezpiecznym, kontrolowanym środowisku.
+                    </p>
+                </div>
+                <div class="why-vr-item">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg-small" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12,2a10,10,0,1,0,0,20a10,10,0,1,0,0-20z" /><path stroke-linecap="round" stroke-linejoin="round" d="M12,16v-4" /><path stroke-linecap="round" stroke-linejoin="round" d="M12,8h.01" /></svg>
+                        2️⃣ Personalizacja i Adaptacja w Czasie Rzeczywistym
+                    </h3>
+                    <p>
+                        Algorytmy AI monitorują pacjenta (biofeedback, ruch) i dynamicznie dostosowują scenariusze.
+                        Zapewnia to <strong>optymalny poziom wyzwania</strong> — nie za łatwo, nie za trudno —
+                        maksymalizując naukę.
+                    </p>
+                </div>
+                <div class="why-vr-item">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg-small" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12,2c-3.9,0-7,3.1-7,7c0,2.2,1,4.2,2.6,5.5C8.9,15.8,12,17.9,12,17.9s3.1-2.1,4.4-3.4C18,13.2,19,11.2,19,9C19,5.1,15.9,2,12,2z" /><path stroke-linecap="round" stroke-linejoin="round" d="M12,9a2,2,0,1,0,0,4a2,2,0,1,0,0-4z" /><path stroke-linecap="round" stroke-linejoin="round" d="M22,19c0,1.1-0.9,2-2,2H4c-1.1,0-2-0.9-2-2" /></svg>
+                        3️⃣ Stymulacja Multisensoryczna
+                    </h3>
+                    <p>
+                        VR angażuje jednocześnie wzrok, słuch i czasami dotyk (haptic feedback). Ta wielopoziomowa
+                        stymulacja sensoryczna
+                        wspomaga <strong>neuroplastyczność</strong> (zdolność mózgu do reorganizacji) i uczenie się.
+                    </p>
+                </div>
+                <div class="why-vr-item">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg-small" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V3H8v8M10 21h4" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 17v4" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 11a4 4 0 0 1 4 4v2H8v-2a4 4 0 0 1 4-4Z" /></svg>
+                        4️⃣ Mierzalny Biofeedback i Dane Neurologiczne
+                    </h3>
+                    <p>
+                        Integracja EEG, HRV, GSR (reakcja skórno-galwaniczna) pozwala na <strong>obiektywny pomiar
+                            postępu</strong> —
+                        nie polegamy tylko na samoocenie pacjenta, ale na twardych danych neuronowych.
+                    </p>
+                </div>
+                <div class="why-vr-item">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg-small" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4" /><path stroke-linecap="round" stroke-linejoin="round" d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9" /><path stroke-linecap="round" stroke-linejoin="round" d="M21 3l-6 6" /></svg>
+                        5️⃣ Większa Adherencja i Niższy Wskaźnik Rezygnacji (Dropout)
+                    </h3>
+                    <p>
+                        Pacjenci są <strong>bardziej zaangażani</strong> w sesje VR (średnio 22 minuty) niż
+                        tradycyjne.
+                        Współczynnik rezygnacji (dropout) z VR wynosi zaledwie 11%, co jest wynikiem niższym niż w
+                        tradycyjnych podejściach.
+                    </p>
+                </div>
+                <div class="why-vr-item">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg-small" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12,2c-3.9,0-7,3.1-7,7c0,5.3,7,13,7,13s7-7.7,7-13C19,5.1,15.9,2,12,2z" /><path stroke-linecap="round" stroke-linejoin="round" d="M12,9c-1.7,0-3,1.3-3,3s1.3,3,3,3s3-1.3,3-3S13.7,9,12,9z" /></svg>
+                        6️⃣ Bezpieczeństwo i Eliminacja Rzeczywistego Ryzyka
+                    </h3>
+                    <p>
+                        Pacjent z fobią wysokości nie musi wspinać się po klifie. Weteran z PTSD nie musi ponownie
+                        doświadczać pola bitwy.
+                        VR pozwala na <strong>kontrolowaną ekspozycję bez rzeczywistego zagrożenia</strong>.
+                    </p>
+                </div>
+                <div class="why-vr-item">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg-small" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12,2c-5.5,0-10,4.5-10,10s4.5,10,10,10s10-4.5,10-10S17.5,2,12,2z" /><path stroke-linecap="round" stroke-linejoin="round" d="M2,12h20" /><path stroke-linecap="round" stroke-linejoin="round" d="M12,2c-1.9,0-3.7,0.8-5,2.1C5.6,6.3,5,9.1,5.6,11.9c0.6,2.8,2.7,5.2,5.5,5.9c2.8,0.7,5.6,0.2,7.9-1.3" /></svg>
+                        7️⃣ Skalowanie i Globalna Dostępność
+                    </h3>
+                    <p>
+                        VR można dostarczać zdalnie — pacjent otrzymuje sesje w domu. To <strong>rozszerza dostęp</strong>
+                        do terapii dla osób z ograniczeniami mobilności,
+                        osób z terenów wiejskich i zmniejsza koszty.
+                    </p>
+                </div>
+                <div class="why-vr-item">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg-small" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12.4,4.6c0,0-1.2-0.8-3-0.8c-1.8,0-3.2,1-3.2,2.7c0,1.7,1.5,2.7,3.2,2.7" /><path stroke-linecap="round" stroke-linejoin="round" d="M11.6,15.4c0,0,1.2,0.8,3,0.8c1.8,0,3.2-1,3.2-2.7c0-1.7-1.5-2.7-3.2-2.7" /><path stroke-linecap="round" stroke-linejoin="round" d="M17.6,9.2c0,0,0.8,1.2,0.8,3c0,1.8-1,3.2-2.7,3.2c-1.7,0-2.7-1.5-2.7-3.2" /><path stroke-linecap="round" stroke-linejoin="round" d="M6.4,14.8c0,0-0.8-1.2-0.8-3c0-1.8,1-3.2,2.7-3.2c1.7,0,2.7,1.5,2.7,3.2" /><path stroke-linecap="round" stroke-linejoin="round" d="M14.8,17.6c0,0,1.2,0.8,3,0.8c1.8,0,3.2-1,3.2-2.7c0-1.7-1.5-2.7-3.2-2.7" /><path stroke-linecap="round" stroke-linejoin="round" d="M9.2,6.4c0,0-0.8-1.2-0.8-3c0-1.8,1-3.2,2.7-3.2c1.7,0,2.7,1.5,2.7,3.2" /></svg>
+                        8️⃣ Neuroplastyczność i Zmiana Struktur Mózgu
+                    </h3>
+                    <p>
+                        Badania MRI pokazują, że regularne sesje VR faktycznie <strong>zmieniają strukturę i funkcję
+                            mózgu</strong> —
+                        umacniają nowe ścieżki neuronowe i poprawiają funkcje wykonawcze.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCIENTIFIC EVIDENCE -->
+        <section class="evidence-section">
+            <h2>
+                <!-- IKONA 📊 -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256" style="margin-bottom: -6px; margin-right: 5px;"><path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32Zm0,176H48V48H208V208ZM104,88a8,8,0,0,1-8,8H80a8,8,0,0,1,0-16h16A8,8,0,0,1,104,88Zm0,40a8,8,0,0,1-8,8H80a8,8,0,0,1,0-16h16A8,8,0,0,1,104,128Zm56,40a8,8,0,0,1-8,8H80a8,8,0,0,1,0-16h64A8,8,0,0,1,160,168Z"></path></svg>
+                Wiarygodne Dane i Statystyki
+            </h2>
+
+            <div class="evidence-grid">
+                <div class="evidence-box">
+                    <h3>Redukcja Lęku (VRET)</h3>
+                    <p><strong>39.4%</strong> średnia redukcja objawów lęku w badaniach randomizowanych.</p>
+                </div>
+                <div class="evidence-box">
+                    <h3>Redukcja Stresu</h3>
+                    <p><strong>31.3%</strong> redukcja poziomu stresu mierzona skalą PSS (Perceived Stress Scale).</p>
+                </div>
+                <div class="evidence-box">
+                    <h3>Poprawa HRV</h3>
+                    <p><strong>+33.3%</strong> poprawa zmienności tętna (wskaźnik zdrowia autonomicznego układu
+                        nerwowego).</p>
+                </div>
+                <div class="evidence-box">
+                    <h3>Zaangażowanie Poznawcze</h3>
+                    <p><strong>+23.5%</strong> wzrost zaangażowania kognitywnego w testach MoCA i CBCL.</p>
+                </div>
+                <div class="evidence-box">
+                    <h3>Adherencja Pacjentów</h3>
+                    <p><strong>11.36%</strong> średni wskaźnik rezygnacji (dropout) — jeden z najniższych.</p>
+                </div>
+                <div class="evidence-box">
+                    <h3>Sesje VR vs Aplikacje</h3>
+                    <p><strong>22 minuty</strong> średnia sesja (VR) vs <strong>7.5 minuty</strong> (mobilne aplikacje).
+                    </p>
+                </div>
+                <div class="evidence-box">
+                    <h3>VR vs Konwencjonalna Rehabilitacja</h3>
+                    <p><strong>86%</strong> pacjentów ICU wolałoby kontynuować VR w przyszłych sesjach fizjoterapii.</p>
+                </div>
+                <div class="evidence-box">
+                    <h3>ADHD — Efekt vs Farmakoterapia</h3>
+                    <p><strong>Porównywalne wyniki</strong> — trening VR osiąga rezultaty zbliżone do
+                        metylfenidatu.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOURCES & ACCREDITATION -->
+        <section class="sources-section">
+            <h2>
+                <!-- IKONA 🔬 -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256" style="margin-bottom: -6px; margin-right: 5px;"><path d="M244.49,212.12l-51.37-51.37a88.1,88.1,0,1,0-32.37,32.37l51.37,51.37a24,24,0,0,0,33.94-33.94ZM176,112a64,64,0,1,1-64-64A64.07,64.07,0,0,1,176,112Z"></path></svg>
+                Źródła Naukowe i Instytucje
+            </h2>
+            <p>
+                Treści na tej stronie pochodzą z następujących renomowanych instytucji, publikacji i baz danych:
+            </p>
+            <div class="sources-grid">
+                <div class="source-item">
+                    <strong>Harvard University</strong><br>
+                    <span>School of Medicine</span>
+                </div>
+                <div class="source-item">
+                    <strong>Stanford University</strong><br>
+                    <span>Department of Psychiatry</span>
+                </div>
+                <div class="source-item">
+                    <strong>NIH — National Institutes of Health</strong><br>
+                    <span>NIMH, NCI, NCBI PubMed</span>
+                </div>
+                <div class="source-item">
+                    <strong>CDC — Centers for Disease Control</strong><br>
+                    <span>Mental Health & Mental Disorders</span>
+                </div>
+                <div class="source-item">
+                    <strong>University of Kansas</strong><br>
+                    <span>Virtual Therapy System Research</span>
+                </div>
+                <div class="source-item">
+                    <strong>Frontiers in Neuroscience</strong><br>
+                    <span>Peer-Reviewed Journal</span>
+                </div>
+                <div class="source-item">
+                    <strong>JMIR — Journal of Medical Internet Research</strong><br>
+                    <span>Digital Health & VR Therapy</span>
+                </div>
+                <div class="source-item">
+                    <strong>ClinicalTrials.gov</strong><br>
+                    <span>National Library of Medicine</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div>
+                <h3>NCNI — Naukowe Centrum Neuroinnowacji</h3>
+                <p>
+                    Pierwsza w Polsce kompleksowa placówka łącząca neurotechnologię, VR, AI i terapie innowacyjne
+                    dla wsparcia osób z zaburzeniami neurodevelopmentalnymi i problemami zdrowia psychicznego.
+                </p>
+            </div>
+            <div>
+                <h3>Adres</h3>
+                <p>
+                    ul. Stefana Żeromskiego 60/5a<br>
+                    50-312 Wrocław<br>
+                    Polska
+                </p>
+            </div>
+            <div>
+                <h3>Kontakt</h3>
+                <p>
+                    📞 +48 600 608 333<br>
+                    📧 <a href="mailto:kontakt@ncni.pl">kontakt@ncni.pl</a><br>
+                    🌐 <a href="https://ncni.pl" target="_blank" rel="noopener noreferrer">www.ncni.pl</a><br>
+                    🌐 <a href="https://www.neuroinnowacje.pl" target="_blank" rel="noopener noreferrer">www.neuroinnowacje.pl</a>
+                </p>
+            </div>
+            <div>
+                <h3>Godziny Otwarcia</h3>
+                <p>
+                    Poniedziałek - Sobota<br>
+                    07:00 - 23:00
+                </p>
+            </div>
+        </div>
+
+        <!-- PRZENIESIONY BANNER Z ZASTRZEŻENIAMI -->
+        <div class="copyright-banner">
+            <h3>
+                <!-- IKONA ⚖️ -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256" style="margin-bottom: -4px; margin-right: 5px;"><path d="M232,208a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V48a8,8,0,0,1,8-8H224a8,8,0,0,1,8,8ZM128,24,32,72v16H224V72Zm0,88a20,20,0,1,0-20-20A20,20,0,0,0,128,112Z"></path></svg>
+                Zastrzeżenie Autorskie i Użytkownika
+            </h3>
+            <p>
+                <strong>© 2025 NCNI — Naukowe Centrum Neuroinnowacji.</strong> Wszystkie treści na tej stronie są
+                <strong>własnością intelektualną NCNI</strong>
+                i podlegają ochronie prawnej. <strong>Cytowanie dozwolone</strong> — prosimy o pełną referencję.
+                <strong>Kopiowanie bez zgody zabronione.</strong> Treści zawarte na tej stronie pochodzą z renomowanych źródeł
+                naukowych
+                (Harvard, Stanford, NIH, CDC, Frontiers in Neuroscience, itp.) i zostały opracowane, zweryfikowane i
+                dostosowane przez zespół NCNI.
+                Wszelkie wykorzystanie musi zawierać informację o autorze oraz źródłach.
+            </p>
+        </div>
+
+        <div class="footer-divider">
+            <p>
+                © 2025 NCNI — Naukowe Centrum Neuroinnowacji. Wszelkie prawa zastrzeżone.
+                Treści pochodzą z wiarygodnych źródeł naukowych (Harvard, Stanford, NIH, CDC, Frontiers).
+                <strong>Cytowanie dozwolone — prosimy o referencję.</strong>
+                Kopiowanie pełnych treści bez zgody zabronione — podlega ochronie praw autorskich.
+                Strona zalecana dla pacjentów, opiekunów, studentów i specjalistów zdrowotnych.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Płynne przewijanie dla linków nawigacyjnych
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Dodawanie prostej animacji wejścia "premium" podczas przewijania
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver(function (entries, obs) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0) scale(1)'; // Animacja do stanu docelowego
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Ustawienie stanu początkowego dla animacji i obserwacja elementów
+        document.querySelectorAll('.therapy-card, .research-card, .why-vr-item, .evidence-box, .source-item').forEach(el => {
+            el.style.opacity = '0';
+            // Stan początkowy: lekko z dołu i mniejszy
+            el.style.transform = 'translateY(20px) scale(0.98)';
+            // NOWA, płynniejsza animacja cubic-bezier
+            el.style.transition = 'opacity 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1)';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
