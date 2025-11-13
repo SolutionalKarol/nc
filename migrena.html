@@ -1,0 +1,844 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>VR na Migrenę i Bóle Głowy • NCNI Neuroinnowacje Wrocław</title>
+  <meta name="description" content="Specjalistyczne sesje VR w leczeniu migreny i bólów głowy w NCNI Wrocław. Programy doraźne, profilaktyczne i z biofeedbackiem." />
+
+  <link rel="canonical" href="https://ncni.pl/migrena.html" />
+  <link rel="icon" href="https://raw.githubusercontent.com/SolutionalKarol/neuroinnowacje/main/logo.png" type="image/png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="VR na Migrenę i Bóle Głowy • NCNI Neuroinnowacje" />
+  <meta property="og:description" content="Innowacyjne sesje VR wspierające leczenie migreny i bólów głowy we Wrocławiu." />
+  <meta property="og:image" content="https://solutionalkarol.github.io/ncni/assets/og_ncni.jpg" />
+
+  <style>
+    :root {
+      --bg1:#0A0F1F; --bg2:#101727;
+      --bg-main: var(--bg2);
+      --bg-section: var(--bg1);
+      --bg-card: rgba(22,29,47,.6);
+      --accent:#7aa2ff;
+      --accent-soft: rgba(122,162,255,.18);
+      --gold:#facc15;
+      --text-main:#e2e8f0;
+      --text-muted:#94a3b8;
+      --border-subtle:rgba(255,255,255,.1);
+      --shadow-soft:0 10px 30px rgba(0,0,0,.2);
+      --radius-xl:18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 55%, #000 100%);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      padding: 32px 16px 48px;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.98));
+      border-radius: 32px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: var(--shadow-soft);
+      padding: 32px 24px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .shell::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(56, 189, 248, 0.08) 0, transparent 55%),
+        radial-gradient(circle at 90% 0%, rgba(234, 179, 8, 0.08) 0, transparent 55%),
+        radial-gradient(circle at 50% 120%, rgba(45, 212, 191, 0.12) 0, transparent 60%);
+      opacity: 0.9;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .shell-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+      gap: 32px;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 4px 10px 4px 4px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 0 0, rgba(45, 212, 191, 0.2), transparent 55%);
+      border: 1px solid rgba(45, 212, 191, 0.4);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+    }
+
+    .eyebrow-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(45, 212, 191, 0.8);
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    h1 {
+      margin: 16px 0 8px;
+      font-size: clamp(26px, 3vw, 32px);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    h1 span {
+      color: var(--accent);
+    }
+
+    .lead {
+      margin: 0 0 12px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-muted);
+      max-width: 520px;
+    }
+
+    .trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 18px;
+      align-items: center;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
+    .trust span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .trust-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.32);
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, border-color 160ms ease, opacity 160ms ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #8a5cff 0%, #38bdf8 100%);
+      color: #ffffff;
+      box-shadow: 0 14px 35px rgba(56, 189, 248, 0.45);
+      border: none;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 42px rgba(56, 189, 248, 0.6);
+      opacity: 0.98;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-main);
+      border-color: rgba(148, 163, 184, 0.6);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 0.9);
+      border-color: rgba(226, 232, 240, 0.9);
+    }
+
+    .btn-primary {
+      background: radial-gradient(circle at 0 0, #22d3ee, #0ea5e9);
+      color: #0b1120;
+      box-shadow: 0 18px 45px rgba(56, 189, 248, 0.45);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 22px 60px rgba(56, 189, 248, 0.6);
+    }
+
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.94);
+      color: var(--text-main);
+      border-color: rgba(148, 163, 184, 0.6);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 0.98);
+      border-color: rgba(226, 232, 240, 0.9);
+    }
+
+    .hero-aside {
+      position: relative;
+      border-radius: 26px;
+      border: 1px solid rgba(148, 163, 184, 0.65);
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.12), transparent 55%),
+                  radial-gradient(circle at 100% 100%, rgba(251, 191, 36, 0.15), transparent 55%),
+                  rgba(15, 23, 42, 0.96);
+      padding: 18px 18px 16px;
+      box-shadow: 0 22px 70px rgba(15, 23, 42, 0.95);
+      overflow: hidden;
+    }
+
+    .hero-aside-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .hero-aside-chip {
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.92);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-aside-main {
+      border-radius: 20px;
+      background: radial-gradient(circle at 10% 0%, rgba(56, 189, 248, 0.24), transparent 60%),
+                  radial-gradient(circle at 90% 100%, rgba(251, 191, 36, 0.18), transparent 70%),
+                  #020617;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      padding: 16px 14px 14px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-aside-main h2 {
+      margin: 0 0 4px;
+      font-size: 15px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-aside-main p {
+      margin: 0 0 10px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .hero-aside-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+
+    .hero-aside-badges span {
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 10px;
+      color: var(--text-muted);
+    }
+
+    .hero-aside-price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-top: 4px;
+    }
+
+    .hero-aside-price {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .hero-aside-price span {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .hero-aside-note {
+      margin-top: 4px;
+      font-size: 10px;
+      color: var(--text-muted);
+    }
+
+    .sessions {
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      font-size: 11px;
+    }
+
+    .session-pill {
+      background: rgba(15, 23, 42, 0.94);
+      border-radius: 14px;
+      padding: 8px 9px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      display: grid;
+      row-gap: 2px;
+    }
+
+    .session-pill-title {
+      font-weight: 600;
+      font-size: 11px;
+    }
+
+    .session-pill-meta {
+      color: var(--text-muted);
+    }
+
+    .session-pill-price {
+      margin-top: 2px;
+      font-size: 11px;
+    }
+
+    .section {
+      margin-top: 32px;
+      border-radius: var(--radius-xl);
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid var(--border-subtle);
+      padding: 20px 18px 18px;
+      backdrop-filter: blur(18px);
+    }
+
+    .section-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .section-kicker {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .section p {
+      margin: 0 0 8px;
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    .section p strong {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .pill-list span {
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 11px;
+      color: var(--text-muted);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .session-cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .session-card {
+      border-radius: 18px;
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.12), transparent 55%),
+                  rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      padding: 14px 12px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 13px;
+    }
+
+    .session-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .session-name {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .session-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .session-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .session-meta span {
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .session-price {
+      margin-top: 4px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .session-price strong {
+      font-size: 16px;
+      color: var(--accent);
+    }
+
+    .session-footer-note {
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .note-box {
+      margin-top: 12px;
+      padding: 10px 11px;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px dashed rgba(148, 163, 184, 0.7);
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .note-box strong {
+      color: var(--text-main);
+    }
+
+    .faq-list {
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .faq-item strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 12px;
+      color: var(--text-main);
+    }
+
+    .footer-bar {
+      margin-top: 18px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(148, 163, 184, 0.45);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .footer-bar small {
+      display: block;
+    }
+
+    .footer-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .footer-cta span {
+      font-size: 11px;
+    }
+
+    @media (max-width: 900px) {
+      header {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-aside {
+        order: -1;
+      }
+
+      .sessions,
+      .session-cards,
+      .faq-list {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .shell {
+        padding: 22px 16px 22px;
+        border-radius: 0;
+      }
+
+      .page {
+        padding: 0 0 28px;
+      }
+
+      .cta-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .btn-primary,
+      .btn-ghost {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <main class="shell">
+      <div class="shell-inner">
+        <header>
+          <div>
+            <div class="eyebrow">
+              <span class="eyebrow-pill">VR</span>
+              Terapia wspierająca leczenie migreny i bólów głowy
+            </div>
+            <h1>
+              VR na <span>Migrenę</span> i Bóle Głowy
+            </h1>
+            <p class="lead">
+              W Naukowym Centrum Neuro Innowacji łączymy neurotechnologie VR, biofeedback i medycynę, aby wspierać pacjentów z migreną i
+              nawracającymi bólami głowy. Sesje projektujemy tak, aby były zgodne z dowodami naukowymi i bezpieczne dla osób z nadwrażliwością sensoryczną.
+            </p>
+            <div class="trust">
+              <span>
+                <span class="trust-dot"></span>
+                Sesje oparte na badaniach nad VR w leczeniu bólu
+              </span>
+              <span>Programy dla migreny epizodycznej i przewlekłej</span>
+              <span>Wrocław • strefa VR NCNI</span>
+            </div>
+            <div class="cta-row">
+              <a href="mailto:kontakt@ncni.pl?subject=Rezerwacja%20-%20VR%20Migrena" class="btn-primary">Umów konsultację wstępną</a>
+              <a href="#sesje" class="btn-ghost">Poznaj sesje i ceny</a>
+            </div>
+          </div>
+
+          <aside class="hero-aside">
+            <div class="hero-aside-header">
+              <span class="hero-aside-chip">Migrena • Bóle głowy</span>
+              <span>NCNI Neuroinnowacje</span>
+            </div>
+            <div class="hero-aside-main">
+              <h2>Pakiet startowy VR Migrena</h2>
+              <p>
+                Konsultacja wstępna + 3 sesje VR dobrane do rodzaju bólu głowy i tolerancji bodźców.
+              </p>
+              <div class="hero-aside-badges">
+                <span>czas trwania: ok. 2–3 tygodnie</span>
+                <span>monitoring nasilenia bólu</span>
+                <span>bezpieczne sceny o niskiej dynamice</span>
+              </div>
+              <div class="hero-aside-price-row">
+                <div class="hero-aside-price">
+                  Pakiet od <span>960 zł</span>
+                </div>
+                <a href="mailto:kontakt@ncni.pl?subject=Pakiet%20startowy%20VR%20Migrena" class="btn-ghost" style="font-size:11px;padding:6px 10px;">Zapytaj o termin</a>
+              </div>
+              <div class="hero-aside-note">
+                Ceny obejmują pracę specjalisty, przygotowanie scen VR oraz krótkie podsumowanie po zakończeniu programu.
+              </div>
+
+              <div class="sessions">
+                <div class="session-pill">
+                  <div class="session-pill-title">VR Migrena – Doraźnie</div>
+                  <div class="session-pill-meta">napad migreny • 20–30 min</div>
+                  <div class="session-pill-price">Cena: 260 zł / sesja</div>
+                </div>
+                <div class="session-pill">
+                  <div class="session-pill-title">VR Migra-Control</div>
+                  <div class="session-pill-meta">profilaktyka • HRV-biofeedback</div>
+                  <div class="session-pill-price">Cena: 320 zł / sesja</div>
+                </div>
+                <div class="session-pill">
+                  <div class="session-pill-title">VR HeadRelax</div>
+                  <div class="session-pill-meta">napięciowe bóle głowy</div>
+                  <div class="session-pill-price">Cena: 320 zł / sesja</div>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </header>
+
+        <section class="section" aria-labelledby="o-programie">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">O programie</div>
+              <h2 id="o-programie" class="section-title">VR jako wsparcie w leczeniu migreny</h2>
+            </div>
+          </div>
+          <div class="grid-2">
+            <div>
+              <p>
+                Migrena i przewlekłe bóle głowy to nie tylko ból – to również nadwrażliwość na światło i dźwięk, lęk przed kolejnym napadem, zmęczenie
+                i ograniczenie codziennego funkcjonowania. W NCNI VR traktujemy jako <strong>narzędzie wspierające</strong> pracę neurologa i psychologa,
+                a nie zamiennik leczenia farmakologicznego.
+              </p>
+              <p>
+                Projektując sesje, opieramy się na badaniach nad VR w leczeniu bólu, programach CBT w VR oraz biofeedbacku (HRV, EMG) stosowanym w migrenie
+                i napięciowych bólach głowy. Sceny są dostosowane do pacjentów z nadwrażliwością sensoryczną – bez migających świateł i zbędnych bodźców.
+              </p>
+            </div>
+            <div>
+              <p>
+                Przed rozpoczęciem programu przeprowadzamy krótką konsultację wstępną, podczas której zbieramy informacje o rodzaju bólu głowy,
+                dotychczasowym leczeniu, przyjmowanych lekach oraz tolerancji bodźców wzrokowych i ruchu. Na tej podstawie dobieramy rodzaj sesji,
+                częstotliwość i czas trwania programu.
+              </p>
+              <div class="pill-list">
+                <span>migrena epizodyczna</span>
+                <span>migrena przewlekła (wsparcie)</span>
+                <span>napięciowe bóle głowy</span>
+                <span>stres i przeciążenie</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="sesje" aria-labelledby="sesje-cennik">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Sesje VR i ceny</div>
+              <h2 id="sesje-cennik" class="section-title">Struktura programu i cennik</h2>
+            </div>
+          </div>
+
+          <div class="session-cards">
+            <article class="session-card">
+              <div class="session-label">Sesja doraźna</div>
+              <div class="session-name">NCNI VR Migrena – Doraźnie</div>
+              <p class="session-desc">
+                Sesja przeznaczona na czas napadu migreny lub silnego bólu głowy. Wykorzystujemy ciemne, spokojne sceny VR o niskiej dynamice oraz
+                elementy relaksacji oddechowej. Sesja może być łączona z leczeniem farmakologicznym zaleconym przez neurologa.
+              </p>
+              <div class="session-meta">
+                <span>czas trwania: 20–30 min</span>
+                <span>dodatkowe wyciszenie w fotelu zero gravity</span>
+                <span>monitorowanie nasilenia bólu (VAS/NRS)</span>
+              </div>
+              <div class="session-price">
+                Cena sesji: <strong>260 zł</strong>
+              </div>
+              <div class="session-footer-note">
+                Rekomendujemy wcześniejszą konsultację, aby ocenić bezpieczeństwo VR przy Twoim typie migreny.
+              </div>
+            </article>
+
+            <article class="session-card">
+              <div class="session-label">Profilaktyka migreny</div>
+              <div class="session-name">NCNI VR Migra-Control</div>
+              <p class="session-desc">
+                Program profilaktyczny ukierunkowany na redukcję stresu, poprawę regulacji autonomicznej i ograniczenie nadużywania leków przeciwbólowych.
+                Wykorzystujemy VR w połączeniu z HRV-biofeedbackiem oraz prostymi protokołami pracy z oddechem i edukacją bólową.
+              </p>
+              <div class="session-meta">
+                <span>czas trwania: 30–40 min</span>
+                <span>HRV-biofeedback + sceny VR</span>
+                <span>program: 8–12 sesji</span>
+              </div>
+              <div class="session-price">
+                Cena sesji: <strong>320 zł</strong>
+              </div>
+              <div class="session-footer-note">
+                Pakiet 8 sesji: <strong>2 400 zł</strong> (oszczędzasz 160 zł). Szczegóły programu omawiamy podczas konsultacji wstępnej.
+              </div>
+            </article>
+
+            <article class="session-card">
+              <div class="session-label">Napięciowe bóle głowy</div>
+              <div class="session-name">NCNI VR HeadRelax</div>
+              <p class="session-desc">
+                Sesje ukierunkowane na napięciowe bóle głowy związane ze stresem i przeciążeniem mięśni karku oraz czoła. Łączymy spokojne sceny VR
+                z treningiem rozluźniania mięśni (EMG-biofeedback) i prostymi technikami relaksacji.
+              </p>
+              <div class="session-meta">
+                <span>czas trwania: 30–40 min</span>
+                <span>EMG-biofeedback + VR</span>
+                <span>program: 8–10 sesji</span>
+              </div>
+              <div class="session-price">
+                Cena sesji: <strong>320 zł</strong>
+              </div>
+              <div class="session-footer-note">
+                Przy bólu napięciowym szczególnie ważna jest regularność. Podczas programu uczymy strategii, które możesz stosować samodzielnie.
+              </div>
+            </article>
+          </div>
+
+          <div class="note-box">
+            <strong>Konsultacja wstępna (obowiązkowa przed pierwszą sesją VR)</strong><br>
+            Czas trwania: ok. 45–60 min • Cena: <strong>350 zł</strong><br>
+            Podczas konsultacji omawiamy historię migreny/bólów głowy, dotychczasowe leczenie, czynniki wyzwalające i przeciwwskazania do VR.
+            W razie potrzeby rekomendujemy konsultację neurologiczną lub psychologiczną przed rozpoczęciem programu.
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="faq">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Bezpieczeństwo i organizacja</div>
+              <h2 id="faq" class="section-title">Najczęstsze pytania</h2>
+            </div>
+          </div>
+
+          <div class="faq-list">
+            <div class="faq-item">
+              <strong>Czy VR może zastąpić wizytę u neurologa?</strong>
+              Sesje VR w NCNI <strong>nie zastępują</strong> diagnostyki i leczenia prowadzonego przez neurologa. Traktujemy VR jako narzędzie wspierające –
+              szczególnie w obszarze regulacji stresu, nauki pracy z bólem i redukcji nadużywania leków przeciwbólowych.
+            </div>
+            <div class="faq-item">
+              <strong>Czy VR jest bezpieczny przy migrenie?</strong>
+              Przed rozpoczęciem programu przeprowadzamy kwalifikację, podczas której pytamy m.in. o padaczkę, silne zaburzenia równowagi, nudności,
+              nadwrażliwość na światło. Sceny VR dobieramy tak, aby minimalizować ryzyko wywołania dodatkowych objawów (brak migających świateł,
+              spokojny obraz, ograniczony ruch kamery).
+            </div>
+            <div class="faq-item">
+              <strong>Czy mogę korzystać z VR podczas napadu bólu?</strong>
+              Tak, sesja doraźna NCNI VR Migrena jest zaprojektowana właśnie na czas napadu. Decyzję o połączeniu VR z lekami doraźnymi zawsze podejmujemy
+              z uwzględnieniem dotychczasowego leczenia i zaleceń lekarza.
+            </div>
+            <div class="faq-item">
+              <strong>Jak umówić pierwszą wizytę?</strong>
+              Najprościej napisać na <a href="mailto:kontakt@ncni.pl" style="color:var(--accent);text-decoration:none;">kontakt@ncni.pl</a> lub zadzwonić pod numer
+              <strong>+48 600 608 333</strong>. W tytule wiadomości można wpisać: „VR Migrena – konsultacja wstępna”.
+            </div>
+          </div>
+
+          <div class="footer-bar">
+            <div>
+              <small>
+                Naukowe Centrum Neuro Innowacji (NCNI) • ul. Żeromskiego 60/5a, 50-312 Wrocław
+              </small>
+              <small>
+                Niniejszy opis ma charakter informacyjny i nie stanowi porady medycznej. Ostateczne decyzje dotyczące leczenia należą do lekarza prowadzącego.
+              </small>
+            </div>
+            <div class="footer-cta">
+              <span>Gotowy, aby sprawdzić, czy VR będzie odpowiedni przy Twojej migrenie?</span>
+              <a href="mailto:kontakt@ncni.pl?subject=VR%20Migrena%20-%20konsultacja" class="btn-primary" style="font-size:11px;padding:7px 14px;">Skontaktuj się z NCNI</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
