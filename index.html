@@ -43,44 +43,166 @@
   <meta name="twitter:title" content="Naukowe Terapie ADHD, PTSD, Stres | NCNI Wrocław" />
   <meta name="twitter:description" content="VR/AI, biofeedback i zero-gravity — mierzalna regulacja stresu, snu i funkcji wykonawczych." />
 
-  <!-- Struktura danych (Schema.org) -->
+  <!-- 
+    ==================================================================
+    ZAKTUALIZOWANA STRUKTURA DANYCH (SCHEMA.ORG)
+    Wdrożono @graph łączący Organizację (MedicalBusiness) z Ekspertami (Person)
+    oraz dodano schemę FAQPage.
+    ==================================================================
+  -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "MedicalBusiness",
-    "name": "NCNI - Naukowe Centrum Neuroinnowacji",
-    "legalName": "NAUKOWE CENTRUM NEUROINNOWACJI SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
-    "url": "https://ncni.pl/",
-    "logo": "https://ncni.pl/logo.png",
-    "image": "https://ncni.pl/og-image.jpg",
-    "telephone": "+48-600-608-333",
-    "email": "kontakt@ncni.pl",
-    "taxID": "PL8982325965",
-    "identifier": [
-      { "@type": "PropertyValue", "propertyID": "KRS", "value": "0001200984" },
-      { "@type": "PropertyValue", "propertyID": "NIP", "value": "8982325965" },
-      { "@type": "PropertyValue", "propertyID": "REGON", "value": "54303723800000" }
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Żeromskiego 60/5a",
-      "addressLocality": "Wrocław",
-      "postalCode": "50-312",
-      "addressCountry": "PL"
-    },
-    "founder": {
-      "@type": "Person",
-      "name": "dr hab. inż. Sebastian Kraszewski, prof. PWr",
-      "jobTitle": "Dyrektor Naukowy"
-    },
-    "areaServed": { "@type": "City", "name": "Wrocław" },
-    "sameAs": [
-      "https://x.com/Neuroinnowacje",
-      "https://youtube.com/@Neuroinnowacje"
-    ],
-    "keywords": "Sebastian Kraszewski, NCNI, terapie cyfrowe, ADHD, PTSD, neuroróżnorodność, zero gravity, biofeedback, VR, Wrocław"
-  }
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          // 1. Definiujemy Organizację (Twoja `MedicalBusiness`)
+          //    Używamy @id, aby inni mogli się do niej odwołać.
+          "@type": "MedicalBusiness",
+          "@id": "https://ncni.pl/#organization",
+          "name": "NCNI - Naukowe Centrum Neuroinnowacji",
+          "legalName": "NAUKOWE CENTRUM NEUROINNOWACJI SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
+          "url": "https://ncni.pl/",
+          "logo": "https://ncni.pl/logo.png",
+          "image": "https://ncni.pl/og-image.jpg",
+          "telephone": "+48-600-608-333",
+          "email": "kontakt@ncni.pl",
+          "taxID": "PL8982325965",
+          "identifier": [
+            { "@type": "PropertyValue", "propertyID": "KRS", "value": "0001200984" },
+            { "@type": "PropertyValue", "propertyID": "NIP", "value": "8982325965" },
+            { "@type": "PropertyValue", "propertyID": "REGON", "value": "54303723800000" }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Żeromskiego 60/5a",
+            "addressLocality": "Wrocław",
+            "postalCode": "50-312",
+            "addressCountry": "PL"
+          },
+          "areaServed": { "@type": "City", "name": "Wrocław" },
+          "sameAs": [
+            "https://x.com/Neuroinnowacje",
+            "https://youtube.com/@Neuroinnowacje"
+          ],
+          "keywords": "Sebastian Kraszewski, NCNI, terapie cyfrowe, ADHD, PTSD, neuroróżnorodność, zero gravity, biofeedback, VR, Wrocław",
+          // Łączymy ekspertów z organizacją używając ich @id
+          "founder": {
+            "@id": "https://ncni.pl/#sebastian-kraszewski"
+          },
+          "employee": [
+            { "@id": "https://ncni.pl/#sebastian-kraszewski" },
+            { "@id": "https://ncni.pl/#marlena-gasior-glogowska" },
+            { "@id": "https://ncni.pl/#karol-kiszlo" }
+          ]
+        },
+        {
+          // 2. Definiujemy Eksperta 1 (Sebastian Kraszewski)
+          "@type": "Person",
+          "@id": "https://ncni.pl/#sebastian-kraszewski",
+          "name": "dr hab. inż. Sebastian Kraszewski, prof. PWr",
+          "jobTitle": "Dyrektor Naukowy",
+          "image": "https://ncni.pl/sebastian-kraszewski.jpg", // Przykładowa ścieżka
+          "sameAs": [
+             "https://pbn.nauka.gov.pl/core/#/profile/public/5e7090f3878b2f4466c48f2c" // Przykładowy link PBN
+          ],
+          "worksFor": {
+            "@id": "https://ncni.pl/#organization"
+          },
+          "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "Politechnika Wrocławska"
+          },
+          "knowsAbout": [
+            "Inżynieria biomedyczna",
+            "Neuroinnowacje",
+            "Terapie VR",
+            "Biofeedback",
+            "Sztuczna inteligencja w medycynie",
+            "taVNS",
+            "Stres",
+            "Sen",
+            "ADHD",
+            "PTSD"
+          ]
+        },
+        {
+          // 3. Definiujemy Eksperta 2 (Marlena Gąsior-Głogowska)
+          "@type": "Person",
+          "@id": "https://ncni.pl/#marlena-gasior-glogowska",
+          "name": "dr inż. Marlena Gąsior-Głogowska",
+          "jobTitle": "Architekt sensorycznej przestrzeni",
+          "image": "https://ncni.pl/marlena-gasior-glogowska.jpg", // Przykładowa ścieżka
+          "worksFor": {
+            "@id": "https://ncni.pl/#organization"
+          },
+          "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "Politechnika Wrocławska" // Założenie
+          },
+          "knowsAbout": [
+            "Inżynieria biomedyczna",
+            "Neuroestetyka",
+            "Percepcja sensoryczna",
+            "Neuroróżnorodność",
+            "Mapowanie bodźców"
+          ]
+        },
+        {
+          // 4. Definiujemy Eksperta 3 (Karol Kiszło)
+          "@type": "Person",
+          "@id": "https://ncni.pl/#karol-kiszlo",
+          "name": "Karol Kiszło",
+          "jobTitle": "Executive Director & Head of NeuroPerformance",
+          "image": "https://ncni.pl/karol-kiszlo.jpg", // Przykładowa ścieżka
+          "worksFor": {
+            "@id": "https://ncni.pl/#organization"
+          },
+          "knowsAbout": [
+            "NeuroPerformance",
+            "Dobrostan w organizacji",
+            "Zarządzanie",
+            "Technologie dla biznesu",
+            "Terapie cyfrowe"
+          ]
+        }
+      ]
+    }
   </script>
+  
+  <!-- Schema FAQPage -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Na czym polega sesja zintegrowana w NCNI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nasza sesja zintegrowana to unikalne połączenie pięciu modalności: wirtualnej rzeczywistości (VR), biofeedbacku HRV, fotela Zero-Gravity, celowanej muzykoterapii oraz aromaterapii. Wszystkie te elementy działają synergicznie w pętli zwrotnej, aby zmaksymalizować efekty regulacji układu nerwowego i głębokiej relaksacji."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czy terapia VR i biofeedback są bezpieczne?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tak. W NCNI każda ścieżka terapeutyczna rozpoczyna się od szczegółowej kwalifikacji, aby wykluczyć przeciwwskazania (np. epilepsję fotogenną). Stosujemy wyłącznie certyfikowany sprzęt medyczny i sprawdzone, naukowe protokoły. Sesje odbywają się pod opieką specjalisty."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Dla kogo przeznaczone są terapie NCNI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nasze programy są zaprojektowane dla osób doświadzczających chronicznego stresu, problemów ze snem, trudności z koncentracją (w tym ADHD), a także dla osób z PTSD i w spektrum autyzmu (ASD). Wspieramy również osoby poszukujące metod neuro-anti-aging oraz poprawy ogólnej wydajności i dobrostanu."
+          }
+        }
+      ]
+    }
+    </script>
+  <!-- Koniec Struktur Danych -->
 
   <style>
     :root{
@@ -205,6 +327,77 @@
     .bio-content ul li { margin-bottom: 6px; }
     .bio-content p { margin-top: 8px; margin-bottom: 16px; }
     .bio-content strong { color: var(--text); }
+    
+    /* ==================================================================
+      NOWE STYLE CSS (dla FAQ i Bloków Wiedzy)
+      ==================================================================
+    */
+    
+    /* Stylizacja dla "Cytowalnego Bloku Wiedzy" */
+    .knowledge-block {
+        background: rgba(22, 29, 47, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-left: 4px solid var(--accent); /* Akcent kolorystyczny */
+        border-radius: 8px;
+        padding: 20px;
+        margin: 20px 0;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .knowledge-block blockquote {
+        margin: 0;
+        padding: 0;
+        font-size: 1.1rem;
+        font-style: italic;
+    }
+    .knowledge-block blockquote p {
+        margin: 0;
+        padding: 0;
+    }
+    .knowledge-block cite {
+        display: block;
+        margin-top: 12px;
+        font-style: normal;
+        font-weight: 700;
+        color: var(--muted); /* muted */
+        font-size: 0.9rem;
+    }
+
+    /* Przykładowa stylizacja dla sekcji FAQ */
+    #faq { background: var(--bg1); } /* Dostosowanie tła do reszty sekcji */
+    #faq h2 { font-size: clamp(26px,3.4vw,38px); font-weight: 800; text-align: center; margin-bottom: 24px; }
+    #faq details { 
+      background: var(--card); 
+      border-radius: 12px; 
+      margin-bottom: 12px; 
+      border: 1px solid var(--border);
+    }
+    #faq summary { 
+      font-weight: 700; 
+      font-size: 1.1rem;
+      padding: 16px 20px; 
+      cursor: pointer;
+      list-style: none; /* Ukrywa domyślną strzałkę */
+      color: var(--text);
+    }
+    #faq summary::-webkit-details-marker { display: none; } /* Dla Chrome */
+    #faq summary::after { /* Własna "strzałka" */
+      content: '+';
+      float: right;
+      font-size: 1.5rem;
+      transition: transform 0.2s;
+      color: var(--accent);
+    }
+    #faq details[open] summary::after {
+      transform: rotate(45deg);
+    }
+    #faq details[open] > div {
+      padding: 0 20px 16px 20px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    #faq details[open] > div p {
+      margin: 0;
+    }
   </style>
 </head>
 <body>
@@ -317,7 +510,7 @@
           <div class="fade-in"><div class="card">
             <p><strong>Naukowe Centrum Neuroinnowacji (NCNI)</strong> łączy VR/AR, AI, biofeedback (EEG/HRV), zero-gravity relaxation, muzykoterapię, aromaterapię oraz dietetykę kliniczną i terapie cyfrowe, aby wspierać mózg, ciało i regenerację układu nerwowego.</p>
             <h3>Misja</h3>
-            <p>Przyspieszamy zdrowie i wydajność układu nerwowego — od redukcji stresu i lepszego snu, przez wsparcie neuroróżnorodności, po anti-aging i powrót do formy po obciążeniach. Mierzalnie i bezpiecznie.</p>
+            <p>Przyspieszamy zdrowie i wydajność układu nerwowego — od redukcji stresu i lepszego snu, przez wsparcie <a href="neuroroznorodnosc.html">neuroróżnorodności</a>, po anti-aging i powrót do formy po obciążeniach. Mierzalnie i bezpiecznie.</p>
           </div></div>
           <div class="fade-in"><div class="card">
             <h3>Standard pracy</h3>
@@ -369,7 +562,7 @@
                 <p>Jestem profesorem Politechniki Wrocławskiej (<strong>inżynieria biomedyczna</strong>) oraz praktykiem wdrażającym technologie regulacji układu nerwowego w warunkach gabinetowych. Badam i projektuję rozwiązania <strong>„4P”</strong> (personalized, predictive, preventive, participatory) — od modeli AI w medycynie po bezpieczne protokoły dla snu, koncentracji, redukcji napięcia i dobrostanu. Na co dzień współtworzę <strong>NCNI — Naukowe Centrum Neuroinnowacji</strong> — gdzie nauka spotyka się z wygodą użytkownika i rzetelnym pomiarem efektów.</p>
                 <h4>Dorobek i wiarygodność</h4>
                 <ul>
-                  <li><strong>Nauka:</strong> 45 publikacji (H-index 19); promotor &gt;40 prac dyplomowych i 5 doktoratów.</li>
+                  <li><strong>Nauka:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/?term=sebastian+kraszewski" target="_blank" rel="noopener" title="Zobacz publikacje na PubMed">45 publikacji (H-index 19)</a>; promotor &gt;40 prac dyplomowych i 5 doktoratów.</li>
                   <li><strong>Ekspertura publiczna:</strong> od 10.2024 — ekspert GRAI przy Ministerstwie Cyfryzacji.</li>
                   <li><strong>Nagrody:</strong> Polska Nagroda Inteligentnego Rozwoju „Naukowiec Przyszłości” (2019, 2023) itd.</li>
                   <li><strong>Biznes i wdrożenia:</strong> prezes Advanced Health Dynamics (od 10.2023).</li>
@@ -391,7 +584,13 @@
               <div class="bio-content" style="font-size: 0.9em; margin-top: 8px;">
                 <p>Projektuję programy <strong>NeuroPerformance</strong>, wspierając liderów i zespoły w odzyskiwaniu równowagi między technologią a dobrostanem.</p>
                 <h4>Filozofia pracy</h4>
-                <p style="font-style:italic; border-left:4px solid var(--accent); padding-left:12px;">„Nie jestem naukowcem z laboratorium. Jestem praktykiem, który przeszedł przez systemy, rynki i emocje…”</p>
+                <!-- ZMODYFIKOWANY BLOK - teraz jako "Blok Wiedzy" -->
+                <div class="knowledge-block" style="margin-top: 16px; margin-bottom: 0;">
+                  <blockquote>
+                    <p style="margin-bottom: 0;">„Nie jestem naukowcem z laboratorium. Jestem praktykiem, który przeszedł przez systemy, rynki i emocje…”</p>
+                    <cite>— Karol Kiszło, Head of NeuroPerformance w NCNI</cite>
+                  </blockquote>
+                </div>
               </div>
             </details>
           </div></li>
@@ -470,6 +669,41 @@
           </div>
         </div>
         <p class="muted" style="margin-top:12px; text-align:center">Wrocław • kontakt@ncni.pl</p>
+      </div>
+    </section>
+
+    <!-- 
+      ==================================================================
+      NOWA SEKCJA HTML (FAQ)
+      Umieszczona przed końcem </main>
+      ==================================================================
+    -->
+    <section id="faq" aria-labelledby="faq-heading">
+      <div class="wrap fade-in">
+        <div class="kicker" style="text-align: center;">Pytania i Odpowiedzi</div>
+        <h2 id="faq-heading" style="text-align: center;">Najczęściej zadawane pytania</h2>
+    
+        <details>
+          <summary>Na czym polega sesja zintegrowana w NCNI?</summary>
+          <div>
+            <p>Nasza sesja zintegrowana to unikalne połączenie pięciu modalności: wirtualnej rzeczywistości (VR), biofeedbacku HRV, fotela Zero-Gravity, celowanej muzykoterapii oraz aromaterapii. Wszystkie te elementy działają synergicznie w pętli zwrotnej, aby zmaksymalizować efekty regulacji układu nerwowego i głębokiej relaksacji.</p>
+          </div>
+        </details>
+    
+        <details>
+          <summary>Czy terapia VR i biofeedback są bezpieczne?</summary>
+          <div>
+            <p>Tak. W NCNI każda ścieżka terapeutyczna rozpoczyna się od szczegółowej kwalifikacji, aby wykluczyć przeciwwskazania (np. epilepsję fotogenną). Stosujemy wyłącznie certyfikowany sprzęt medyczny i sprawdzone, naukowe protokoły. Sesje odbywają się pod opieką specjalisty.</p>
+          </div>
+        </details>
+    
+        <details>
+          <summary>Dla kogo przeznaczone są terapie NCNI?</summary>
+          <div>
+            <p>Nasze programy są zaprojektowane dla osób doświadczających chronicznego stresu, problemów ze snem, trudności z koncentracją (w tym ADHD), a także dla osób z PTSD i w spektrum autyzmu (ASD). Wspieramy również osoby poszukujące metod neuro-anti-aging oraz poprawy ogólnej wydajności i dobrostanu.</p>
+          </div>
+        </details>
+    
       </div>
     </section>
   </main>
