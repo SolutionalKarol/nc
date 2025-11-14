@@ -1,17 +1,36 @@
 <!doctype html>
 <html lang="pl">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-56VR40VHHV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-56VR40VHHV');
+</script>
+  
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Zoptymalizowane Tagi dla AI i SEO (specyficzne dla tej podstrony) -->
   <title>Publikacje • Wiedza NCNI — Naukowe Centrum Neuro Innowacji</title>
   <meta name="description" content="Publikacje naukowe, raporty i artykuły merytoryczne NCNI." />
   <link rel="canonical" href="https://ncni.pl/wiedza-publikacje.html" />
+  <meta name="robots" content="index,follow" />
 
-  <link rel="preload" href="tlo.jpg" as="image">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
+  <!-- Assets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Favicons (używamy logo.png, bo jest w repo) -->
+  <link rel="icon" href="logo.png" />
+  <link rel="apple-touch-icon" href="logo.png" />
+  <link rel="manifest" href="/site.webmanifest" />
 
+  <!-- Open Graph / Twitter -->
   <meta name="theme-color" content="#0b1120" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="pl_PL" />
@@ -20,214 +39,617 @@
   <meta property="og:image" content="https://ncni.pl/og-image.jpg" />
   <meta property="og:url" content="https://ncni.pl/wiedza-publikacje.html" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Publikacje • Wiedza NCNI" />
+  <meta name="twitter:description" content="Publikacje naukowe, raporty i artykuły merytoryczne NCNI." />
 
+  <!-- 
+    ==================================================================
+    NOWE STYLE - skopiowane z index.html i uzupełnione o style
+    dla elementów specyficznych dla wiedza-publikacje.html (np. .chips-nav, .card-image)
+    ==================================================================
+  -->
   <style>
-    :root{
-      --bg1:#0A0F1F; --bg2:#101727; --card:rgba(22,29,47,.6);
-      --border:rgba(255,255,255,.1); --text:#e2e8f0; --muted:#94a3b8;
-      --accent:#12c4c0; --accent-2:#7aa2ff;
-      --link:#a8e3e1; --focus:#7aa2ff;
-      --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.2);
+    :root {
+      --bg1:#0A0F1F; --bg2:#101727;
+      --bg-main: var(--bg2);
+      --bg-section: var(--bg1);
+      --bg-card: rgba(22,29,47,.6);
+      --accent:#7aa2ff; /* UJEDNOLICONY AKCENT */
+      --accent-soft: rgba(122,162,255,.18);
+      --gold:#facc15;
+      --text-main:#e2e8f0;
+      --text-muted:#94a3b8;
+      --border-subtle:rgba(255,255,255,.1);
+      --shadow-soft:0 10px 30px rgba(0,0,0,.2);
+      --radius-xl:18px;
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0; color:var(--text); background:var(--bg2); font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale}
-    body.nav-open{overflow:hidden}
-    a{color:var(--link); text-decoration:none}
-    a:hover{opacity:.92}
-    a:focus-visible,.btn:focus-visible{outline:3px solid var(--focus); outline-offset:2px; border-radius:10px}
-    img{max-width:100%; height:auto}
-    .wrap{width:min(1120px,92%); margin-inline:auto}
-    .skip-link{position:absolute; left:-9999px}
-    .skip-link:focus{left:16px; top:16px; padding:10px 14px; background:#fff; color:#0b1120; border-radius:10px; z-index:1000}
 
-    .site-header{position:fixed; top:0; inset-inline:0; z-index:1000; padding:12px 0; transition:background .3s, box-shadow .3s}
-    .site-header.scrolled{background:rgba(16,23,39,.8); backdrop-filter:blur(10px); box-shadow:0 4px 30px rgba(0,0,0,.1); border-bottom:1px solid var(--border)}
-    .site-header .wrap{display:flex; justify-content:space-between; align-items:center}
-    .nav-brand{font-weight:800; font-size:1.5rem; color:var(--text)}
-    .main-nav{display:flex; gap:clamp(10px,2.6vw,24px)}
-    .main-nav a{font-size:clamp(.9rem,2vw,1rem); font-weight:700; color:var(--text); padding:8px 12px; border-radius:8px; transition:.25s}
-    .main-nav a:hover,.main-nav a.active{background:rgba(255,255,255,.08); opacity:1}
-    .mobile-menu-toggle{display:none; background:transparent; border:none; padding:8px; cursor:pointer; z-index:1001}
-    .mobile-menu-toggle span{display:block; width:24px; height:2px; background:var(--text); margin:5px 0; transition:.3s}
-
-    .hero{
-      display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;
-      min-height:64vh; padding:88px 0 36px; background:
-        radial-gradient(1200px 600px at 80% 110%, rgba(18,196,192,.12), transparent 60%),
-        linear-gradient(180deg, rgba(10,15,31,.85), rgba(16,23,39,.95)),
-        url('tlo.jpg') center/cover no-repeat;
+    * {
+      box-sizing: border-box;
     }
-    .hero img{width:clamp(80px,15vw,120px); height:auto; margin-bottom:20px}
-    .hero h1{font-size:clamp(2.2rem,5.2vw,3.6rem); font-weight:900; margin:0 0 18px; text-shadow:0 4px 20px rgba(0,0,0,.3)}
-    .lead{font-size:1.1rem; max-width:75ch; margin:0 auto 24px; color:var(--muted)}
 
-    /* Sub-nav (spójne linki) */
-    .subnav{margin-top:-30px; background:linear-gradient(180deg, rgba(12,18,36,.9), rgba(12,18,36,.6)); border-top:1px solid var(--border); border-bottom:1px solid var(--border)}
-    .subnav .wrap{display:flex; gap:8px; flex-wrap:wrap; justify-content:center}
-    .subnav a{display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border:1px solid var(--border); border-radius:999px; color:var(--text); background:rgba(255,255,255,.02); transition:.25s}
-    .subnav a:hover{transform:translateY(-1px); border-color:rgba(122,162,255,.45)}
-    .subnav a.active{background:var(--card); border-color:rgba(122,162,255,.6); box-shadow:0 4px 20px rgba(0,0,0,.25)}
-
-    .breadcrumbs{color:var(--muted); font-size:.92rem; margin:28px 0 0}
-    .breadcrumbs a{color:var(--link)}
-    .breadcrumbs .sep{opacity:.6; margin:0 6px}
-    .back-link{display:inline-flex; align-items:center; gap:10px; margin-top:10px; padding:8px 12px; border:1px solid var(--border); border-radius:10px; background:rgba(255,255,255,.03)}
-
-    .articles-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:24px; margin-top:24px; padding-bottom:60px}
-    .article-card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); color:var(--text); text-decoration:none; overflow:hidden; display:flex; flex-direction:column; transition:transform .3s, box-shadow .3s, border-color .3s}
-    .article-card:hover{transform:translateY(-5px); box-shadow:0 15px 35px rgba(0,0,0,.3); border-color:rgba(18,196,192,.35)}
-    .article-card-image{height:200px; background-color:var(--bg1); border-bottom:1px solid var(--border)}
-    .article-card-image img{width:100%; height:100%; object-fit:cover}
-    .article-card-content{padding:20px; display:flex; flex-direction:column; flex-grow:1}
-    .article-card h3{font-size:1.2rem; margin:0 0 8px}
-    .article-card p{margin:0; color:var(--muted); flex-grow:1}
-    .icon-placeholder{display:flex; align-items:center; justify-content:center; height:100%; background-color:var(--bg1)}
-
-    .fade-in{opacity:0; transform:translateY(20px); transition:opacity .6s, transform .6s}
-    .fade-in.is-visible{opacity:1; transform:translateY(0)}
-    .back-to-top{position:fixed; bottom:20px; right:20px; background:var(--accent-2); color:#0b1220; width:44px; height:44px; border-radius:50%; border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:100; opacity:0; transform:translateY(100px); transition:opacity .3s, transform .3s; box-shadow:var(--shadow)}
-    .back-to-top.visible{opacity:1; transform:translateY(0)}
-
-    @media (max-width:979px){
-      .mobile-menu-toggle{display:block}
-      .main-nav{position:fixed; top:0; right:-100%; width:min(400px,80vw); height:100vh; flex-direction:column; justify-content:center; align-items:center; gap:24px; background:var(--bg1); box-shadow:-10px 0 30px rgba(0,0,0,.2); transition:right .4s cubic-bezier(.23,1,.32,1)}
-      .main-nav.is-open{right:0}
-      .mobile-menu-toggle.is-active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
-      .mobile-menu-toggle.is-active span:nth-child(2){opacity:0}
-      .mobile-menu-toggle.is-active span:nth-child(3){transform:rotate(-45deg) translate(7px,-6px)}
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 55%, #000 100%);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
     }
-    footer .wrap{padding:22px 0; text-align:center; color:var(--muted); font-size:.9rem}
+    
+    img { max-width: 100%; height: auto; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { opacity: 0.9; }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      padding: 32px 16px 48px;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.98));
+      border-radius: 32px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: var(--shadow-soft);
+      padding: 32px 24px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .shell::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(138,92,255,.12) 0, transparent 55%),
+        radial-gradient(circle at 90% 0%, rgba(122,162,255,.1) 0, transparent 55%),
+        radial-gradient(circle at 50% 120%, rgba(122,162,255,.12) 0, transparent 60%);
+      opacity: 0.9;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .shell-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* NOWY HEADER (dla wiedza.html) */
+    header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr); 
+      gap: 32px;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 4px 10px 4px 4px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 0 0, rgba(122,162,255,.15), transparent 55%);
+      border: 1px solid rgba(122,162,255,.4);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: background .2s, border-color .2s;
+    }
+    .eyebrow:hover {
+      background: radial-gradient(circle at 0 0, rgba(122,162,255,.25), transparent 65%);
+      border-color: rgba(122,162,255,.6);
+    }
+
+    .eyebrow-logo {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1px solid rgba(122,162,255,.8);
+      margin-right: 8px;
+    }
+
+    h1 {
+      margin: 16px 0 8px;
+      font-size: clamp(32px, 4vw, 42px);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      font-weight: 700;
+    }
+    h1 span { color: var(--accent); }
+    h2, h3, h4 { color: var(--text-main); font-weight: 600; }
+
+    .lead {
+      margin: 0 0 12px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+      max-width: 60ch;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    /* Nowe style przycisków */
+    .btn-primary,
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, border-color 160ms ease, opacity 160ms ease;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: radial-gradient(circle at 0 0, var(--accent), #6ea6ff);
+      color: #0b1120;
+      box-shadow: 0 18px 45px rgba(122,162,255, 0.35);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 22px 60px rgba(122,162,255, 0.5);
+      opacity: 0.95;
+    }
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.94);
+      color: var(--text-main);
+      border-color: rgba(148, 163, 184, 0.6);
+    }
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 0.98);
+      border-color: rgba(226, 232, 240, 0.9);
+    }
+    
+    /* GŁÓWNA NAWIGACJA (z index.html) */
+    .main-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      justify-content: flex-start;
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .main-nav a {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: 999px;
+      transition: .2s;
+    }
+    .main-nav a:hover, .main-nav a.active {
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-main);
+      opacity: 1;
+    }
+
+    /* MENU MOBILNE (z index.html) */
+    #mobile-menu-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      border-radius: 999px;
+      padding: 8px 10px;
+      cursor: pointer;
+      position: absolute;
+      top: 32px;
+      right: 24px;
+      z-index: 1001;
+    }
+    #mobile-menu-toggle span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--text-main);
+      margin: 4px 0;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    #mobile-menu-toggle.is-active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+    #mobile-menu-toggle.is-active span:nth-child(2) { opacity: 0; }
+    #mobile-menu-toggle.is-active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    /* STYL SEKCJI (z index.html) */
+    .section {
+      margin-top: 32px;
+      border-radius: var(--radius-xl);
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid var(--border-subtle);
+      padding: 24px 20px 20px;
+    }
+    .section-header { margin-bottom: 20px; }
+    .section-title {
+      font-size: clamp(22px, 3vw, 28px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 8px 0;
+    }
+    .section-kicker {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+    }
+    .section p, .section li {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+    
+    /* ================================================================
+      STYLE SPECYFICZNE DLA TEJ PODSTRONY (wiedza-publikacje.html)
+      ================================================================
+    */
+    /* Nowa sub-nawigacja (zastępuje .subnav) */
+    .chips-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 10px;
+      margin: 0 0 24px 0; /* Zastępuje stary subnav */
+      padding: 0 0 20px 0;
+      list-style: none;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .chip {
+      border: 1px solid var(--border-subtle);
+      background: rgba(15, 23, 42, 0.9);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--text-muted);
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .chip:hover {
+      background: rgba(15, 23, 42, 0.98);
+      border-color: rgba(148, 163, 184, 0.6);
+      color: var(--text-main);
+      transform: translateY(-1px);
+    }
+    .chip.active {
+      background: var(--accent);
+      color: #0b1120;
+      border-color: var(--accent);
+      box-shadow: 0 6px 20px rgba(122,162,255, 0.25);
+    }
+
+    .breadcrumbs {
+      color: var(--text-muted);
+      font-size: .9rem;
+      margin-bottom: 12px;
+    }
+    .breadcrumbs a { color: var(--text-muted); text-decoration: underline; opacity: 0.8; }
+    .breadcrumbs a:hover { opacity: 1; }
+    .breadcrumbs .sep { opacity: .6; margin: 0 6px; }
+    .breadcrumbs span[aria-current="page"] { color: var(--text-main); font-weight: 500; }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(15, 23, 42, 0.9);
+      margin-bottom: 24px;
+    }
+    .back-link:hover {
+      background: rgba(15, 23, 42, 0.98);
+      color: var(--text-main);
+    }
+
+    .articles-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+      gap:18px;
+    }
+    
+    /* Nowa definicja .card */
+    .card {
+      border-radius: 18px;
+      background: radial-gradient(circle at 0 0, rgba(122,162,255,.08), transparent 55%),
+                  rgba(15, 23, 42, 0.95);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      font-size: 14px;
+      height: 100%;
+      overflow: hidden; /* Ważne dla .card-image */
+      text-decoration: none;
+      color: var(--text-main);
+      transition: transform .3s, box-shadow .3s, border-color .3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,.2);
+      border-color: rgba(122,162,255,.35);
+    }
+    
+    .card-image {
+      height: 200px;
+      background-color: #0A0F1F; /* Ciemniejsze tło dla placeholderów */
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .icon-placeholder{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      height:100%;
+    }
+    .icon-placeholder svg {
+      color: var(--accent);
+      width: 64px;
+      height: 64px;
+    }
+
+    .card-content {
+      padding: 20px 18px 18px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      gap: 6px;
+    }
+    .card-content h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin: 0 0 4px;
+    }
+    .card-content p {
+      margin: 0;
+      color: var(--text-muted);
+      flex-grow: 1;
+    }
+    /* Koniec styli specyficznych */
+
+
+    /* Stopka (z index.html) */
+    .footer-bar {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(148, 163, 184, 0.45);
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .social-links{display:flex; justify-content:center; gap:24px; margin-bottom:16px}
+    .social-links a{color:var(--text-muted); transition:color .2s, transform .2s}
+    .social-links a:hover{color:var(--text-main); transform:translateY(-2px); opacity:1}
+
+    /* Mobile (z index.html) */
+    @media (max-width: 900px) {
+      #mobile-menu-toggle {
+        display: block;
+      }
+      .main-nav {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(15, 23, 42, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+        margin-top: 0;
+        padding: 0;
+        border-top: none;
+        transition: left 0.4s cubic-bezier(.23,1,.32,1);
+        z-index: 1000;
+      }
+      .main-nav.is-open {
+        left: 0;
+      }
+      .main-nav a {
+        font-size: 1.5rem;
+        padding: 10px 20px;
+      }
+      .shell {
+        padding: 22px 16px 22px;
+        border-radius: 0;
+      }
+      .page {
+        padding: 0 0 28px;
+      }
+      .cta-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .btn-primary,
+      .btn-ghost {
+        width: 100%;
+        justify-content: center;
+      }
+      .lead { font-size: 1rem; }
+      h1 { font-size: clamp(28px, 8vw, 36px); }
+      .articles-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Przejdź do treści głównej</a>
 
-  <header id="site-header" class="site-header">
-    <div class="wrap">
-      <a href="index.html" class="nav-brand" aria-label="Powrót na stronę główną">NCNI</a>
-      <nav id="main-nav" class="main-nav" aria-label="Główne menu">
-        <a href="index.html#sciezki">Ścieżki Neuro</a>
-        <a href="index.html#oferta">Oferta</a>
-        <a href="neuroroznorodnosc.html">Neuroróżnorodność</a>
-        <a href="wiedza.html" class="active" aria-current="page">Wiedza</a>
-        <a href="index.html#onas">O nas</a>
-        <a href="index.html#zespol">Zespół</a>
-        <a href="index.html#kontakt">Kontakt</a>
-      </nav>
-      <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="main-nav">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
+  <div class="page">
+    <main class="shell">
+      <div class="shell-inner">
+        
+        <!-- NOWY HEADER -->
+        <header>
+          <a href="index.html" class="eyebrow" title="Wróć do strony głównej NCNI">
+            <img src="logo.png" alt="Logo NCNI" class="eyebrow-logo">
+            NCNI / Baza Wiedzy
+          </a>
+          <div>
+            <h1>
+              <span>Publikacje</span>
+            </h1>
+            <p class="lead">
+              Przeglądaj publikacje naukowe, raporty i artykuły merytoryczne NCNI.
+            </p>
+            <div class="cta-row">
+              <a href="wiedza.html" class="btn-primary">Wróć do Bazy Wiedzy →</a>
+              <a href="index.html#kontakt" class="btn-ghost">Umów konsultację</a>
+            </div>
+          </div>
+        </header>
 
-  <main id="main">
-    <section class="hero" aria-label="Publikacje NCNI">
-      <div class="wrap">
-        <img src="logo.png" alt="Logo NCNI" class="fade-in" />
-        <h1 class="fade-in">Publikacje</h1>
-        <p class="lead fade-in">Przeglądaj publikacje naukowe, raporty i artykuły merytoryczne NCNI.</p>
-      </div>
-    </section>
+        <!-- NOWA NAWIGACJA (z index.html) -->
+        <button id="mobile-menu-toggle" aria-label="Otwórz menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="main-nav" class="main-nav" aria-label="Główne menu">
+          <a href="index.html#sciezki">Ścieżki Neuro</a>
+          <a href="index.html#oferta">Oferta</a>
+          <a href="migrena.html">Migrena</a>
+          <a href="neuroroznorodnosc.html">Neuroróżnorodność</a>
+          <a href="wiedza.html" class="active">Wiedza</a>
+          <a href="index.html#onas">O nas</a>
+          <a href="index.html#zespol">Zespół</a>
+          <a href="index.html#techlab">Tech Lab</a>
+          <a href="index.html#kontakt">Kontakt</a>
+        </nav>
 
-    <!-- Sub-nav z właściwymi kierunkami -->
-    <nav class="subnav" aria-label="Nawigacja w sekcji Wiedza">
-      <div class="wrap">
-        <a href="wiedza.html">Przegląd</a>
-        <a href="https://x.com/Neuroinnowacje" target="_blank" rel="noopener">Aktualności</a>
-        <a href="wiedza-publikacje.html" class="active" aria-current="page">Publikacje</a>
-        <a href="https://youtube.com/@Neuroinnowacje" target="_blank" rel="noopener">Wideo &amp; Media</a>
-      </div>
-    </nav>
+        <!-- NOWA SUB-NAWIGACJA (CHIPS) -->
+        <nav class="chips-nav" aria-label="Nawigacja w sekcji Wiedza" style="margin-top: 32px;">
+          <a href="wiedza.html" class="chip">Przegląd</a>
+          <a href="https://x.com/Neuroinnowacje" target="_blank" rel="noopener" class="chip">Aktualności</a>
+          <a href="wiedza-publikacje.html" class="chip active" aria-current="page">Publikacje</a>
+          <a href="https://youtube.com/@Neuroinnowacje" target="_blank" rel="noopener" class="chip">Wideo & Media</a>
+        </nav>
 
-    <div class="wrap">
-      <nav class="breadcrumbs" aria-label="Okruszki nawigacji">
-        <a href="index.html">Strona główna</a> <span class="sep">/</span>
-        <a href="wiedza.html">Wiedza</a> <span class="sep">/</span>
-        <span aria-current="page">Publikacje</span>
-      </nav>
-      <a class="back-link" href="wiedza.html">← Powrót do Wiedzy</a>
+        <!-- SEKCJA GŁÓWNA -->
+        <section class="section" id="main" aria-labelledby="publikacje-heading">
+          
+          <nav class="breadcrumbs" aria-label="Okruszki nawigacji">
+            <a href="index.html">Strona główna</a> <span class="sep">/</span>
+            <a href="wiedza.html">Wiedza</a> <span class="sep">/</span>
+            <span aria-current="page">Publikacje</span>
+          </nav>
 
-      <section class="section" aria-labelledby="publikacje-heading">
-        <h2 id="publikacje-heading" class="visually-hidden" style="position:absolute;left:-9999px;">Lista publikacji NCNI</h2>
+          <a class="back-link" href="wiedza.html">← Powrót do Wiedzy</a>
 
-        <div id="articles-grid" class="articles-grid" aria-live="polite">
-          <a href="sciezka/do/twojego/pliku.pdf" target="_blank" rel="noopener" class="article-card fade-in">
-            <div class="article-card-image" aria-hidden="true">
-              <div class="icon-placeholder">
-                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);"><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M18 22H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"></path><line x1="16" x2="8" y1="13" y2="13"></line><line x1="16" x2="8" y1="17" y2="17"></line><line x1="10" x2="8" y1="9" y2="9"></line></svg>
+          <h2 id="publikacje-heading" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
+            Lista publikacji NCNI
+          </h2>
+
+          <div id="articles-grid" class="articles-grid" aria-live="polite">
+            
+            <!-- Karta Artykułu (NOWY STYL) -->
+            <a href="sciezka/do/twojego/pliku.pdf" target="_blank" rel="noopener" class="card">
+              <div class="card-image" aria-hidden="true">
+                <div class="icon-placeholder">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M18 22H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"></path><line x1="16" x2="8" y1="13" y2="13"></line><line x1="16" x2="8" y1="17" y2="17"></line><line x1="10" x2="8" y1="9" y2="9"></line></svg>
+                </div>
               </div>
-            </div>
-            <div class="article-card-content">
-              <h3>Tytuł Przykładowej Publikacji Naukowej</h3>
-              <p>Krótki opis publikacji: autorzy, zakres, miejsce publikacji. Np. „Raport z badań nad HRV w interwencji VR (2025)”.</p>
-            </div>
-          </a>
+              <div class="card-content">
+                <h3>Tytuł Przykładowej Publikacji Naukowej</h3>
+                <p>Krótki opis publikacji: autorzy, zakres, miejsce publikacji. Np. „Raport z badań nad HRV w interwencji VR (2025)”.</p>
+              </div>
+            </a>
 
-          <a href="link-do-artykulu.html" class="article-card fade-in">
-            <div class="article-card-image">
-              <img src="https://via.placeholder.com/600x400/101727/7aa2ff?text=Ok%C5%82adka+Publikacji" alt="Okładka raportu" loading="lazy" decoding="async">
-            </div>
-            <div class="article-card-content">
-              <h3>Inny Artykuł lub Raport</h3>
-              <p>Opis kolejnego materiału. Może to być link do artykułu na blogu, innej podstrony lub zewnętrznego źródła.</p>
-            </div>
-          </a>
+            <!-- Karta Artykułu (NOWY STYL) -->
+            <a href="link-do-artykulu.html" class="card">
+              <div class="card-image">
+                <img src="https://placehold.co/600x400/101727/7aa2ff?text=Ok%C5%82adka+Raportu" alt="Okładka raportu" loading="lazy">
+              </div>
+              <div class="card-content">
+                <h3>Inny Artykuł lub Raport</h3>
+                <p>Opis kolejnego materiału. Może to być link do artykułu na blogu, innej podstrony lub zewnętrznego źródła.</p>
+              </div>
+            </a>
+            
+            <!-- Dodaj więcej kart .card w razie potrzeby -->
+
+          </div>
+        </section>
+
+        <!-- NOWA STOPKA (z index.html) -->
+        <div class="footer-bar">
+          <div class="social-links" aria-label="Linki społecznościowe">
+            <a href="https://x.com/Neuroinnowacje" target="_blank" rel="noopener" aria-label="Profil NCNI na platformie X">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" role="img" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+            </a>
+            <a href="https://youtube.com/@Neuroinnowacje" target="_blank" rel="noopener" aria-label="Kanał NCNI na YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" role="img" aria-hidden="true"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.411 0 5.822 0 12s.488 8.589 4.385 8.816c3.6.245 11.626.246 15.23 0C23.512 20.589 24 18.178 24 12s-.488-8.589-4.385-8.816ZM9.545 15.568V8.432L15.818 12l-6.273 3.568Z"/></svg>
+            </a>
+          </div>
+          © <span id="year"></span> NCNI. Wszelkie prawa zastrzeżone. <br>
+          <span class="footer-credit" style="opacity: 0.7;">Designed & built by Karol Kiszło</span><br>
+          <span class="footer-credit" style="opacity: 0.7; font-size: 11px;">ul. Żeromskiego 60/5a, 50-312 Wrocław • kontakt@ncni.pl • +48 600 608 333</span>
         </div>
-      </section>
-    </div>
-  </main>
-
-  <button class="back-to-top" aria-label="Wróć na górę strony" title="Wróć na górę">↑</button>
-
-  <footer>
-    <div class="wrap">
-      <div class="social-links" aria-label="Linki społecznościowe" style="display:flex; justify-content:center; gap:24px; margin-bottom:16px">
-        <a href="https://x.com/Neuroinnowacje" target="_blank" rel="noopener" aria-label="Profil NCNI na platformie X">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" role="img" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
-        </a>
-        <a href="https://youtube.com/@Neuroinnowacje" target="_blank" rel="noopener" aria-label="Kanał NCNI na YouTube">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" role="img" aria-hidden="true"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.411 0 5.822 0 12s.488 8.589 4.385 8.816c3.6.245 11.626.246 15.23 0C23.512 20.589 24 18.178 24 12s-.488-8.589-4.385-8.816ZM9.545 15.568V8.432L15.818 12l-6.273 3.568Z"/></svg>
-        </a>
       </div>
-      © <span id="year"></span> Naukowe Centrum Neuro Innowacji (NCNI) • ul. Żeromskiego 60/5a, 50-312 Wrocław • kontakt@ncni.pl • +48 600 608 333
-    </div>
-  </footer>
+    </main>
+  </div>
 
+  <!-- NOWE SKRYPTY (z index.html) -->
   <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const header = document.getElementById('site-header');
-
-    const io = new IntersectionObserver(es=>es.forEach(e=>{
-      if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); }
-    }),{threshold:.1});
-    document.querySelectorAll('.fade-in').forEach(el=>io.observe(el));
-
-    window.addEventListener('scroll', ()=> header.classList.toggle('scrolled', window.scrollY > 50));
-
-    const toTop = document.querySelector('.back-to-top');
-    window.addEventListener('scroll', ()=> toTop.classList.toggle('visible', window.scrollY > 300));
-    toTop.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
-
-    const toggleBtn = document.getElementById('mobile-menu-toggle');
-    const mainNav = document.getElementById('main-nav');
-    const toggleMenu = ()=>{
-      mainNav.classList.toggle('is-open');
-      toggleBtn.classList.toggle('is-active');
-      document.body.classList.toggle('nav-open');
-      toggleBtn.setAttribute('aria-expanded', mainNav.classList.contains('is-open'));
-    };
-    toggleBtn.addEventListener('click', e=>{ e.stopPropagation(); toggleMenu(); });
-    document.addEventListener('click', e=>{
-      if(mainNav.classList.contains('is-open') && !mainNav.contains(e.target) && !toggleBtn.contains(e.target)) toggleMenu();
+    document.addEventListener('DOMContentLoaded', () => {
+      // Skrypt na rok w stopce
+      document.getElementById('year').textContent = new Date().getFullYear();
+      
+      // Skrypt dla menu mobilnego
+      const toggleBtn = document.getElementById('mobile-menu-toggle');
+      const mainNav = document.getElementById('main-nav');
+      
+      if (toggleBtn && mainNav) {
+        const toggleMenu = () => {
+          mainNav.classList.toggle('is-open');
+          toggleBtn.classList.toggle('is-active');
+          toggleBtn.setAttribute('aria-expanded', mainNav.classList.contains('is-open'));
+          document.body.style.overflow = mainNav.classList.contains('is-open') ? 'hidden' : '';
+        };
+        toggleBtn.addEventListener('click', e => { e.stopPropagation(); toggleMenu(); });
+        mainNav.querySelectorAll('a').forEach(a => {
+          a.addEventListener('click', () => {
+            if (mainNav.classList.contains('is-open')) {
+              toggleMenu();
+            }
+          });
+        });
+      }
     });
-
-    document.getElementById('year').textContent = new Date().getFullYear();
-  });
   </script>
 
+  <!-- Zachowane skrypty Schema.org specyficzne dla tej strony -->
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"CollectionPage","name":"Publikacje • Wiedza NCNI","url":"https://ncni.pl/wiedza-publikacje.html","about":["Publikacje naukowe","Raporty","Neuroinnowacje","Biofeedback","HRV","VR","AI"],"publisher":{"@type":"Organization","name":"Naukowe Centrum Neuro Innowacji (NCNI)","url":"https://neuroinnowacje.pl"}}
+  {"@context":"https://schema.org","@type":"CollectionPage","name":"Publikacje • Wiedza NCNI","url":"https://ncni.pl/wiedza-publikacje.html","about":["Publikacje naukowe","Raporty","Neuroinnowacje","Biofeedback","HRV","VR","AI"],"publisher":{"@type":"Organization","name":"Naukowe Centrum Neuro Innowacji (NCNI)","url":"https://ncni.pl"}}
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
