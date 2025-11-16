@@ -22,13 +22,11 @@
   <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
   <!-- Assets -->
-  <!-- Usunięto preload 'tlo.jpg', ponieważ nowy design go nie używa -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- Używamy fontów z migrena.html -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- Favicons (używamy logo.png, bo jest w repo) -->
+  <!-- Favicons -->
   <link rel="icon" href="logo.png" />
   <link rel="apple-touch-icon" href="logo.png" />
   <link rel="manifest" href="/site.webmanifest" />
@@ -45,17 +43,14 @@
   <meta name="twitter:title" content="Naukowe Terapie ADHD, PTSD, Stres | NCNI Wrocław" />
   <meta name="twitter:description" content="VR/AI, biofeedback i zero-gravity — mierzalna regulacja stresu, snu i funkcji wykonawczych." />
 
-  <!-- 
-    ==================================================================
-    STRUKTURA DANYCH (SCHEMA.ORG) - Bez zmian, wciąż aktualna
-    ==================================================================
-  -->
+  <!-- ==================================================================
+       STRUKTURA DANYCH (SCHEMA.ORG)
+       ================================================================== -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
         {
-          // 1. Definiujemy Organizację (Twoja `MedicalBusiness`)
           "@type": "MedicalBusiness",
           "@id": "https://ncni.pl/#organization",
           "name": "NCNI - Naukowe Centrum Neuroinnowacji",
@@ -94,14 +89,13 @@
           ]
         },
         {
-          // 2. Definiujemy Eksperta 1 (Sebastian Kraszewski)
           "@type": "Person",
           "@id": "https://ncni.pl/#sebastian-kraszewski",
           "name": "dr hab. inż. Sebastian Kraszewski, prof. PWr",
           "jobTitle": "Dyrektor Naukowy",
-          "image": "https://ncni.pl/sebastian-kraszewski.jpg", 
+          "image": "https://ncni.pl/sebastian-kraszewski.jpg",
           "sameAs": [
-             "https://pbn.nauka.gov.pl/core/#/profile/public/5e7090f3878b2f4466c48f2c" 
+             "https://pbn.nauka.gov.pl/core/#/profile/public/5e7090f3878b2f4466c48f2c"
           ],
           "worksFor": {
             "@id": "https://ncni.pl/#organization"
@@ -113,12 +107,11 @@
           "knowsAbout": ["Inżynieria biomedyczna", "Neuroinnowacje", "Terapie VR", "Biofeedback", "Sztuczna inteligencja w medycynie", "taVNS", "Stres", "Sen", "ADHD", "PTSD"]
         },
         {
-          // 3. Definiujemy Eksperta 2 (Marlena Gąsior-Głogowska)
           "@type": "Person",
           "@id": "https://ncni.pl/#marlena-gasior-glogowska",
           "name": "dr inż. Marlena Gąsior-Głogowska",
           "jobTitle": "Architekt sensorycznej przestrzeni",
-          "image": "https://ncni.pl/marlena-gasior-glogowska.jpg", 
+          "image": "https://ncni.pl/marlena-gasior-glogowska.jpg",
           "worksFor": {
             "@id": "https://ncni.pl/#organization"
           },
@@ -129,12 +122,11 @@
           "knowsAbout": ["Inżynieria biomedyczna", "Neuroestetyka", "Percepcja sensoryczna", "Neuroróżnorodność", "Mapowanie bodźców"]
         },
         {
-          // 4. Definiujemy Eksperta 3 (Karol Kiszło)
           "@type": "Person",
           "@id": "https://ncni.pl/#karol-kiszlo",
           "name": "Karol Kiszło",
           "jobTitle": "Executive Director & Head of NeuroPerformance",
-          "image": "https://ncni.pl/karol-kiszlo.jpg", 
+          "image": "https://ncni.pl/karol-kiszlo.jpg",
           "worksFor": {
             "@id": "https://ncni.pl/#organization"
           },
@@ -171,27 +163,23 @@
           "name": "Dla kogo przeznaczone są terapie NCNI?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Nasze programy są zaprojektowane dla osób doświadzczających chronicznego stresu, problemów ze snem, trudności z koncentracją (w tym ADHD), a także dla osób z PTSD i w spektrum autyzmu (ASD). Wspieramy również osoby poszukujące metod neuro-anti-aging oraz poprawy ogólnej wydajności i dobrostanu."
+            "text": "Nasze programy są zaprojektowane dla osób doświadczających chronicznego stresu, problemów ze snem, trudności z koncentracją (w tym ADHD), a także dla osób z PTSD i w spektrum autyzmu (ASD). Wspieramy również osoby poszukujące metod neuro-anti-aging oraz poprawy ogólnej wydajności i dobrostanu."
           }
         }
       ]
     }
-    </script>
-  <!-- Koniec Struktur Danych -->
+  </script>
 
-  <!-- 
-    ==================================================================
-    NOWE STYLE - skopiowane z migrena.html i uzupełnione o style
-    dla elementów specyficznych dla index.html (np. .card, .main-nav)
-    ==================================================================
-  -->
+  <!-- ==================================================================
+       STYLE
+       ================================================================== -->
   <style>
     :root {
       --bg1:#0A0F1F; --bg2:#101727;
       --bg-main: var(--bg2);
       --bg-section: var(--bg1);
       --bg-card: rgba(22,29,47,.6);
-      --accent:#7aa2ff; /* Zmieniono na główny akcent z NCNI */
+      --accent:#7aa2ff;
       --accent-soft: rgba(122,162,255,.18);
       --gold:#facc15;
       --text-main:#e2e8f0;
@@ -201,14 +189,11 @@
       --radius-xl:18px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      /* Nowe tło z migrena.html */
       background: radial-gradient(circle at top, #0f172a 0, #020617 55%, #000 100%);
       color: var(--text-main);
       -webkit-font-smoothing: antialiased;
@@ -244,7 +229,6 @@
       content: "";
       position: absolute;
       inset: -40%;
-      /* Używamy gradientów z NCNI */
       background:
         radial-gradient(circle at 10% 0%, rgba(138,92,255,.12) 0, transparent 55%),
         radial-gradient(circle at 90% 0%, rgba(122,162,255,.1) 0, transparent 55%),
@@ -259,14 +243,13 @@
       z-index: 1;
     }
 
-    /* NOWY HEADER (dla index.html) */
     header {
       display: grid;
-      /* Zmieniono na 1 kolumnę dla uproszczenia, hero-aside będzie poniżej */
-      grid-template-columns: minmax(0, 1fr); 
+      grid-template-columns: minmax(0, 1fr);
       gap: 32px;
       align-items: center;
       margin-bottom: 32px;
+      position: relative;
     }
 
     .eyebrow {
@@ -296,14 +279,13 @@
       color: var(--accent);
       font-weight: 600;
     }
-    /* NOWY STYL DLA LOGO W HEADERZE */
+
     .eyebrow-logo {
       width: 22px;
       height: 22px;
-      border-radius: 50%; /* Okrągłe logo */
+      border-radius: 50%;
       border: 1px solid rgba(122,162,255,.8);
-      margin-right: 8px; /* Odsuwa się od tekstu */
-      /* Używamy flex w .eyebrow, więc to wystarczy */
+      margin-right: 8px;
     }
 
     h1 {
@@ -314,9 +296,7 @@
       font-weight: 700;
     }
 
-    h1 span {
-      color: var(--accent);
-    }
+    h1 span { color: var(--accent); }
     
     h2, h3, h4 {
       color: var(--text-main);
@@ -325,16 +305,20 @@
 
     .lead {
       margin: 0 0 12px;
-      font-size: 1.1rem; /* Trochę większy lead na głównej */
+      font-size: 1.1rem;
       line-height: 1.6;
       color: var(--text-muted);
       max-width: 60ch;
     }
 
-    /* Stare tagi z hero, dostosowane */
-    .hero-tags{
-      list-style:none; display:flex; flex-wrap:wrap; gap: 8px;
-      justify-content:flex-start; padding:0; margin:16px 0 0;
+    .hero-tags {
+      list-style:none;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 8px;
+      justify-content:flex-start;
+      padding:0;
+      margin:16px 0 0;
     }
     .hero-tags li{
       padding: 4px 10px;
@@ -344,9 +328,7 @@
       font-size: 11px;
       color: var(--text-muted);
     }
-    .hero-tags li a {
-      color: var(--text-muted);
-    }
+    .hero-tags li a { color: var(--text-muted); }
 
     .cta-row {
       display: flex;
@@ -355,7 +337,6 @@
       margin-top: 24px;
     }
 
-    /* Nowe style przycisków */
     .btn-primary,
     .btn-ghost {
       display: inline-flex;
@@ -374,7 +355,6 @@
     }
     
     .btn-primary {
-      /* Używamy gradientu z NCNI */
       background: radial-gradient(circle at 0 0, var(--accent), #6ea6ff);
       color: #0b1120;
       box-shadow: 0 18px 45px rgba(122,162,255, 0.35);
@@ -395,7 +375,6 @@
       border-color: rgba(226, 232, 240, 0.9);
     }
     
-    /* NOWA GŁÓWNA NAWIGACJA */
     .main-nav {
       display: flex;
       flex-wrap: wrap;
@@ -419,18 +398,17 @@
       opacity: 1;
     }
 
-    /* NOWE STYLE DLA MENU MOBILNEGO */
     #mobile-menu-toggle {
-      display: none; /* Ukryty na desktopie */
+      display: none;
       background: transparent;
       border: 1px solid var(--border-subtle);
       border-radius: 999px;
       padding: 8px 10px;
       cursor: pointer;
-      position: absolute; /* W rogu headera */
+      position: absolute;
       top: 32px;
       right: 24px;
-      z-index: 1001; /* Ponad .main-nav */
+      z-index: 1001;
     }
     #mobile-menu-toggle span {
       display: block;
@@ -440,13 +418,10 @@
       margin: 4px 0;
       transition: transform 0.3s, opacity 0.3s;
     }
-    /* Animacja hamburgera w 'X' */
     #mobile-menu-toggle.is-active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
     #mobile-menu-toggle.is-active span:nth-child(2) { opacity: 0; }
     #mobile-menu-toggle.is-active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-    /* Koniec styli menu mobilnego */
 
-    /* NOWY STYL SEKCJI */
     .section {
       margin-top: 32px;
       border-radius: var(--radius-xl);
@@ -454,20 +429,16 @@
       border: 1px solid var(--border-subtle);
       padding: 24px 20px 20px;
     }
-    .section.nd-teaser { /* Specjalny styl dla sekcji ND */
-        background:
-          radial-gradient(1000px 500px at 15% -10%, rgba(138,92,255,.12), transparent 60%),
-          radial-gradient(1000px 500px at 85% 110%, rgba(122,162,255,.08), transparent 60%),
-          rgba(15, 23, 42, 0.96);
-        text-align: center;
-    }
-
-    .section-header {
-      margin-bottom: 20px;
-    }
-    .section-header.text-center {
+    .section.nd-teaser {
+      background:
+        radial-gradient(1000px 500px at 15% -10%, rgba(138,92,255,.12), transparent 60%),
+        radial-gradient(1000px 500px at 85% 110%, rgba(122,162,255,.08), transparent 60%),
+        rgba(15, 23, 42, 0.96);
       text-align: center;
     }
+
+    .section-header { margin-bottom: 20px; }
+    .section-header.text-center { text-align: center; }
 
     .section-title {
       font-size: clamp(22px, 3vw, 28px);
@@ -481,7 +452,7 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: var(--accent); /* Zmieniono na akcent dla lepszej widoczności */
+      color: var(--accent);
     }
 
     .section p, .section li {
@@ -513,7 +484,6 @@
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
 
-    /* NOWY STYL KARTY (dla index.html) */
     .card {
       border-radius: 18px;
       background: radial-gradient(circle at 0 0, rgba(122,162,255,.08), transparent 55%),
@@ -547,10 +517,24 @@
       padding: 10px 20px;
     }
 
-    /* Tagi dla ND */
-    .nd-tags{list-style:none; padding:0; margin:16px auto 0; display:flex; gap:8px; flex-wrap:wrap; justify-content:center}
-    .nd-tags li{border:1px solid var(--border-subtle); background:rgba(15, 23, 42, 0.9); padding:6px 10px; border-radius:999px; font-size:12px; color: var(--text-muted); transition: background .2s, border-color .2s;}
-    /* NOWE STYLE dla linków w tagach ND */
+    .nd-tags{
+      list-style:none;
+      padding:0;
+      margin:16px auto 0;
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:center
+    }
+    .nd-tags li{
+      border:1px solid var(--border-subtle);
+      background:rgba(15, 23, 42, 0.9);
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      color: var(--text-muted);
+      transition: background .2s, border-color .2s;
+    }
     .nd-tags li a {
       color: var(--text-muted);
       text-decoration: none;
@@ -563,13 +547,26 @@
     .nd-tags li:hover a {
       color: var(--text-main);
     }
-    /* Koniec nowych styli */
 
-    /* BIO details */
-    .bio-content h4 { font-size: 1rem; font-weight: 700; color: var(--accent); margin: 20px 0 8px; }
-    .bio-content ul { padding-left: 20px; margin: 8px 0 12px; list-style: disc; }
-    .bio-content ul li { margin-bottom: 6px; font-size: 13px; }
-    .bio-content p { margin: 8px 0 12px; font-size: 13px; }
+    .bio-content h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin: 20px 0 8px;
+    }
+    .bio-content ul {
+      padding-left: 20px;
+      margin: 8px 0 12px;
+      list-style: disc;
+    }
+    .bio-content ul li {
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+    .bio-content p {
+      margin: 8px 0 12px;
+      font-size: 13px;
+    }
     .bio-content strong { color: var(--text-main); }
     details > summary {
       cursor: pointer;
@@ -578,7 +575,6 @@
       margin-top: 12px;
     }
 
-    /* Cytowalny blok */
     .knowledge-block {
         background: rgba(15, 23, 42, 0.96);
         border: 1px solid var(--border-subtle);
@@ -603,7 +599,6 @@
         font-size: 0.9rem;
     }
     
-    /* Sekcja FAQ */
     #faq details { 
       background: rgba(15, 23, 42, 0.96); 
       border-radius: 14px; 
@@ -638,7 +633,6 @@
       font-size: 14px;
     }
     
-    /* Stopka */
     .footer-bar {
       margin-top: 32px;
       padding-top: 24px;
@@ -647,23 +641,33 @@
       font-size: 12px;
       color: var(--text-muted);
     }
-    .social-links{display:flex; justify-content:center; gap:24px; margin-bottom:16px}
-    .social-links a{color:var(--text-muted); transition:color .2s, transform .2s}
-    .social-links a:hover{color:var(--text-main); transform:translateY(-2px); opacity:1}
+    .social-links{
+      display:flex;
+      justify-content:center;
+      gap:24px;
+      margin-bottom:16px
+    }
+    .social-links a{
+      color:var(--text-muted);
+      transition:color .2s, transform .2s
+    }
+    .social-links a:hover{
+      color:var(--text-main);
+      transform:translateY(-2px);
+      opacity:1
+    }
 
-    /* Mobile */
-    @media (max-width: 900px) { /* Zmieniony breakpoint z 640px na 900px dla nawigacji */
+    @media (max-width: 900px) {
       #mobile-menu-toggle {
-        display: block; /* Pokaż przycisk na mobile */
+        display: block;
       }
       .main-nav {
-        /* Przekształcenie w pełnoekranowe menu */
         position: fixed;
         top: 0;
-        left: -100%; /* Ukryte poza ekranem */
+        left: -100%;
         width: 100%;
-        height: 100vh; /* Pełna wysokość */
-        background: rgba(15, 23, 42, 0.98); /* Tło z lekką przezroczystością */
+        height: 100vh;
+        background: rgba(15, 23, 42, 0.98);
         backdrop-filter: blur(10px);
         flex-direction: column;
         justify-content: center;
@@ -675,49 +679,41 @@
         transition: left 0.4s cubic-bezier(.23,1,.32,1);
         z-index: 1000;
       }
-      .main-nav.is-open {
-        left: 0; /* Wjazd na ekran */
-      }
+      .main-nav.is-open { left: 0; }
       .main-nav a {
-        font-size: 1.5rem; /* Większe linki na mobile */
+        font-size: 1.5rem;
         padding: 10px 20px;
       }
 
       .shell {
         padding: 22px 16px 22px;
-        border-radius: 0; /* Pełna szerokość na mobilce */
+        border-radius: 0;
       }
-      .page {
-        padding: 0 0 28px;
-      }
+      .page { padding: 0 0 28px; }
       .cta-row {
         flex-direction: column;
-        align-items: stretch; /* Przyciski na całą szerokość */
+        align-items: stretch;
       }
       .btn-primary,
       .btn-ghost {
         width: 100%;
         justify-content: center;
       }
-      .grid-dynamic {
-        grid-template-columns: 1fr;
-      }
+      .grid-dynamic { grid-template-columns: 1fr; }
       .lead { font-size: 1rem; }
       h1 { font-size: clamp(28px, 8vw, 36px); }
     }
   </style>
 </head>
 <body>
-  <!-- Nowy layout "Page" + "Shell" -->
   <div class="page">
     <main class="shell">
       <div class="shell-inner">
         
-        <!-- NOWY HEADER (zastępuje .hero i .site-header) -->
+        <!-- HEADER -->
         <header>
           <div>
             <div class="eyebrow">
-              <!-- ZMIANA: Dodanie logo -->
               <img src="logo.png" alt="Logo NCNI" class="eyebrow-logo">
               Naukowe Centrum Neuroinnowacji
             </div>
@@ -727,22 +723,20 @@
             <p class="lead">
               VR i AI dla zdrowia, harmonii i anti-agingu — z myślą o neuroróżnorodności (ADHD/ASD, dysleksja, wysoka wrażliwość).
             </p>
-            <div class="hero-tags" aria-label="Kluczowe moduły">
+            <ul class="hero-tags" aria-label="Kluczowe moduły">
               <li>Zero-Gravity</li>
               <li>AI</li>
               <li>Aromaterapia</li>
               <li>Muzykoterapia</li>
               <li>Biofeedback HRV/EEG</li>
               <li><a href="tel:+48600608333">📞 +48 600 608 333</a></li>
-            </div>
+            </ul>
             <div class="cta-row">
               <a href="#kontakt" class="btn-primary">Umów kwalifikację →</a>
               <a href="#sciezki" class="btn-ghost">Zobacz ścieżki neuro</a>
             </div>
           </div>
           
-          <!-- NOWA NAWIGACJA -->
-          <!-- Przycisk do menu mobilnego -->
           <button id="mobile-menu-toggle" aria-label="Otwórz menu" aria-expanded="false">
             <span></span><span></span><span></span>
           </button>
@@ -759,9 +753,7 @@
           </nav>
         </header>
 
-        <!-- SEKCJE (teraz z klasą .section) -->
-        
-        <!-- Ścieżki -->
+        <!-- ŚCIEŻKI -->
         <section class="section" id="sciezki" aria-labelledby="sciezki-heading">
           <div class="section-header text-center">
             <div class="section-kicker">Nasze ścieżki</div>
@@ -784,17 +776,17 @@
           </ul>
         </section>
 
-        <!-- Oferta -->
+        <!-- OFERTA -->
         <section class="section" id="oferta" aria-labelledby="oferta-heading">
           <div class="section-header text-center">
             <div class="section-kicker">Nasza Oferta</div>
             <h2 id="oferta-heading" class="section-title">Obszary Działalności NCNI</h2>
-            <p class="section-subtitle">Sesje indywidualne rezerwujesz na neuroinnowacje.pl. Wdrożenia i R&D prowadzimy w NCNI Tech Lab.</p>
+            <p class="section-subtitle">Sesje indywidualne rezerwujesz na neuroinnowacje.pl. Wdrożenia i R&amp;D prowadzimy w NCNI Tech Lab.</p>
           </div>
 
           <div class="path-selector-bar" style="text-align: center; margin-bottom: 24px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
             <a href="https://neuroinnowacje.pl" target="_blank" rel="noopener" class="btn-primary">Sesje indywidualne (rezerwacje) →</a>
-            <a href="#techlab" class="btn-ghost">Wdrożenia i R&D (Tech Lab) →</a>
+            <a href="#techlab" class="btn-ghost">Wdrożenia i R&amp;D (Tech Lab) →</a>
           </div>
 
           <div class="offer-category">
@@ -809,12 +801,11 @@
           </div>
         </section>
 
-        <!-- ND teaser -->
+        <!-- ND -->
         <section class="section nd-teaser" id="neurodiversity" aria-labelledby="nd-heading">
           <div class="section-kicker">ND-affirming</div>
           <h2 id="nd-heading" class="section-title">Neuroróżnorodność — podejście i praktyka</h2>
           <p class="section-subtitle" style="margin-top: 8px;">Różne mózgi. Równe szanse. Projektujemy środowisko, procesy i komunikację tak, by były przewidywalne, sensorycznie przyjazne i elastyczne.</p>
-          <!-- ZAKTUALIZOWANE TAGI - TERAZ SĄ LINKAMI -->
           <ul class="nd-tags" aria-label="Profile poznawcze">
             <li><a href="adhd.html">ADHD/ADD</a></li>
             <li><a href="asd.html">Autyzm (ASD)</a></li>
@@ -827,7 +818,7 @@
           <p style="margin-top:20px"><a class="btn-primary" href="neuroroznorodnosc.html">Przejdź do sekcji ND →</a></p>
         </section>
 
-        <!-- O nas -->
+        <!-- O NAS -->
         <section class="section" id="onas" aria-labelledby="onas-heading">
           <div class="section-header">
             <div class="section-kicker">O nas</div>
@@ -851,7 +842,7 @@
           </div>
         </section>
 
-        <!-- Zespół -->
+        <!-- ZESPÓŁ -->
         <section class="section" id="zespol" aria-labelledby="zespol-heading">
           <div class="section-header">
             <div class="section-kicker">Zespół i zaplecze</div>
@@ -915,7 +906,7 @@
           </ul>
         </section>
 
-        <!-- Tech Lab -->
+        <!-- TECH LAB -->
         <section class="section" id="techlab" aria-labelledby="techlab-heading">
           <div class="section-header text-center">
             <div class="section-kicker">Research, Design &amp; Validation</div>
@@ -924,19 +915,19 @@
           </div>
 
           <div class="grid" style="grid-template-columns: 1fr; gap: 12px;">
-              <details style="background: rgba(15, 23, 42, 0.9); border: 1px solid var(--border-subtle); border-radius: 14px; padding: 12px 16px;">
-                <summary>Zakres prac (R&D → wdrożenie)</summary>
-                <ul style="margin-top:12px; font-size: 14px; color: var(--text-muted);">
-                  <li><strong>Projektowanie protokołów:</strong> scenariusze VR, pętle HRV/oddech/GSR, parametry audio/aromatu.</li>
-                  <li><strong>Walidacja i kalibracja:</strong> dobór metryk, progi odpowiedzi, testy powtarzalności.</li>
-                  <li><strong>Integracja urządzeń:</strong> PPG/ECG (HRV), pasy oddechowe, GSR, sterowanie VR/audio/aromatem.</li>
-                  <li><strong>Pilotaże:</strong> plan badania, protokoły bezpieczeństwa, analiza wyników.</li>
-                  <li><strong>Wdrożenia B2B:</strong> SOP, szkolenia personelu, dashboardy i raporty.</li>
-                </ul>
-              </details>
+            <details style="background: rgba(15, 23, 42, 0.9); border: 1px solid var(--border-subtle); border-radius: 14px; padding: 12px 16px;">
+              <summary>Zakres prac (R&amp;D → wdrożenie)</summary>
+              <ul style="margin-top:12px; font-size: 14px; color: var(--text-muted);">
+                <li><strong>Projektowanie protokołów:</strong> scenariusze VR, pętle HRV/oddech/GSR, parametry audio/aromatu.</li>
+                <li><strong>Walidacja i kalibracja:</strong> dobór metryk, progi odpowiedzi, testy powtarzalności.</li>
+                <li><strong>Integracja urządzeń:</strong> PPG/ECG (HRV), pasy oddechowe, GSR, sterowanie VR/audio/aromatem.</li>
+                <li><strong>Pilotaże:</strong> plan badania, protokoły bezpieczeństwa, analiza wyników.</li>
+                <li><strong>Wdrożenia B2B:</strong> SOP, szkolenia personelu, dashboardy i raporty.</li>
+              </ul>
+            </details>
 
             <div class="card" style="text-align:center">
-              <h3>Kontakt (R&D / wdrożenia / partnerstwa)</h3>
+              <h3>Kontakt (R&amp;D / wdrożenia / partnerstwa)</h3>
               <p style="margin-bottom:16px;"><strong>E-mail:</strong> <a href="mailto:kontakt@ncni.pl">kontakt@ncni.pl</a> • <strong>Tel.:</strong> <a href="tel:+48600608333">600 608 333</a> • <strong>Lokalizacja:</strong> Wrocław</p>
               <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap">
                 <a href="mailto:kontakt@ncni.pl?subject=Rozmowa%20wdro%C5%BCeniowa%20-%20NCNI%20Tech%20Lab" class="btn-primary">Umów rozmowę wdrożeniową</a>
@@ -946,45 +937,7 @@
           </div>
         </section>
 
-        <!-- Kontakt -->
-        <section class="section" id="kontakt" aria-labelledby="kontakt-heading">
-          <div class="section-header">
-            <div class="section-kicker">Kontakt</div>
-            <h2 id="kontakt-heading" class="section-title">Skontaktuj się z nami</h2>
-          </div>
-          <div class="grid grid-2">
-            <div class="card">
-              <h3>Adres</h3>
-              <p>ul. Żeromskiego 60/5a, <strong>50-312</strong> Wrocław</p>
-              <div class="card-actions" style="display:flex; gap:10px; flex-wrap:wrap">
-                <a class="btn-ghost" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%C5%BBeromskiego%2060%2F5a%2C%2050-312%20Wroc%C5%82aw">Nawiguj — Google Maps</a>
-                <a class="btn-ghost" target="_blank" rel="noopener" href="https://maps.apple.com/?q=%C5%BBeromskiego%2060%2F5a%2C%2050-312%20Wroc%C5%82aw">Nawiguj — Apple Maps</a>
-              </div>
-            </div>
-
-            <div class="card">
-              <h3>Dane kontaktowe</h3>
-              <p><strong>Telefon:</strong> <a href="tel:+48600608333">+48 600 608 333</a><br><strong>E-mail:</strong> <a href="mailto:kontakt@ncni.pl">kontakt@ncni.pl</a></p>
-              <div class="card-actions">
-                <a href="mailto:kontakt@ncni.pl?subject=Um%C3%B3w%20kwalifikacj%C4%99%20NCNI" class="btn-primary">Umów kwalifikację →</a>
-              </div>
-            </div>
-
-            <div class="card" style="grid-column: 1 / -1;"> <!-- Karta na całą szerokość -->
-              <h3>Dane Firmy </h3>
-              <p style="margin-bottom:8px; font-weight: 600;">NAUKOWE CENTRUM NEUROINNOWACJI SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ</p>
-              <ul style="list-style:none; padding:0; margin:0 0 10px 0; color:var(--text-muted); font-size: 13px;">
-                <li><strong>Rejestr:</strong> Rejestr Przedsiębiorców KRS</li>
-                <li><strong>KRS:</strong> 0001200984</li>
-                <li><strong>NIP:</strong> 8982325965</li>
-                <li><strong>REGON:</strong> 54303723800000</li>
-              </ul>
-              <p style="font-size:.9rem; color:var(--text-muted)">Korespondencja: ul. Stefana Żeromskiego 60/5a, 50-312 Wrocław • <a href="mailto:kontakt@ncni.pl">kontakt@ncni.pl</a></p>
-            </div>
-          </div>
-        </section>
-        
-        <!-- FAQ (teraz PRZED kontaktem) -->
+        <!-- FAQ -->
         <section class="section" id="faq" aria-labelledby="faq-heading">
           <div class="section-header text-center">
             <div class="section-kicker">Pytania i Odpowiedzi</div>
@@ -1013,7 +966,7 @@
           </details>
         </section>
 
-        <!-- Kontakt (teraz PO FAQ) -->
+        <!-- KONTAKT (JEDNA, PEŁNA SEKCJA) -->
         <section class="section" id="kontakt" aria-labelledby="kontakt-heading">
           <div class="section-header">
             <div class="section-kicker">Kontakt</div>
@@ -1021,22 +974,55 @@
           </div>
           <div class="grid grid-2">
             <div class="card">
-            </a> <!-- TEN TAG ZOSTAŁ USUNIĘTY -->
+              <h3>Adres</h3>
+              <p>ul. Żeromskiego 60/5a, <strong>50-312</strong> Wrocław</p>
+              <div class="card-actions" style="display:flex; gap:10px; flex-wrap:wrap">
+                <a class="btn-ghost" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%C5%BBeromskiego%2060%2F5a%2C%2050-312%20Wroc%C5%82aw">Nawiguj — Google Maps</a>
+                <a class="btn-ghost" target="_blank" rel="noopener" href="https://maps.apple.com/?q=%C5%BBeromskiego%2060%2F5a%2C%2050-312%20Wroc%C5%82aw">Nawiguj — Apple Maps</a>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3>Dane kontaktowe</h3>
+              <p><strong>Telefon:</strong> <a href="tel:+48600608333">+48 600 608 333</a><br><strong>E-mail:</strong> <a href="mailto:kontakt@ncni.pl">kontakt@ncni.pl</a></p>
+              <div class="card-actions">
+                <a href="mailto:kontakt@ncni.pl?subject=Um%C3%B3w%20kwalifikacj%C4%99%20NCNI" class="btn-primary">Umów kwalifikację →</a>
+              </div>
+            </div>
+
+            <div class="card" style="grid-column: 1 / -1;">
+              <h3>Dane Firmy</h3>
+              <p style="margin-bottom:8px; font-weight: 600;">NAUKOWE CENTRUM NEUROINNOWACJI SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ</p>
+              <ul style="list-style:none; padding:0; margin:0 0 10px 0; color:var(--text-muted); font-size: 13px;">
+                <li><strong>Rejestr:</strong> Rejestr Przedsiębiorców KRS</li>
+                <li><strong>KRS:</strong> 0001200984</li>
+                <li><strong>NIP:</strong> 8982325965</li>
+                <li><strong>REGON:</strong> 54303723800000</li>
+              </ul>
+              <p style="font-size:.9rem; color:var(--text-muted)">Korespondencja: ul. Stefana Żeromskiego 60/5a, 50-312 Wrocław • <a href="mailto:kontakt@ncni.pl">kontakt@ncni.pl</a></p>
+            </div>
+          </div>
+        </section>
+
+        <!-- STOPKA -->
+        <footer class="footer-bar">
+          <div class="social-links">
+            <a href="https://x.com/Neuroinnowacje" target="_blank" rel="noopener">X</a>
+            <a href="https://youtube.com/@Neuroinnowacje" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://neuroinnowacje.pl" target="_blank" rel="noopener">neuroinnowacje.pl</a>
           </div>
           © <span id="year"></span> NCNI. Wszelkie prawa zastrzeżone. <br>
           <span class="footer-credit" style="opacity: 0.7;">Designed &amp; built by Karol Kiszło</span>
-        </div>
+        </footer>
+
       </div>
     </main>
   </div>
 
-  <!-- Usunięto skrypty dla .fade-in, scroll-spy, fixed-header, cookie-banner, back-to-top -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Prosty skrypt na rok w stopce
       document.getElementById('year').textContent = new Date().getFullYear();
       
-      // Prosty skrypt do nawigacji (scroll do #id)
       document.querySelectorAll('.main-nav a[href^="#"], .btn-ghost[href^="#"], .btn-primary[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
           const href = this.getAttribute('href');
@@ -1045,13 +1031,10 @@
             const targetId = href.substring(1);
             const targetElement = document.getElementById(targetId);
             if (targetElement) {
-              // Płynne przewijanie
               targetElement.scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
               });
-              
-              // Aktywny link
               if (this.closest('.main-nav')) {
                 document.querySelectorAll('.main-nav a').forEach(a => a.classList.remove('active'));
                 this.classList.add('active');
@@ -1061,7 +1044,6 @@
         });
       });
 
-      // NOWY SKRYPT DLA MENU MOBILNEGO
       const toggleBtn = document.getElementById('mobile-menu-toggle');
       const mainNav = document.getElementById('main-nav');
       
@@ -1070,7 +1052,6 @@
           mainNav.classList.toggle('is-open');
           toggleBtn.classList.toggle('is-active');
           toggleBtn.setAttribute('aria-expanded', mainNav.classList.contains('is-open'));
-          // Zapobieganie scrollowaniu body, gdy menu jest otwarte
           document.body.style.overflow = mainNav.classList.contains('is-open') ? 'hidden' : '';
         };
 
@@ -1079,7 +1060,6 @@
           toggleMenu();
         });
         
-        // Zamykanie menu po kliknięciu na link (szczególnie na anchor linki)
         mainNav.querySelectorAll('a').forEach(a => {
           a.addEventListener('click', () => {
             if (mainNav.classList.contains('is-open')) {
