@@ -194,10 +194,11 @@
     body {
       margin: 0;
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #0f172a 0, #020617 55%, #000 100%);
       color: var(--text-main);
       -webkit-font-smoothing: antialiased;
       line-height: 1.6;
+      /* zbliżenie do stylu migrena – czyste ciemne tło zamiast mocnego gradientu globalnego */
+      background-color: var(--bg-main);
     }
     
     img { max-width: 100%; height: auto; }
@@ -657,6 +658,33 @@
       opacity:1
     }
 
+    /* Floating CTA – szybki powrót na mobile */
+    .floating-cta {
+      position: fixed;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(480px, 100% - 24px);
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.6);
+      display: flex;
+      gap: 8px;
+      z-index: 1200;
+    }
+    .floating-cta .btn-primary,
+    .floating-cta .btn-ghost {
+      flex: 1;
+      padding-inline: 12px;
+      font-size: 12px;
+    }
+
+    @media (min-width: 901px) {
+      .floating-cta { display: none; }
+    }
+
     @media (max-width: 900px) {
       #mobile-menu-toggle {
         display: block;
@@ -706,6 +734,9 @@
   </style>
 </head>
 <body>
+  <!-- kotwica do linku „Na górę” -->
+  <a id="top" aria-hidden="true"></a>
+
   <div class="page">
     <main class="shell">
       <div class="shell-inner">
@@ -935,6 +966,14 @@
               </div>
             </div>
           </div>
+
+          <!-- mini-nawigacja w dole sekcji -->
+          <div style="margin-top:20px; text-align:center; font-size:12px; color:var(--text-muted);">
+            <a href="#sciezki">← Ścieżki Neuro</a> · 
+            <a href="#faq">FAQ</a> · 
+            <a href="#kontakt">Kontakt</a> · 
+            <a href="#top">Na górę ↑</a>
+          </div>
         </section>
 
         <!-- FAQ -->
@@ -964,9 +1003,17 @@
               <p>Nasze programy są zaprojektowane dla osób doświadczających chronicznego stresu, problemów ze snem, trudności z koncentracją (w tym ADHD), a także dla osób z PTSD i w spektrum autyzmu (ASD). Wspieramy również osoby poszukujące metod neuro-anti-aging oraz poprawy ogólnej wydajności i dobrostanu.</p>
             </div>
           </details>
+
+          <!-- mini-nawigacja w dole sekcji FAQ -->
+          <div style="margin-top:16px; font-size:12px; text-align:center; color:var(--text-muted);">
+            <a href="#sciezki">Ścieżki Neuro</a> ·
+            <a href="#oferta">Oferta</a> ·
+            <a href="#kontakt">Kontakt</a> ·
+            <a href="#top">Na górę ↑</a>
+          </div>
         </section>
 
-        <!-- KONTAKT (JEDNA, PEŁNA SEKCJA) -->
+        <!-- KONTAKT -->
         <section class="section" id="kontakt" aria-labelledby="kontakt-heading">
           <div class="section-header">
             <div class="section-kicker">Kontakt</div>
@@ -1015,18 +1062,25 @@
           <span class="footer-credit" style="opacity: 0.7;">Designed &amp; built by Karol Kiszło</span>
         </footer>
 
+        <!-- Floating CTA – nawigacja z dowolnego miejsca (mobile) -->
+        <div class="floating-cta">
+          <a href="#kontakt" class="btn-primary">Umów kwalifikację</a>
+          <a href="#sciezki" class="btn-ghost">Ścieżki Neuro</a>
+        </div>
+
       </div>
     </main>
   </div>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('year').textContent = new Date().getFullYear();
+      const yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
       
       document.querySelectorAll('.main-nav a[href^="#"], .btn-ghost[href^="#"], .btn-primary[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
           const href = this.getAttribute('href');
-          if (href.startsWith('#')) {
+          if (href && href.startsWith('#')) {
             e.preventDefault();
             const targetId = href.substring(1);
             const targetElement = document.getElementById(targetId);
